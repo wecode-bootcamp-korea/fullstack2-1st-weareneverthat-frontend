@@ -5,6 +5,7 @@
 	margin: 0;
 	padding: 0;
 }
+
 .Topnav {
 	font-family: 'Spoqa Han Sans';
 	width: 100%;
@@ -14,7 +15,10 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		height: 46px;
 		padding: 0 20px;
+		background-color: white;
+		z-index: 9999;
 
 		a {
 			text-decoration: none;
@@ -22,6 +26,9 @@
 		}
 
 		h1 {
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%);
 			font-size: 22px;
 			font-weight: 700;
 			letter-spacing: -1.5px;
@@ -32,7 +39,7 @@
 		}
 
 		nav {
-			margin: 0 10px;
+			margin: 0 15px;
 		}
 
 		nav ul {
@@ -76,6 +83,162 @@
 			}
 			.shop:hover .category {
 				visibility: visible;
+			}
+		}
+
+		.menuBtn,
+		.cartBtn,
+		.navOff {
+			display: none;
+
+			.line {
+				margin: 4px 0;
+				width: 20px;
+				height: 2px;
+				background-color: black;
+			}
+		}
+
+		@media (max-width: 1169px) {
+			nav {
+				display: none;
+			}
+
+			.menuBtn,
+			.cartBtn {
+				display: block;
+				font-size: 20px;
+			}
+		}
+	}
+	.navOff {
+		position: fixed;
+		display: block;
+		width: 100%;
+		font-size: 20px;
+		visibility: visible;
+		height: 0;
+		overflow: hidden;
+		transition: 0.15s;
+
+		.wraper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 10px;
+
+			ul {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				li {
+					margin: 7px;
+				}
+
+				a {
+					text-decoration: none;
+					font-size: 27px;
+					font-weight: 700;
+					color: black;
+				}
+			}
+
+			.loginBtn {
+				display: flex;
+
+				div {
+					margin: 10px;
+					padding: 10px;
+					border-radius: 20px;
+					background-color: gainsboro;
+					text-align: center;
+				}
+			}
+
+			.snsLogin {
+				margin: 10px;
+			}
+
+			.saleInfo {
+				margin: 50px;
+			}
+
+			.line {
+				width: 98%;
+				height: 2px;
+				background-color: gainsboro;
+			}
+
+			.navFooter {
+				margin: 10px;
+			}
+		}
+	}
+
+	.navOn {
+		position: fixed;
+		display: block;
+		top: 46px;
+		bottom: 0;
+		width: 100%;
+		font-size: 20px;
+		visibility: visible;
+		height: 100%;
+		overflow: hidden;
+		transition: 0.15s;
+		background-color: gold;
+		.wraper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 10px;
+
+			ul {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				li {
+					margin: 7px;
+				}
+
+				a {
+					text-decoration: none;
+					font-size: 27px;
+					font-weight: 700;
+					color: black;
+				}
+			}
+
+			.loginBtn {
+				display: flex;
+
+				div {
+					margin: 10px;
+					padding: 10px;
+					border-radius: 20px;
+					background-color: gainsboro;
+					text-align: center;
+				}
+			}
+
+			.snsLogin {
+				margin: 10px;
+			}
+
+			.saleInfo {
+				margin: 50px;
+			}
+
+			.line {
+				width: 98%;
+				height: 2px;
+				background-color: gainsboro;
+			}
+
+			.navFooter {
+				margin: 10px;
 			}
 		}
 	}
