@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Topnav from './pages/Topnav/Topnav';
+import Topnav from './components/Topnav/Topnav';
 
 function Router() {
 	return (

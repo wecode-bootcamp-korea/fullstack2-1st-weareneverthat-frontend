@@ -1,14 +1,20 @@
 import './Topnav.scss';
+import CartModal from '../Modal/CartModal/CartModal';
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
 function Topnav() {
-	const [cartClass, setCartClass] = useState('cartHidden');
+	const [isCartOn, setIsCartOn] = useState(false);
+	const [cartClass, setCartClass] = useState('CartModalOff');
 
-	const changeCartClass = () => {
-		cartClass === 'cartHidden' ? setCartClass('cartVisible') : setCartClass('cartHidden');
+	const handleCartModal = () => {
+		setIsCartOn(!isCartOn);
+		if (cartClass === 'CartModalOff') {
+			setCartClass('CartModalOn');
+		} else {
+			setCartClass('CartModalOff');
+		}
 	};
-
 	return (
 		<div className="Topnav">
 			<header>
@@ -68,18 +74,13 @@ function Topnav() {
 						<li>
 							<Link to="#">LOGIN</Link>
 						</li>
-						<li onClick={changeCartClass}>
+						<li onClick={handleCartModal}>
 							<Link to="#">CART</Link>
 						</li>
 					</ul>
 				</nav>
 			</header>
-			<section className={cartClass}>
-				<p>Your cart is empty</p>
-				<p>
-					<Link to="#">CONTINUE SHOPPING</Link>
-				</p>
-			</section>
+			<CartModal cartClass={cartClass} />
 		</div>
 	);
 }

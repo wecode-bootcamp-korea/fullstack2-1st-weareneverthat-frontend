@@ -7,6 +7,7 @@
 }
 .Topnav {
 	font-family: 'Spoqa Han Sans';
+	width: 100%;
 
 	header {
 		position: relative;
@@ -76,54 +77,6 @@
 			.shop:hover .category {
 				visibility: visible;
 			}
-		}
-	}
-
-	.cartHidden {
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		top: 40px;
-		right: 20px;
-		border: 1px solid;
-		width: 400px;
-		height: 95%;
-		transform: translateX(450px);
-		transition-property: all;
-		transition-duration: 0.3s;
-
-		p {
-			margin: 10px 0;
-		}
-
-		a {
-			color: black;
-		}
-	}
-
-	.cartVisible {
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		top: 40px;
-		right: 20px;
-		border: 1px solid;
-		width: 400px;
-		height: 95%;
-		transform: translateX(0px);
-		transition-property: all;
-		transition-duration: 0.3s;
-
-		p {
-			margin: 10px 0;
-		}
-
-		a {
-			color: black;
 		}
 	}
 }
