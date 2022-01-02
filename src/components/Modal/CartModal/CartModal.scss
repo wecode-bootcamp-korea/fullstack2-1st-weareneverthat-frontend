@@ -5,11 +5,11 @@
 	justify-content: center;
 	align-items: center;
 	top: 40px;
-	left: 110%;
+	right: -400px;
 	bottom: 10px;
 	border: 1px solid;
 	width: 400px;
-	transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+	transition: all 600ms cubic-bezier(0.5, 0, 0.07, 1);
 
 	a {
 		color: black;
@@ -23,11 +23,11 @@
 	justify-content: center;
 	align-items: center;
 	top: 40px;
-	left: 68%;
+	right: 20px;
 	bottom: 10px;
 	border: 1px solid;
 	width: 400px;
-	transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+	transition: all 600ms cubic-bezier(0.5, 0, 0.07, 1);
 
 	a {
 		color: black;
