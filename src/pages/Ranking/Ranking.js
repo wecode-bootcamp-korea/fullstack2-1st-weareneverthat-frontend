@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Topnav from '../../components/Topnav/Topnav';
 import './Ranking.scss';
 
 function List({ name, category, imageUrl, changeImage, index }) {
@@ -48,22 +49,25 @@ function Ranking() {
 	};
 
 	return (
-		<div className="ranking" onMouseMove={onMouseMove}>
-			<img src={hoverImage} className="imageAlert" />
+		<>
+			<Topnav />
+			<div className="ranking" onMouseMove={onMouseMove}>
+				<img src={hoverImage} className="imageAlert" />
 
-			{productList.product &&
-				productList.product.map((product, index) => {
-					return (
-						<List
-							name={product.name}
-							category={product.Category.name}
-							imageUrl={product.detail[0].image[0].imageUrl}
-							changeImage={setHoverImage}
-							index={index}
-						/>
-					);
-				})}
-		</div>
+				{productList.product &&
+					productList.product.map((product, index) => {
+						return (
+							<List
+								name={product.name}
+								category={product.Category.name}
+								imageUrl={product.detail[0].image[0].imageUrl}
+								changeImage={setHoverImage}
+								index={index}
+							/>
+						);
+					})}
+			</div>
+		</>
 	);
 }
 

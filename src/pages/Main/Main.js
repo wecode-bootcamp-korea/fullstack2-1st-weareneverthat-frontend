@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Topnav from '../../components/Topnav/Topnav';
 import './Main.scss';
 
 function ImageCard({ src }) {
@@ -49,22 +50,25 @@ function Main() {
 	});
 
 	return (
-		<div className="main">
-			{imageList &&
-				imageList.map((img, index) => {
-					return <ImageCard src={img.image[imageSrc[index]].url} />;
-				})}
-			<MainBox text="Shop All" />
-			<MainBox text="Features" />
-			<MainBox
-				text="Frontend"
-				href="https://github.com/wecode-bootcamp-korea/fullstack3-1st-weareneverthat-frontend"
-			/>
-			<MainBox
-				text="Backend"
-				href="https://github.com/wecode-bootcamp-korea/fullstack3-1st-weareneverthat-backend"
-			/>
-		</div>
+		<>
+			<Topnav />
+			<div className="main">
+				{imageList &&
+					imageList.map((img, index) => {
+						return <ImageCard src={img.image[imageSrc[index]].url} />;
+					})}
+				<MainBox text="Shop All" />
+				<MainBox text="Features" />
+				<MainBox
+					text="Frontend"
+					href="https://github.com/wecode-bootcamp-korea/fullstack3-1st-weareneverthat-frontend"
+				/>
+				<MainBox
+					text="Backend"
+					href="https://github.com/wecode-bootcamp-korea/fullstack3-1st-weareneverthat-backend"
+				/>
+			</div>
+		</>
 	);
 }
 

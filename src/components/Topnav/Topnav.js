@@ -80,7 +80,7 @@ function Topnav() {
 					</section>
 				</Link>
 				<h1>
-					<Link to="#">
+					<Link to="/">
 						weareneverthat <span>®</span>
 					</Link>
 				</h1>
@@ -97,8 +97,8 @@ function Topnav() {
 						</li>
 					</ul>
 				</nav>
-				<Link to="">
-					<FontAwesomeIcon className="cartBtn" icon={faShoppingCart} onClick={handleCartModal} />
+				<Link to="" className="cartBtn">
+					<FontAwesomeIcon icon={faShoppingCart} onClick={handleCartModal} />
 				</Link>
 			</header>
 			<CartModal cartClass={cartClass} />
