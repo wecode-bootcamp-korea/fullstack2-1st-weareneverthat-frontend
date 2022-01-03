@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './productList.scss';
 import LikeButton from '../components/LikeButton/LikeButton';
 import Topnav from '../components/Topnav/Topnav';
+import Footer from '../components/Footer/Footer';
 // import Categorybox from '../components/CateogoryBox';
 
 function ProductCard({ src, productId }) {
@@ -91,7 +92,7 @@ function Lists() {
 						);
 					})}
 			</div>
-			<div>footer 들어갈 자리</div>
+			<Footer />
 		</div>
 	);
 }
