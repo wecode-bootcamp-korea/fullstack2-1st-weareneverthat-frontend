@@ -33,37 +33,36 @@ function Topnav() {
 				<nav>
 					<ul>
 						<li className="shop">
-							<Link to="#">SHOP</Link>
+							<Link to="/products">SHOP</Link>
 							<ul className="category">
 								<li>
 									<div className="rec"></div>
-									New
+									<Link to="/products/new">New</Link>
 								</li>
 								<li>
-									<div className="rec"></div>All
+									<div className="rec"></div>
+									<Link to="/products">All</Link>
 								</li>
 								<li>
-									<div className="rec"></div>Outerwear
+									<div className="rec"></div>
+									<Link to="/products?category=1">Outerwear</Link>
 								</li>
 								<li>
-									<div className="rec"></div>Sweatshirts
+									<div className="rec"></div>
+									<Link to="/products?category=2">Sweatshirts</Link>
 								</li>
 								<li>
-									<div className="rec"></div>Tees
+									<div className="rec"></div>
+									<Link to="/products?category=3">Bottoms</Link>
 								</li>
 								<li>
-									<div className="rec"></div>Shirts
-								</li>
-								<li>
-									<div className="rec"></div>Tops
-								</li>
-								<li>
-									<div className="rec"></div>Bottoms
+									<div className="rec"></div>
+									<Link to="/products?category=4">Shoes</Link>
 								</li>
 							</ul>
 						</li>
 						<li>
-							<Link to="#">TOP20</Link>
+							<Link to="/products/top20">TOP20</Link>
 						</li>
 						<li>
 							<Link to="#">FEATURES</Link>
@@ -73,11 +72,13 @@ function Topnav() {
 						</li>
 					</ul>
 				</nav>
-				<section className="menuBtn" onClick={handleHiddenNavClass}>
-					<div className="line line1"></div>
-					<div className="line line2"></div>
-					<div className="line line3"></div>
-				</section>
+				<Link to="">
+					<section className="menuBtn" onClick={handleHiddenNavClass}>
+						<div className="line line1"></div>
+						<div className="line line2"></div>
+						<div className="line line3"></div>
+					</section>
+				</Link>
 				<h1>
 					<Link to="#">
 						weareneverthat <span>®</span>
@@ -96,7 +97,9 @@ function Topnav() {
 						</li>
 					</ul>
 				</nav>
-				<FontAwesomeIcon className="cartBtn" icon={faShoppingCart} onClick={handleCartModal} />
+				<Link to="">
+					<FontAwesomeIcon className="cartBtn" icon={faShoppingCart} onClick={handleCartModal} />
+				</Link>
 			</header>
 			<CartModal cartClass={cartClass} />
 			<nav className={hiddenNavClass}>
@@ -104,10 +107,10 @@ function Topnav() {
 					<section>
 						<ul>
 							<li>
-								<Link to="#">SHOP</Link>
+								<Link to="/products">SHOP</Link>
 							</li>
 							<li>
-								<Link to="#">TOP20</Link>
+								<Link to="/products/top20">TOP20</Link>
 							</li>
 							<li>
 								<Link to="#">FEATURES</Link>

@@ -111,134 +111,141 @@
 			}
 		}
 	}
-	.navOff {
-		position: fixed;
-		display: block;
-		width: 100%;
-		font-size: 20px;
-		visibility: visible;
-		height: 0;
-		overflow: hidden;
-		transition: 0.15s;
 
-		.wraper {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 10px;
-
-			ul {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-
-				li {
-					margin: 7px;
-				}
-
-				a {
-					text-decoration: none;
-					font-size: 27px;
-					font-weight: 700;
-					color: black;
-				}
-			}
-
-			.loginBtn {
-				display: flex;
-
-				div {
-					margin: 10px;
-					padding: 10px;
-					border-radius: 20px;
-					background-color: gainsboro;
-					text-align: center;
-				}
-			}
-
-			.snsLogin {
-				margin: 10px;
-			}
-
-			.saleInfo {
-				margin: 50px;
-			}
-
-			.line {
-				width: 98%;
-				height: 2px;
-				background-color: gainsboro;
-			}
-
-			.navFooter {
-				margin: 10px;
-			}
-		}
+	.navOff,
+	.navOn {
+		display: none;
 	}
 
-	.navOn {
-		position: fixed;
-		display: block;
-		top: 46px;
-		bottom: 0;
-		width: 100%;
-		font-size: 20px;
-		visibility: visible;
-		height: 100%;
-		overflow: hidden;
-		transition: 0.15s;
-		background-color: gold;
-		.wraper {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 10px;
+	@media (max-width: 1169px) {
+		.navOff {
+			position: fixed;
+			display: block;
+			width: 100%;
+			font-size: 20px;
+			visibility: visible;
+			height: 0;
+			overflow: hidden;
+			transition: 0.15s;
 
-			ul {
+			.wraper {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				margin-top: 10px;
 
-				li {
-					margin: 7px;
+				ul {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+
+					li {
+						margin: 7px;
+					}
+
+					a {
+						text-decoration: none;
+						font-size: 27px;
+						font-weight: 700;
+						color: black;
+					}
 				}
 
-				a {
-					text-decoration: none;
-					font-size: 27px;
-					font-weight: 700;
-					color: black;
+				.loginBtn {
+					display: flex;
+
+					div {
+						margin: 10px;
+						padding: 10px;
+						border-radius: 20px;
+						background-color: gainsboro;
+						text-align: center;
+					}
 				}
-			}
 
-			.loginBtn {
-				display: flex;
-
-				div {
+				.snsLogin {
 					margin: 10px;
-					padding: 10px;
-					border-radius: 20px;
+				}
+
+				.saleInfo {
+					margin: 50px;
+				}
+
+				.line {
+					width: 98%;
+					height: 2px;
 					background-color: gainsboro;
-					text-align: center;
+				}
+
+				.navFooter {
+					margin: 10px;
 				}
 			}
+		}
 
-			.snsLogin {
-				margin: 10px;
-			}
+		.navOn {
+			position: fixed;
+			display: block;
+			top: 46px;
+			bottom: 0;
+			width: 100%;
+			font-size: 20px;
+			visibility: visible;
+			height: 100%;
+			overflow: hidden;
+			transition: 0.15s;
+			.wraper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 10px;
 
-			.saleInfo {
-				margin: 50px;
-			}
+				ul {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
 
-			.line {
-				width: 98%;
-				height: 2px;
-				background-color: gainsboro;
-			}
+					li {
+						margin: 7px;
+					}
 
-			.navFooter {
-				margin: 10px;
+					a {
+						text-decoration: none;
+						font-size: 27px;
+						font-weight: 700;
+						color: black;
+					}
+				}
+
+				.loginBtn {
+					display: flex;
+
+					div {
+						margin: 10px;
+						padding: 10px;
+						border-radius: 20px;
+						background-color: gainsboro;
+						text-align: center;
+					}
+				}
+
+				.snsLogin {
+					margin: 10px;
+				}
+
+				.saleInfo {
+					margin: 50px;
+				}
+
+				.line {
+					width: 98%;
+					height: 2px;
+					background-color: gainsboro;
+				}
+
+				.navFooter {
+					margin: 10px;
+				}
 			}
 		}
 	}
