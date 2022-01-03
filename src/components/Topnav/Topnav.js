@@ -96,7 +96,7 @@ function Topnav() {
 						</li>
 					</ul>
 				</nav>
-				<FontAwesomeIcon className="cartBtn" icon={faShoppingCart} />
+				<FontAwesomeIcon className="cartBtn" icon={faShoppingCart} onClick={handleCartModal} />
 			</header>
 			<CartModal cartClass={cartClass} />
 			<nav className={hiddenNavClass}>

@@ -4,8 +4,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	top: 40px;
-	right: -400px;
+	top: 50px;
+	right: -100%;
 	bottom: 10px;
 	border: 1px solid;
 	width: 400px;
@@ -22,7 +22,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	top: 40px;
+	top: 50px;
 	right: 20px;
 	bottom: 10px;
 	border: 1px solid;
@@ -31,5 +31,43 @@
 
 	a {
 		color: black;
+	}
+}
+
+@media (max-width: 1169px) {
+	.CartModalOff {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		top: 50px;
+		right: -100%;
+		bottom: 10px;
+		border: 1px solid;
+		width: 98%;
+		transition: all 600ms cubic-bezier(0.5, 0, 0.07, 1);
+
+		a {
+			color: black;
+		}
+	}
+
+	.CartModalOn {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		top: 50px;
+		right: 1%;
+		bottom: 10px;
+		border: 1px solid;
+		width: 98%;
+		transition: all 600ms cubic-bezier(0.5, 0, 0.07, 1);
+
+		a {
+			color: black;
+		}
 	}
 }
