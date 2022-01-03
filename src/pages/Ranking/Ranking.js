@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Topnav from '../../components/Topnav/Topnav';
+import Footer from '../../components/Footer/Footer';
 import './Ranking.scss';
 
 function List({ name, category, imageUrl, changeImage, index }) {
-	const mouse = () => {
+	const handleMouseEnter = () => {
 		changeImage(imageUrl);
 	};
 
+	const handleMouseLeave = () => {
+		changeImage('');
+	};
+
 	return (
-		<div className="list" onMouseEnter={mouse}>
+		<div className="list" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 			<div className="nameWrapper">
 				<span className="number">{index + 1}</span>
 				<span className="name">{name}</span>
@@ -66,6 +71,7 @@ function Ranking() {
 							/>
 						);
 					})}
+				<Footer />
 			</div>
 		</>
 	);

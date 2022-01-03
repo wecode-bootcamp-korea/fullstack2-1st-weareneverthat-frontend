@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
+import Footer from '../../components/Footer/Footer';
 import './Main.scss';
 
 function ImageCard({ src }) {
 	const navigate = useNavigate();
+
 	const handleClick = () => {
-		navigate('/products/top20');
+		navigate('/products');
 	};
+
 	return <img src={src} alt="메인페이지 이미지" className="imageCard" onClick={handleClick} />;
 }
 
@@ -46,6 +49,7 @@ function Main() {
 		const scroll = Math.floor(
 			(window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 26,
 		);
+
 		setscrollCount(scroll);
 	});
 
@@ -68,6 +72,7 @@ function Main() {
 					href="https://github.com/wecode-bootcamp-korea/fullstack3-1st-weareneverthat-backend"
 				/>
 			</div>
+			<Footer />
 		</>
 	);
 }
