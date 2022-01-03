@@ -1,4 +1,5 @@
-const categorybox = () => {
+import React from 'react';
+const Categorybox = () => {
 	return (
 		<form>
 			Sort By
@@ -22,4 +23,4 @@ const categorybox = () => {
 	);
 };
 
-export default categorybox;
+export default Categorybox;

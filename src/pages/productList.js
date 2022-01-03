@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
-// import ProductCardMain from '../components/ProductcardMain';
-// import ProductCard2 from '../components/ProductCard2';
+import { useNavigate } from 'react-router-dom';
 import './productList.scss';
-import TopNav from '../components/navbar';
 import LikeButton from '../components/LikeButton/LikeButton';
-import categorybox from '../components/cateogoryBox';
+import Topnav from '../components/Topnav/Topnav';
+// import Categorybox from '../components/CateogoryBox';
 
-function ProductCard({ src }) {
+function ProductCard({ src, productId }) {
+	const navigate = useNavigate();
+	function handleClick() {
+		navigate('/products/' + productId);
+	}
+
 	return (
-		<div className="imageContainer">
+		<div className="imageContainer" onClick={handleClick}>
 			<img src={src} alt="상품" />
 		</div>
 	);
@@ -31,13 +35,13 @@ function ProductCardMain({ content, price, newprice }) {
 				<span className="price">￦{price}</span>
 				<span className="newprice">￦{newprice}</span>
 			</div>
-			<LikeButton />
 		</div>
 	);
 }
 
 function Lists() {
 	const [productList, setProductList] = useState([]);
+
 	useEffect(() => {
 		fetch('http://localhost:3000/data/soheon.json', {})
 			.then(res => res.json())
@@ -49,19 +53,16 @@ function Lists() {
 	return (
 		<div className="listContainer">
 			<div>
-				<TopNav />
+				<Topnav />
 			</div>
 			<div className="buttons">
 				<div className="navButton">
 					<span type="button">All</span>
 				</div>
 				<div className="sortingButton">
-					<button type="button" onClick={categorybox}>
-						Sort
-					</button>
-					<button type="button" onClick={categorybox}>
-						View
-					</button>
+					<button type="button">Sort</button>
+
+					<button type="button">View</button>
 				</div>
 			</div>
 			<div className="productList">
@@ -69,7 +70,11 @@ function Lists() {
 					productList.product.map(product => {
 						return (
 							<div className="image">
-								<ProductCard src={product.detail[0].image[0].imageUrl} key={product.productId1} />
+								<ProductCard
+									src={product.detail[0].image[0].imageUrl}
+									key={product.productId1}
+									productId={product.productId}
+								/>
 								<ProductCard2
 									src1={product.detail[0].image[0].imageUrl}
 									src2={product.detail[1].image[0].imageUrl}
@@ -81,6 +86,7 @@ function Lists() {
 									newprice={product.discountPrice}
 									key={product.productId3}
 								/>
+								<LikeButton productId={product.productId} />
 							</div>
 						);
 					})}

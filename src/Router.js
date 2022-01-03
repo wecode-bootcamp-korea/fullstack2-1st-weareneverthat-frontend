@@ -7,7 +7,7 @@ function Router() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/list" element={<ProductList />} />
+				<Route path="/products" element={<ProductList />} />
 			</Routes>
 		</BrowserRouter>
 	);
