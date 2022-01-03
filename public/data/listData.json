@@ -1,46 +1,6 @@
 {
 	"product": [
 		{
-			"productId": 1,
-			"name": "PERTEX T Down Jacked",
-			"price": 189000,
-			"discountPrice": 132300,
-			"colorAndImage": [
-				{
-					"productDetailId": 4,
-					"productDetailName": "black",
-					"image": [
-						{
-							"imageId": 1,
-							"url": "http:sfjkslf"
-						},
-						{
-							"imageId": 2,
-							"url": "http:sfjkslf"
-						},
-						{
-							"imageId": 3,
-							"url": "fjsklfjdkslf"
-						}
-					]
-				},
-				{
-					"productDetailId": 5,
-					"productDetailName": "white",
-					"image": [
-						{
-							"imageId": 5,
-							"url": "sjkflsjfklsdf;"
-						},
-						{
-							"imageId": 6,
-							"url": "sklfjdskfls'"
-						}
-					]
-				}
-			]
-		},
-		{
 			"productId": 2,
 			"name": "T-Logo Hoodie",
 			"price": 82000,

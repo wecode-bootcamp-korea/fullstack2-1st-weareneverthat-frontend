@@ -1,0 +1,17 @@
+.button {
+	cursor: pointer;
+	transition: transform 300ms ease;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-left: 25px;
+}
+.red {
+	color: red;
+}
+.button:hover {
+	transform: scale(1.1);
+}
+
+.liking {
+	margin-left: 10px;
+}

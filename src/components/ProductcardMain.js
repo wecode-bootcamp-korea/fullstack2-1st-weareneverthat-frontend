@@ -4,13 +4,13 @@ import ProductCard from './ProductCard';
 
 function ProductCardMain({ content, price, newprice }) {
 	return (
-		<div className="image">
+		<>
 			<ProductCard />
 			<ProductCard2 />
 			<h3>{content}</h3>
 			<span>{price}</span>
 			<span>{newprice}</span>
-		</div>
+		</>
 	);
 }
 

@@ -2,40 +2,44 @@ import React, { useEffect, useState } from 'react';
 // import ProductCardMain from '../components/ProductcardMain';
 // import ProductCard2 from '../components/ProductCard2';
 import './productList.scss';
+import TopNav from '../components/navbar';
+import LikeButton from '../components/LikeButton/LikeButton';
+import categorybox from '../components/cateogoryBox';
 
 function ProductCard({ src }) {
 	return (
 		<div className="imageContainer">
-			<img src={src} alt="상품" width="100px" />
+			<img src={src} alt="상품" />
 		</div>
 	);
 }
 
 function ProductCard2({ src1, src2 }) {
 	return (
-		<span className="subImages">
-			<img src={src1} alt="상품" width="50px" />
-			<img src={src2} alt="상품" width="50px" />
-		</span>
+		<div className="subImages">
+			<img src={src1} alt="상품" />
+			<img src={src2} alt="상품" />
+		</div>
 	);
 }
 
-function ProductCardMain({ proudct, content, price, newprice }) {
+function ProductCardMain({ content, price, newprice }) {
 	return (
-		<>
+		<div className="contentContainer">
 			<h3>{content}</h3>
-			<div>
-				<span>{price}</span>
-				<span>{newprice}</span>
+			<div className="priceContainer">
+				<span className="price">￦{price}</span>
+				<span className="newprice">￦{newprice}</span>
 			</div>
-		</>
+			<LikeButton />
+		</div>
 	);
 }
 
 function Lists() {
 	const [productList, setProductList] = useState([]);
 	useEffect(() => {
-		fetch('http://localhost:3000/data/listData.json', {})
+		fetch('http://localhost:3000/data/soheon.json', {})
 			.then(res => res.json())
 			.then(data => {
 				setProductList(data);
@@ -44,32 +48,38 @@ function Lists() {
 
 	return (
 		<div className="listContainer">
-			<div>nav들어갈 자리</div>
+			<div>
+				<TopNav />
+			</div>
 			<div className="buttons">
 				<div className="navButton">
-					<span>abc</span>
+					<span type="button">All</span>
 				</div>
-				<div className="sorgingButton">
-					<span>vvv</span> <span>vvs</span>
+				<div className="sortingButton">
+					<button type="button" onClick={categorybox}>
+						Sort
+					</button>
+					<button type="button" onClick={categorybox}>
+						View
+					</button>
 				</div>
 			</div>
 			<div className="productList">
 				{productList.product &&
-					productList.product.map((product, index) => {
+					productList.product.map(product => {
 						return (
 							<div className="image">
-								<ProductCard
-									src={product.image[0][0]}
-									onMouseOver={e => (e.currentTarget.src = product.image[0][1])}
-									onMouseOut={e => (e.currentTarget.src = product.image[0][0])}
-									key={index}
+								<ProductCard src={product.detail[0].image[0].imageUrl} key={product.productId1} />
+								<ProductCard2
+									src1={product.detail[0].image[0].imageUrl}
+									src2={product.detail[1].image[0].imageUrl}
+									key={product.productId2}
 								/>
-								<ProductCard2 src1={product.image[0][0]} src2={product.image[1][0]} key={index} />
 								<ProductCardMain
 									content={product.name}
 									price={product.price}
 									newprice={product.discountPrice}
-									key={index}
+									key={product.productId3}
 								/>
 							</div>
 						);
