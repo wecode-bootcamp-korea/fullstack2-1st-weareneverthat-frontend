@@ -1,0 +1,252 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.Topnav {
+	font-family: 'Spoqa Han Sans';
+	width: 100%;
+
+	header {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 46px;
+		padding: 0 20px;
+		background-color: white;
+		z-index: 9999;
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		h1 {
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%);
+			font-size: 22px;
+			font-weight: 700;
+			letter-spacing: -1.5px;
+
+			span {
+				font-size: 16px;
+			}
+		}
+
+		nav {
+			margin: 0 15px;
+		}
+
+		nav ul {
+			display: flex;
+
+			li {
+				padding: 15px 10px;
+
+				a:hover {
+					color: #0e0;
+				}
+
+				.category {
+					position: absolute;
+					display: block;
+					visibility: hidden;
+					top: 46px;
+					left: 0;
+					border: 1px solid;
+
+					li {
+						display: flex;
+						align-items: center;
+						padding: 12px 200px 12px 40px;
+
+						.rec {
+							margin-top: 2px;
+							margin-right: 10px;
+							width: 12px;
+							height: 12px;
+							border-radius: 3px;
+							background-color: #0e0;
+							visibility: hidden;
+						}
+					}
+
+					li:hover .rec {
+						visibility: visible;
+					}
+				}
+			}
+			.shop:hover .category {
+				visibility: visible;
+			}
+		}
+
+		.menuBtn,
+		.cartBtn,
+		.navOff {
+			display: none;
+
+			.line {
+				margin: 4px 0;
+				width: 20px;
+				height: 2px;
+				background-color: black;
+			}
+		}
+
+		@media (max-width: 1169px) {
+			nav {
+				display: none;
+			}
+
+			.menuBtn,
+			.cartBtn {
+				display: block;
+				font-size: 20px;
+			}
+		}
+	}
+
+	.navOff,
+	.navOn {
+		display: none;
+	}
+
+	@media (max-width: 1169px) {
+		.navOff {
+			position: fixed;
+			display: block;
+			width: 100%;
+			font-size: 20px;
+			visibility: visible;
+			height: 0;
+			overflow: hidden;
+			transition: 0.15s;
+
+			.wraper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 10px;
+
+				ul {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+
+					li {
+						margin: 7px;
+					}
+
+					a {
+						text-decoration: none;
+						font-size: 27px;
+						font-weight: 700;
+						color: black;
+					}
+				}
+
+				.loginBtn {
+					display: flex;
+
+					div {
+						margin: 10px;
+						padding: 10px;
+						border-radius: 20px;
+						background-color: gainsboro;
+						text-align: center;
+					}
+				}
+
+				.snsLogin {
+					margin: 10px;
+				}
+
+				.saleInfo {
+					margin: 50px;
+				}
+
+				.line {
+					width: 98%;
+					height: 2px;
+					background-color: gainsboro;
+				}
+
+				.navFooter {
+					margin: 10px;
+				}
+			}
+		}
+
+		.navOn {
+			position: fixed;
+			display: block;
+			top: 46px;
+			bottom: 0;
+			width: 100%;
+			font-size: 20px;
+			visibility: visible;
+			height: 100%;
+			overflow: hidden;
+			transition: 0.15s;
+			.wraper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 10px;
+
+				ul {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+
+					li {
+						margin: 7px;
+					}
+
+					a {
+						text-decoration: none;
+						font-size: 27px;
+						font-weight: 700;
+						color: black;
+					}
+				}
+
+				.loginBtn {
+					display: flex;
+
+					div {
+						margin: 10px;
+						padding: 10px;
+						border-radius: 20px;
+						background-color: gainsboro;
+						text-align: center;
+					}
+				}
+
+				.snsLogin {
+					margin: 10px;
+				}
+
+				.saleInfo {
+					margin: 50px;
+				}
+
+				.line {
+					width: 98%;
+					height: 2px;
+					background-color: gainsboro;
+				}
+
+				.navFooter {
+					margin: 10px;
+				}
+			}
+		}
+	}
+}
