@@ -125,23 +125,15 @@ function ProductInfo() {
 							<input type="radio" value="XS" id="xs" checked />
 							XS
 						</label>
-					</li>
-					<li className="size">
 						<label>
-							<input type="radio" value="S" id="s" disabled />S
+							<input type="radio" value="S" id="s" />S
 						</label>
-					</li>
-					<li className="size">
 						<label>
 							<input type="radio" value="M" id="m" />M
 						</label>
-					</li>
-					<li className="size">
 						<label>
 							<input type="radio" value="L" id="l" />L
 						</label>
-					</li>
-					<li className="size">
 						<label>
 							<input type="radio" value="XL" id="xl" />
 							XL

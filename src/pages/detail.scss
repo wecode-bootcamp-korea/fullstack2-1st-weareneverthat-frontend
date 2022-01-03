@@ -228,10 +228,12 @@
 
 		.size {
 			display: inline-block;
+
 			input {
 				display: none;
 				border: 2px solid black;
 			}
+
 			label {
 				display: flex;
 				align-items: center;
