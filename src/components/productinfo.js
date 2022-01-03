@@ -61,6 +61,8 @@ function ProductInfo() {
 
 	// const result = showQuantity();
 
+	const [isChecked, setIsChecked] = useState(false);
+
 	return (
 		<div className="productInfo">
 			<p className="productName">
@@ -90,7 +92,7 @@ function ProductInfo() {
 							/>
 							{/* {product.image_url &&
 								product.image_url.map(el => {
-									return <img src={el} width="100px" height="200px" />;
+									return <img src={el} width="37px" height="50px" />;
 								})} */}
 						</button>
 					</li>
@@ -119,29 +121,31 @@ function ProductInfo() {
 			<div>
 				<ul className="productSize">
 					<li className="size">
-						<button>
-							<p>XS</p>
-						</button>
+						<label>
+							<input type="radio" value="XS" id="xs" checked />
+							XS
+						</label>
 					</li>
 					<li className="size">
-						<button>
-							<p>S</p>
-						</button>
+						<label>
+							<input type="radio" value="S" id="s" disabled />S
+						</label>
 					</li>
 					<li className="size">
-						<button>
-							<p>M</p>
-						</button>
+						<label>
+							<input type="radio" value="M" id="m" />M
+						</label>
 					</li>
 					<li className="size">
-						<button>
-							<p>L</p>
-						</button>
+						<label>
+							<input type="radio" value="L" id="l" />L
+						</label>
 					</li>
 					<li className="size">
-						<button>
-							<p>XL</p>
-						</button>
+						<label>
+							<input type="radio" value="XL" id="xl" />
+							XL
+						</label>
 					</li>
 				</ul>
 			</div>
