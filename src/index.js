@@ -3,5 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './styles/reset.scss';
 import './styles/common.scss';
+import Router from './Router';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Router />, document.getElementById('root'));

@@ -1,0 +1,42 @@
+* {
+	box-sizing: border-box;
+
+	.main {
+		display: flex;
+		flex-wrap: wrap;
+
+		.imageCard {
+			width: 25%;
+			display: block;
+		}
+
+		.imageCard:hover {
+			cursor: pointer;
+		}
+
+		.mainBox {
+			width: 25%;
+			height: 0;
+			padding-bottom: 18.5%;
+			padding-top: 18.5%;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			border-bottom: 1px solid black;
+			text-align: center;
+			line-height: 0;
+			font-size: 60px;
+			font-weight: 600;
+			text-decoration: none;
+			color: black;
+		}
+
+		.mainBox:hover {
+			background-color: black;
+			color: white;
+		}
+
+		.mainBox:last-child {
+			border-right: none;
+		}
+	}
+}
