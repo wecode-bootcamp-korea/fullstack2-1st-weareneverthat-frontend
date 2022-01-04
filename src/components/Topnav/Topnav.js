@@ -97,8 +97,8 @@ function Topnav() {
 						</li>
 					</ul>
 				</nav>
-				<Link to="">
-					<FontAwesomeIcon className="cartBtn" icon={faShoppingCart} onClick={handleCartModal} />
+				<Link to="" className="cartBtn">
+					<FontAwesomeIcon icon={faShoppingCart} onClick={handleCartModal} />
 				</Link>
 			</header>
 			<CartModal cartClass={cartClass} />
