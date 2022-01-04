@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import Ranking from './pages/Ranking/Ranking';
 import List from './pages/List/List';
-import Detail from './pages/Detail/detail';
+import Detail from './pages/Detail/Detail';
 import Login from './pages/Login/Login';
 
 function Router() {
