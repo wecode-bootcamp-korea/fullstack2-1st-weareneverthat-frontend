@@ -30,7 +30,7 @@ function List({ name, category, imageUrl, changeImage, productId, index }) {
 				<span className="number">{index + 1}</span>
 				<span className="name">{name}</span>
 			</div>
-			<div className="category">{category}</div>
+			<div className="rankingCategory">{category}</div>
 		</div>
 	);
 }
@@ -73,7 +73,6 @@ function Ranking() {
 
 				{productList.product &&
 					productList.product.map((product, index) => {
-						console.log(product);
 						return (
 							<List
 								name={product.name}

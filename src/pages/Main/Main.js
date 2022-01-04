@@ -61,7 +61,6 @@ function Main() {
 	});
 
 	const handleClick = e => {
-		console.log(e.target.parentNode);
 		e.target.parentNode.style.display = 'none';
 	};
 
