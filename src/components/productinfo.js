@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Carousel, { CarouselItem } from './carousel';
-import '../pages/detail/detail.scss';
+import '../pages/Detail/detail.scss';
+import '../components/LikeButton/likeButton';
 
 function ProductInfo(props) {
 	const { product, images, changeColor, getQuantity, showQuantity, quantityBySize, result } = props;

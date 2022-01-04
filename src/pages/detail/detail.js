@@ -11,7 +11,7 @@ function Detail() {
 
 	const [product, setProduct] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/${id}${props.search}`)
+		fetch('http://localhost:8000/products/1?color=black')
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
@@ -65,7 +65,9 @@ function Detail() {
 
 	return (
 		<div>
-			<TopNav />
+			<div>
+				<TopNav />
+			</div>
 			<div className="wrapper">
 				<Category />
 				<ProductInfo
@@ -78,7 +80,9 @@ function Detail() {
 					result={result}
 				/>
 			</div>
-			<Footer />
+			<div>
+				<Footer />
+			</div>
 		</div>
 	);
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../pages/detail/detail.scss';
+import '../pages/Detail/detail.scss';
 
 function Category() {
 	return (
