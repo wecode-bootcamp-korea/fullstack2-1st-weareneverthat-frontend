@@ -1,3 +1,5 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
 * {
 	box-sizing: border-box;
 
@@ -10,6 +12,7 @@
 	position: relative;
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 100px;
 }
 
 // 카테고리 버튼
@@ -17,6 +20,7 @@
 	margin: 20px 0;
 	background-color: none;
 	position: fixed;
+	font-family: 'Spoqa Han Sans';
 	z-index: 2;
 
 	.topCategory {
@@ -133,6 +137,7 @@
 .productInfo {
 	margin: 110px 40px 100px 0;
 	width: 260px;
+	font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 	.productName {
 		margin-right: 40px;

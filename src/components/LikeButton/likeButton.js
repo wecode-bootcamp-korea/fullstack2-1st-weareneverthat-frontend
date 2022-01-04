@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
-import './LikeButton.scss';
+import './likeButton.scss';
 
 function LikeButton({ productId }) {
 	const [checked, ischecked] = useState(false);

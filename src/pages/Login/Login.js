@@ -47,7 +47,7 @@ function Login() {
 			<Topnav />
 			<div className="Login">
 				<div className="pageInfo">Account</div>
-				<section className="wrapper">
+				<section className="loginWrapper">
 					<form className="inputBox">
 						<section className="emailInput">
 							<div>이메일</div>

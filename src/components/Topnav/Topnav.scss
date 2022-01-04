@@ -53,7 +53,7 @@
 					color: #0e0;
 				}
 
-				.category {
+				.navCategory {
 					position: absolute;
 					display: block;
 					visibility: hidden;
@@ -82,7 +82,7 @@
 					}
 				}
 			}
-			.shop:hover .category {
+			.shop:hover .navCategory {
 				visibility: visible;
 				background-color: white;
 			}

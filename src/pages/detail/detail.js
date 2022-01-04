@@ -11,13 +11,12 @@ function Detail() {
 
 	const [product, setProduct] = useState({});
 	useEffect(() => {
-		fetch('http://localhost:8000/products/1?color=black')
+		fetch(`http://localhost:8000/products/${id}${props.search}`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
 			});
 	}, []);
-	console.log(1);
 
 	const [quantityBySize, setQuantityBySize] = useState({});
 	useEffect(() => {

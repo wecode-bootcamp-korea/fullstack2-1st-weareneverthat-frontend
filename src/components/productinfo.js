@@ -10,7 +10,7 @@ function ProductInfo(props) {
 		<>
 			<div className="slide">
 				<div className="leftSlide">
-					<button>
+					<button onClick={}>
 						<a href="#!">
 							<img
 								src="https://cdn.shopify.com/s/files/1/0562/4971/2815/products/PERTEX-T-Down-Jacket-Bandana-Black1_1080x.jpg?v=1632893620"
@@ -120,7 +120,7 @@ function ProductInfo(props) {
 												height="50px"
 											/>
 										</button>
-										<p class="arrow_box">{product.color}</p>
+										<p class="arrow_box">{el.color}</p>
 									);
 								})} */}
 							</li>
@@ -144,13 +144,13 @@ function ProductInfo(props) {
 							<li>
 								<button>
 									<label>
-										<input type="radio" name="size" id="xs" checked="checked" />
+										<input type="radio" name="size" id="xs" checked />
 										<span>XS</span>
 									</label>
 								</button>
 								<button>
 									<label>
-										<input type="radio" name="size" id="s" checked />
+										<input type="radio" name="size" id="s" />
 										<span>S</span>
 									</label>
 								</button>
