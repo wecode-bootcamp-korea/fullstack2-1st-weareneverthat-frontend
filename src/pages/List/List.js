@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './productList.scss';
-import LikeButton from '../components/LikeButton/LikeButton';
-import Topnav from '../components/Topnav/Topnav';
-import Footer from '../components/Footer/Footer';
-// import Categorybox from '../components/CateogoryBox';
+import { useNavigate, useLocation } from 'react-router-dom';
+import LikeButton from '../../components/LikeButton/LikeButton';
+import Topnav from '../../components/Topnav/Topnav';
+import Footer from '../../components/Footer/Footer';
+import './List.scss';
 
 function ProductCard({ src, productId }) {
 	const navigate = useNavigate();
 	function handleClick() {
-		navigate('/products/' + productId);
+		navigate(`/products/${productId}`);
 	}
 
 	return (
@@ -40,16 +39,24 @@ function ProductCardMain({ content, price, newprice }) {
 	);
 }
 
-function Lists() {
+function List() {
+	function useQuery() {
+		return new URLSearchParams(useLocation().search);
+	}
+	const query = useQuery();
+	const location = useLocation();
+
 	const [productList, setProductList] = useState([]);
 
 	useEffect(() => {
-		fetch('http://localhost:3000/data/soheon.json', {})
+		fetch(
+			`http://localhost:8000/products/?category=${query.get('category')}&sort=${query.get('sort')}`,
+		)
 			.then(res => res.json())
 			.then(data => {
 				setProductList(data);
 			});
-	}, []);
+	}, [location]);
 
 	return (
 		<div className="listContainer">
@@ -74,7 +81,7 @@ function Lists() {
 								<ProductCard
 									src={product.detail[0].image[0].imageUrl}
 									key={product.productId1}
-									productId={product.productId}
+									productId={product.id}
 								/>
 								<ProductCard2
 									src1={product.detail[0].image[0].imageUrl}
@@ -97,4 +104,4 @@ function Lists() {
 	);
 }
 
-export default Lists;
+export default List;
