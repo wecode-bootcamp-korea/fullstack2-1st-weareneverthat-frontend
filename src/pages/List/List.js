@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './productList.scss';
 import LikeButton from '../../components/LikeButton/LikeButton';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
+import './List.scss';
 
 function ProductCard({ src, productId }) {
 	const navigate = useNavigate();
@@ -39,7 +39,7 @@ function ProductCardMain({ content, price, newprice }) {
 	);
 }
 
-function Lists() {
+function List() {
 	function useQuery() {
 		return new URLSearchParams(useLocation().search);
 	}
@@ -104,4 +104,4 @@ function Lists() {
 	);
 }
 
-export default Lists;
+export default List;

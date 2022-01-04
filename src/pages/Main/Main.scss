@@ -2,8 +2,10 @@
 	box-sizing: border-box;
 
 	.main {
+		position: relative;
 		display: flex;
 		flex-wrap: wrap;
+		padding-bottom: 56px;
 
 		.imageCard {
 			width: 25%;
@@ -15,6 +17,7 @@
 		}
 
 		.mainBox {
+			display: block;
 			width: 25%;
 			height: 0;
 			padding-bottom: 18.5%;
@@ -64,8 +67,9 @@
 		}
 	}
 
-	@media screen and (max-width: 1140px) {
+	@media screen and (max-width: 1169px) {
 		.main {
+			padding-bottom: 303px;
 			.imageCard {
 				width: 50%;
 			}

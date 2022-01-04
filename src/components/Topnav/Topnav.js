@@ -65,7 +65,7 @@ function Topnav() {
 							<Link to="/products/top20">TOP20</Link>
 						</li>
 						<li>
-							<Link to="#">FEATURES</Link>
+							<Link to="/users/login">FEATURES</Link>
 						</li>
 						<li>
 							<Link to="#">SEARCH</Link>
@@ -90,7 +90,7 @@ function Topnav() {
 							<Link to="#">KOR / ₩</Link>
 						</li>
 						<li>
-							<Link to="#">LOGIN</Link>
+							<Link to="/users/login">LOGIN</Link>
 						</li>
 						<li onClick={handleCartModal}>
 							<Link to="#">CART</Link>
@@ -113,7 +113,7 @@ function Topnav() {
 								<Link to="/products/top20">TOP20</Link>
 							</li>
 							<li>
-								<Link to="#">FEATURES</Link>
+								<Link to="/">FEATURES</Link>
 							</li>
 							<li>
 								<Link to="#">SEARCH</Link>
