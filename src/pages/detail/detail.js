@@ -7,7 +7,6 @@ import Footer from '../../components/Footer/Footer';
 
 function Detail() {
 	const { id } = useParams();
-	console.log(id);
 	const props = useLocation();
 
 	const [product, setProduct] = useState({});
@@ -27,7 +26,6 @@ function Detail() {
 		})
 			.then(res => res.json())
 			.then(data => {
-				console.log(Boolean(data.heart));
 				setIsHeart(Boolean(data.heart));
 			});
 	}, []);

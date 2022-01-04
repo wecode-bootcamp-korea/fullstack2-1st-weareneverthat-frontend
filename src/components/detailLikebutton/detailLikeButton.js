@@ -6,7 +6,7 @@ import './detailLikeButton.scss';
 
 function HeartButton({ productId, isHeart, setIsHeart }) {
 	const navigate = useNavigate();
-	console.log(productId);
+
 	const activeLogin = () => {
 		fetch('http://localhost:8000/products/heart?productId=' + productId, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),

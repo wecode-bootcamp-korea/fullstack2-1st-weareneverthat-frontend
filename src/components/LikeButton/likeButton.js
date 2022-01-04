@@ -3,7 +3,6 @@ import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import './LikeButton.scss';
 
 function LikeButton({ isHeart, heartCount }) {
-	console.log(isHeart);
 	return (
 		<div className="likieButton">
 			<span>
