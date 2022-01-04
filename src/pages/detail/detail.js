@@ -7,17 +7,30 @@ import Footer from '../../components/Footer/Footer';
 
 function Detail() {
 	const { id } = useParams();
+	console.log(id);
 	const props = useLocation();
 
 	const [product, setProduct] = useState({});
+	const [isHeart, setIsHeart] = useState(false);
+
 	useEffect(() => {
-		fetch('http://localhost:8000/products/1?color=black')
+		fetch(`http://localhost:8000/products/${id}?color=black`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
 			});
 	}, []);
-	console.log(1);
+
+	useEffect(() => {
+		fetch('http://localhost:8000/products/isHeart?productId=' + id, {
+			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
+		})
+			.then(res => res.json())
+			.then(data => {
+				console.log(Boolean(data.heart));
+				setIsHeart(Boolean(data.heart));
+			});
+	}, []);
 
 	const [quantityBySize, setQuantityBySize] = useState({});
 	useEffect(() => {
@@ -78,6 +91,8 @@ function Detail() {
 					getQuantity={getQuantity}
 					showQuantity={showQuantity}
 					result={result}
+					isHeart={isHeart}
+					setIsHeart={setIsHeart}
 				/>
 			</div>
 			<div>
