@@ -4,7 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function Router() {
 	return (
 		<BrowserRouter>
-			<Routes></Routes>
+			<Routes>
+				<></>
+			</Routes>
 		</BrowserRouter>
 	);
 }
