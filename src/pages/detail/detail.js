@@ -3,6 +3,7 @@ import { useLocation, useParams } from 'react-router';
 import TopNav from '../../components/Topnav/Topnav';
 import Category from '../../components/category';
 import ProductInfo from '../../components/productinfo';
+import Footer from '../../components/Footer/Footer';
 
 function Detail() {
 	const { id } = useParams();
@@ -10,7 +11,7 @@ function Detail() {
 
 	const [product, setProduct] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/${id}?color=${product.color}&size=${product.size}`)
+		fetch(`http://localhost:8000/products/${id}${props.search}`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
@@ -20,7 +21,7 @@ function Detail() {
 
 	const [quantityBySize, setQuantityBySize] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/quantity/${id}?color=${product.color}`)
+		fetch(`http://localhost:8000/products/${id}/quantity?color=${product.color}`)
 			.then(res => res.json())
 			.then(data => {
 				setQuantityBySize(data);
@@ -29,7 +30,7 @@ function Detail() {
 
 	const [images, setImages] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/image/${id}`)
+		fetch(`http://localhost:8000/products/${id}/images`)
 			.then(res => res.json())
 			.then(data => {
 				setImages(data);
@@ -77,6 +78,7 @@ function Detail() {
 					result={result}
 				/>
 			</div>
+			<Footer />
 		</div>
 	);
 }
