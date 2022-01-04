@@ -1,4 +1,4 @@
-@import '../styles/mixin';
+@import '../../styles/mixin';
 
 @include desktop {
 	.listContainer {
@@ -66,6 +66,11 @@
 					width: 90%;
 				}
 			}
+
+			.imageContainer:hover {
+				cursor: pointer;
+			}
+
 			.subImages {
 				margin-top: 20%;
 				margin-bottom: -20%;

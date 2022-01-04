@@ -87,4 +87,12 @@
 			background-color: #01ee00;
 		}
 	}
+
+	@media screen and (max-width: 1140px) {
+		.ranking {
+			.list {
+				font-size: 50px;
+			}
+		}
+	}
 }

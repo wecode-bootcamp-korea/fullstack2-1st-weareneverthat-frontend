@@ -5,7 +5,12 @@ import './style.css';
 function LikeButton({ productId }) {
 	const [checked, ischecked] = useState(false);
 	const activeLogin = () => {
-		// fetch('http://localhost:8000/heart?productid=' + productId,{headers:{'Content-Type':'application/json','Authorization'}});
+		fetch('http://localhost:8000/products/heart?productId=' + productId, {
+			headers: new Headers({ Authorization: '11111' }),
+		})
+			.then(res => res.json())
+			.then(data => console.log(data));
+
 		checked ? ischecked(false) : ischecked(true);
 	};
 
@@ -22,4 +27,5 @@ function LikeButton({ productId }) {
 		</div>
 	);
 }
+
 export default LikeButton;

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './Ranking.scss';
 
-function List({ name, category, imageUrl, changeImage, index }) {
+function List({ name, category, imageUrl, changeImage, productId, index }) {
+	const navigate = useNavigate();
+
 	const handleMouseEnter = () => {
 		changeImage(imageUrl);
 	};
@@ -12,8 +15,17 @@ function List({ name, category, imageUrl, changeImage, index }) {
 		changeImage('');
 	};
 
+	const handleClick = () => {
+		navigate(`/products/${productId}`);
+	};
+
 	return (
-		<div className="list" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+		<div
+			className="list"
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+			onClick={handleClick}
+		>
 			<div className="nameWrapper">
 				<span className="number">{index + 1}</span>
 				<span className="name">{name}</span>
@@ -61,6 +73,7 @@ function Ranking() {
 
 				{productList.product &&
 					productList.product.map((product, index) => {
+						console.log(product);
 						return (
 							<List
 								name={product.name}
@@ -68,6 +81,7 @@ function Ranking() {
 								imageUrl={product.detail[0].image[0].imageUrl}
 								changeImage={setHoverImage}
 								index={index}
+								productId={product.id}
 							/>
 						);
 					})}

@@ -3,14 +3,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Main from './pages/Main/Main';
 import Ranking from './pages/Ranking/Ranking';
-import ProductList from './pages/productList';
+import ProductList from './pages/ProductList/productList';
 
 function Router() {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Main />} />
-				<Route path="/products" element={<ProductList />} />
+				<Route path="/products/" element={<ProductList />} />
 				<Route path="/products/top20" element={<Ranking />} />
 			</Routes>
 		</BrowserRouter>

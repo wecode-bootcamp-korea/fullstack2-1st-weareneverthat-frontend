@@ -100,7 +100,7 @@
 			}
 		}
 
-		@media (max-width: 1169px) {
+		@media (max-width: 1140px) {
 			nav {
 				display: none;
 			}
@@ -118,7 +118,7 @@
 		display: none;
 	}
 
-	@media (max-width: 1169px) {
+	@media (max-width: 1140px) {
 		.navOff {
 			position: fixed;
 			display: block;
@@ -195,6 +195,9 @@
 			height: 100%;
 			overflow: hidden;
 			transition: 0.15s;
+			background-color: white;
+			z-index: 9999;
+
 			.wraper {
 				display: flex;
 				flex-direction: column;
