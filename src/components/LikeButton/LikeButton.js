@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import './style.css';
+import { useEffect } from 'react/cjs/react.development';
 
-function LikeButton({ productId }) {
+function LikeButton({ productId, heartCount }) {
 	const [checked, ischecked] = useState(false);
+
 	const activeLogin = () => {
 		fetch('http://localhost:8000/products/heart?productId=' + productId, {
-			headers: new Headers({ Authorization: '11111' }),
+			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())
 			.then(data => console.log(data));
@@ -23,7 +25,7 @@ function LikeButton({ productId }) {
 					<HeartOutlined className="button" onClick={activeLogin} />
 				)}
 			</span>
-			<span className="liking">22220</span>
+			<span className="liking">{heartCount}</span>
 		</div>
 	);
 }

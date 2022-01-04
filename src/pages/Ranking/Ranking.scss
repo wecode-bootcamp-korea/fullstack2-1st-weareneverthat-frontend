@@ -23,8 +23,10 @@
 	}
 
 	.ranking {
+		position: relative;
 		margin: 0 40px;
 		padding: 0 -40px;
+		padding-bottom: 56px;
 
 		.list {
 			position: relative;
@@ -90,6 +92,7 @@
 
 	@media screen and (max-width: 1140px) {
 		.ranking {
+			padding-bottom: 303px;
 			.list {
 				font-size: 50px;
 			}

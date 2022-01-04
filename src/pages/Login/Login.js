@@ -32,14 +32,15 @@ function Login() {
 				email: emailValue,
 				password: pwValue,
 			}),
-		}).then(res => {
-			if (res.status === 200) {
-				goToMain();
-				sessionStorage.setItem('token', res.json().token);
-			} else if (res.status === 400) {
-				setVisibility('hidden');
-			}
-		});
+		})
+			.then(res => res.json())
+			.then(data => {
+				if (data.message === 'KEY_ERROR') {
+				} else {
+					goToMain();
+					sessionStorage.setItem('token', data.token);
+				}
+			});
 	};
 
 	return (
