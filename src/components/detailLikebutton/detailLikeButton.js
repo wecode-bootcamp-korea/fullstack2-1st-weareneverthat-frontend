@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
-import '../LikeButton/likeButton.scss';
+import './detailLikeButton.scss';
 
-function LikeButton({ productId }) {
+function HeartButton({ productId }) {
 	const [checked, ischecked] = useState(false);
 	const activeLogin = () => {
 		// fetch('http://localhost:8000/heart?productid=' + productId,{headers:{'Content-Type':'application/json','Authorization'}});
@@ -10,16 +10,15 @@ function LikeButton({ productId }) {
 	};
 
 	return (
-		<div className="likieButton">
+		<div className="heartButton">
 			<span>
 				{checked ? (
 					<HeartFilled className="button red" onClick={activeLogin} />
 				) : (
-					<HeartOutlined className="button" onClick={activeLogin} />
+					<HeartOutlined className="button white" onClick={activeLogin} />
 				)}
 			</span>
-			<span className="liking">22220</span>
 		</div>
 	);
 }
-export default LikeButton;
+export default HeartButton;

@@ -49,7 +49,7 @@
 	.leftSlide {
 		display: flex;
 		flex-direction: column;
-		margin: 170px 0 20px 45px;
+		margin: 250px 0 20px 45px;
 
 		button {
 			border: none;
@@ -131,7 +131,7 @@
 
 // 제품 상세 정보
 .productInfo {
-	margin: 70px 40px 100px 0;
+	margin: 110px 40px 100px 0;
 	width: 260px;
 
 	.productName {
@@ -156,42 +156,56 @@
 		}
 	}
 
-	.productColorName {
-		text-align: center;
-		background: rgba(199, 199, 199, 0.5);
-		color: var(--color-black);
-		bottom: 100%;
-		display: block;
-		position: absolute;
-		left: 50%;
-		margin-bottom: 1.5rem;
-		min-width: 12.5rem;
-		border-radius: 0.2rem;
-		padding: 0.8rem 1.4rem;
-		line-height: 1;
-		backdrop-filter: blur(2rem) brightness(1.1);
-		opacity: 0;
-		visibility: hidden;
-		transform: translate(-50%, 10px);
-		transition: all 0.25s ease-out;
-		z-index: 10000;
-		box-sizing: border-box;
-	}
-
 	.productColor {
 		margin: 15px 0;
 		user-select: none;
 
-		.color {
-			display: flex;
+		.colorName {
+			position: relative;
+			display: inline-block;
 
-			button {
-				border: none;
-				background-color: inherit;
-				margin-right: 5px;
+			.color {
+				display: flex;
 
-				&:hover {
-					cursor: pointer;
+				button {
+					border: none;
+					background-color: inherit;
+					margin-right: 5px;
+
+					&:hover {
+						cursor: pointer;
+
+						+ p.arrow_box {
+							opacity: 1;
+						}
+					}
+				}
+
+				.arrow_box {
+					opacity: 0;
+					position: absolute;
+					width: 50px;
+					padding: 8px;
+					top: -35px;
+					border-radius: 5px;
+					background: rgb(216, 214, 210);
+					color: #000000;
+					text-align: center;
+					font-size: 14px;
+					z-index: 2;
+					transform: translate(-10%, 3px);
+					transition: 0.3s;
+
+					&:after {
+						content: '';
+						position: absolute;
+						background-color: rgb(216, 214, 210);
+						width: 10px;
+						height: 10px;
+						transform: rotate(45deg) translateX(-50%);
+						bottom: -5px;
+						left: 45%;
+					}
 				}
 			}
 		}
@@ -199,6 +213,7 @@
 
 	.productSize {
 		display: flex;
+		position: relative;
 
 		.size {
 			display: inline-block;
@@ -208,33 +223,44 @@
 				font-size: 16px;
 				border: none;
 				background-color: inherit;
+				z-index: 2;
 				cursor: pointer;
 
-				&:checked {
-					border: 2px solid black;
-				}
-			}
+				label {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					float: left;
+					padding-top: 5px;
+					margin-right: 5px;
+					font-size: 17px;
+					text-align: center;
+					line-height: 3.6rem;
+					white-space: nowrap;
 
-			label {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				float: left;
-				padding-top: 5px;
-				margin-right: 5px;
-				min-width: 2.3rem;
-				height: 2.3rem;
-				width: 2.3rem;
-				border: 1px solid #cecece;
-				background-color: #ffffff;
-				font-size: 17px;
-				text-align: center;
-				line-height: 3.6rem;
-				white-space: nowrap;
+					input[type='radio'] {
+						display: none;
+					}
 
-				&:hover {
-					cursor: pointer;
-					border: 1px solid black;
+					input[type='radio'] + span {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						background: none;
+						border: 1px solid #dfdfdf;
+						padding: 0px 10px;
+						text-align: center;
+						min-width: 2.3rem;
+						height: 2.3rem;
+						width: 2.3rem;
+						line-height: 33px;
+						font-weight: 500;
+						cursor: pointer;
+					}
+
+					input[type='radio']:checked + span {
+						border: 2px solid #000000;
+					}
 				}
 			}
 		}
@@ -266,14 +292,14 @@
 			}
 
 			.wishlist {
-				margin: 5px 0 0 20px;
+				margin: -10px 0 0 20px;
 
 				&:hover {
 					cursor: pointer;
 				}
 
 				a {
-					font-size: 17px;
+					font-size: 16px;
 					color: black;
 				}
 			}

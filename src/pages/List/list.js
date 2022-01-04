@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../List/list.scss';
-import LikeButton from '../../components/LikeButton/likeButton';
+import LikeButton from '../../components/listLikeButton/likeButton';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 // import Categorybox from '../components/CateogoryBox';
