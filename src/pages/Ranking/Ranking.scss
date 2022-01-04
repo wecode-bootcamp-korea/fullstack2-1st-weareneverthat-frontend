@@ -23,8 +23,10 @@
 	}
 
 	.ranking {
+		position: relative;
 		margin: 0 40px;
 		padding: 0 -40px;
+		padding-bottom: 56px;
 
 		.list {
 			position: relative;
@@ -71,7 +73,7 @@
 				}
 			}
 
-			.category {
+			.rankingCategory {
 				// 튀어나가는 글자 줄이기
 				white-space: nowrap;
 				overflow: hidden;
@@ -90,6 +92,7 @@
 
 	@media screen and (max-width: 1140px) {
 		.ranking {
+			padding-bottom: 303px;
 			.list {
 				font-size: 50px;
 			}

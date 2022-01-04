@@ -94,7 +94,7 @@ function List() {
 									newprice={product.discountPrice}
 									key={product.productId3}
 								/>
-								<LikeButton productId={product.productId} />
+								<LikeButton productId={product.id} heartCount={product.heart.length} />
 							</div>
 						);
 					})}
