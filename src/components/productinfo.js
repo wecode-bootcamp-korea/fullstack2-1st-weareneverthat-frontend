@@ -85,11 +85,19 @@ function ProductInfo(props) {
 							<li>
 								{quantityBySize.allQuantityBySize &&
 									quantityBySize.allQuantityBySize.map(el => {
-										const isSotck = !(el.quantity > 0);
+										const isNotSotck = !(el.quantity > 0);
+										const color = isNotSotck ? 'lightgray' : 'black';
 										return (
-											<button disabled={isSotck} onClick={getQuantity} value={el.size}>
-												<label>
-													<input type="radio" name="size" id={el.size} />
+											<button>
+												<label style={{ color: color }}>
+													<input
+														type="radio"
+														name="size"
+														id={el.size}
+														disabled={isNotSotck}
+														onClick={getQuantity}
+														value={el.size}
+													/>
 													<span>{el.size}</span>
 												</label>
 											</button>
