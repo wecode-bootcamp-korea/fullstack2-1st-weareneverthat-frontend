@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import './detailLikeButton.scss';
-// import { useEffect } from 'react/cjs/react.development';
 
 function HeartButton({ productId, isHeart, setIsHeart }) {
 	const navigate = useNavigate();

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router';
 import TopNav from '../../components/Topnav/Topnav';
 import Category from '../../components/category';
-import ProductInfo from '../../components/productinfo';
+import ProductInfo from '../../components/Productinfo';
 import Footer from '../../components/Footer/Footer';
 
 function Detail() {
@@ -66,7 +66,7 @@ function Detail() {
 	};
 
 	const showQuantity = () => {
-		if (product.quantity < 20) {
+		if (product.quantity < 150) {
 			return `주문 가능한 수량이 ${product.quantity}개 남았습니다.`;
 		} else {
 			return product.quantity;

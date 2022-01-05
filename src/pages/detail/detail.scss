@@ -214,7 +214,7 @@ body,
 					text-align: center;
 					font-size: 14px;
 					z-index: 2;
-					transform: translate(-10%, 3px);
+					transform: translate(-10%, -7px);
 					transition: 0.3s;
 
 					&:after {
@@ -224,7 +224,7 @@ body,
 						width: 10px;
 						height: 10px;
 						transform: rotate(45deg) translateX(-50%);
-						bottom: -5px;
+						bottom: -7px;
 						left: 45%;
 					}
 				}
