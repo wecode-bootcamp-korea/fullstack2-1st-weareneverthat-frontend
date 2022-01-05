@@ -1,11 +1,12 @@
 @import '/Users/untitled/Desktop/projects/fullstack3-1st-weareneverthat-frontend/src/styles/_mixin.scss';
+@import '../../styles/mixin';
 
 @include desktop {
 	.listContainer {
+		position: relative;
 		box-sizing: border-box;
 		background-color: white;
 		width: 98%;
-		margin: 0 auto;
 
 		.TopNav_wrapper {
 			display: flex;
@@ -92,6 +93,11 @@
 					width: 90%;
 				}
 			}
+
+			.imageContainer:hover {
+				cursor: pointer;
+			}
+
 			.subImages {
 				margin-top: 20%;
 				margin-bottom: -20%;

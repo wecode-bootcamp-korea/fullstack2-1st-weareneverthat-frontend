@@ -1,36 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './List.scss';
-import LikeButton from '../../components/LikeButton/LikeButton';
-import Topnav from '../../components/Topnav/Topnav';
-import Footer from '../../components/Footer/Footer';
+import React, { useEffect, useState} from 'react';
+
 import ReactLoading from 'react-loading';
 
-function ProductCard({ src1, src2, src3, productId, color }) {
+
+
+import { useNavigate, useLocation } from 'react-router-dom';
+import LikeButton from '../../components/LikeButton/likeButton';
+import Topnav from '../../components/Topnav/Topnav';
+import Footer from '../../components/Footer/Footer';
+import './List.scss';
+
+function ProductCard({ src, productId }) {
 	const navigate = useNavigate();
 	function handleClick() {
-		navigate(`/products/${productId}?color=${color}`);
+		navigate(`/products/${productId}`);
 	}
-	// const [src, setSrc] = useState[src1];
-	// const srcChange = () => {
-	// 	src === src1 ? setSrc(src2) : setSrc(src1);
-	// 	src === src2 ? setSrc(src3) : setSrc(src1);
-	// };
-	// console.log(srcChange);
 
 	return (
 		<div className="imageContainer" onClick={handleClick}>
-			<img src={src1} alt="상품" />
+			<img src={src} alt="상품" />
 		</div>
 	);
 }
 
 function ProductCard2({ src1, src2 }) {
-	// const
-	// function handleImg() {
-	// 	<ProductCard src={src2} />;
-	// }
-	// console.log(handleImg());
 	return (
 		<div className="subImages">
 			<img src={src1} alt="상품" />
@@ -66,6 +59,9 @@ function ProductCardMain({ content, price, newprice, productId, color }) {
 	}
 	return (
 		<div className="contentContainer" onClick={handleClick}>
+function ProductCardMain({ content, price, newprice }) {
+	return (
+		<div className="contentContainer">
 			<h3>{content}</h3>
 			<div className="priceContainer">
 				<span className="price">￦{price}</span>
@@ -110,11 +106,24 @@ function List() {
 
 	useEffect(() => {
 		fetch('http://localhost:3000/data/soheon.json', {})
+	function useQuery() {
+		return new URLSearchParams(useLocation().search);
+	}
+	const query = useQuery();
+	const location = useLocation();
+
+	const [productList, setProductList] = useState([]);
+
+	useEffect(() => {
+		fetch(
+			`http://localhost:8000/products/?category=${query.get('category')}&sort=${query.get('sort')}`,
+		)
 			.then(res => res.json())
 			.then(data => {
 				setProductList(data);
 			});
-	}, [target]);
+
+	}, [location]);
 
 	return (
 		<div className="listContainer">
@@ -161,7 +170,7 @@ function List() {
 									productId={product.productId}
 									color={product.detail[0].productDetailName}
 								/>
-								<LikeButton productId={product.productId} />
+								<LikeButton productId={product.id} heartCount={product.heart.length} />
 							</div>
 						);
 					})}

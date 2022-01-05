@@ -7,7 +7,7 @@ function CartModal(props) {
 			<section>
 				<p>Your cart is empty</p>
 				<p>
-					<Link to="#">CONTINUE SHOPPING</Link>
+					<Link to="/products">CONTINUE SHOPPING</Link>
 				</p>
 			</section>
 		</div>

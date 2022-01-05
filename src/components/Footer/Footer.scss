@@ -1,4 +1,9 @@
 .Footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	cursor: default;
+
 	.footer-upper {
 		display: flex;
 		justify-content: space-between;

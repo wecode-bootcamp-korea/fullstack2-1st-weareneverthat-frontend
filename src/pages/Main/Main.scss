@@ -1,0 +1,84 @@
+* {
+	box-sizing: border-box;
+
+	.main {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		padding-bottom: 56px;
+
+		.imageCard {
+			width: 25%;
+			display: block;
+		}
+
+		.imageCard:hover {
+			cursor: pointer;
+		}
+
+		.mainBox {
+			display: block;
+			width: 25%;
+			height: 0;
+			padding-bottom: 18.5%;
+			padding-top: 18.5%;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			border-bottom: 1px solid black;
+			text-align: center;
+			line-height: 0;
+			font-size: 60px;
+			font-weight: 600;
+			text-decoration: none;
+			color: black;
+		}
+
+		.mainBox:hover {
+			background-color: black;
+			color: white;
+		}
+
+		.mainBox:last-child {
+			border-right: none;
+		}
+
+		.alert {
+			position: fixed;
+			left: 40px;
+			bottom: 40px;
+			padding: 40px 40px 20px 40px;
+			width: 580px;
+			height: 320px;
+			background-color: rgba(199, 199, 199, 0.5);
+			backdrop-filter: blur(20px) brightness(1.1);
+
+			.cancel {
+				position: absolute;
+				right: 40px;
+				bottom: 30px;
+				text-decoration: underline;
+				cursor: pointer;
+				transition: color 0.1s linear;
+			}
+
+			.cancel:hover {
+				color: #999;
+			}
+		}
+	}
+
+	@media screen and (max-width: 1169px) {
+		.main {
+			padding-bottom: 303px;
+			.imageCard {
+				width: 50%;
+			}
+
+			.mainBox {
+				width: 50%;
+				padding: 40% 0 40% 0;
+				font-size: 30px;
+			}
+		}
+	}
+}

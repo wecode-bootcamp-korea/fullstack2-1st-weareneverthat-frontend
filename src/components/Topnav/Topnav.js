@@ -34,7 +34,7 @@ function Topnav() {
 					<ul>
 						<li className="shop">
 							<Link to="/products">SHOP</Link>
-							<ul className="category">
+							<ul className="navCategory">
 								<li>
 									<div className="rec"></div>
 									<Link to="/products/new">New</Link>
@@ -65,7 +65,7 @@ function Topnav() {
 							<Link to="/products/top20">TOP20</Link>
 						</li>
 						<li>
-							<Link to="#">FEATURES</Link>
+							<Link to="/users/login">FEATURES</Link>
 						</li>
 						<li>
 							<Link to="#">SEARCH</Link>
@@ -80,7 +80,7 @@ function Topnav() {
 					</section>
 				</Link>
 				<h1>
-					<Link to="#">
+					<Link to="/">
 						weareneverthat <span>®</span>
 					</Link>
 				</h1>
@@ -90,7 +90,7 @@ function Topnav() {
 							<Link to="#">KOR / ₩</Link>
 						</li>
 						<li>
-							<Link to="#">LOGIN</Link>
+							<Link to="/users/login">LOGIN</Link>
 						</li>
 						<li onClick={handleCartModal}>
 							<Link to="#">CART</Link>
@@ -113,7 +113,7 @@ function Topnav() {
 								<Link to="/products/top20">TOP20</Link>
 							</li>
 							<li>
-								<Link to="#">FEATURES</Link>
+								<Link to="/">FEATURES</Link>
 							</li>
 							<li>
 								<Link to="#">SEARCH</Link>
