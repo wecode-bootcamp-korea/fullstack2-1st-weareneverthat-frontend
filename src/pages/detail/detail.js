@@ -21,7 +21,7 @@ function Detail() {
 	}, []);
 
 	useEffect(() => {
-		fetch('http://localhost:8000/products/isHeart?productId=' + id, {
+		fetch(`http://localhost:8000/products/isHeart?productId=${id}`, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())
