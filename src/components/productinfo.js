@@ -16,19 +16,22 @@ function ProductInfo(props) {
 		setIsHeart,
 	} = props;
 
+	const [imageClick, setImageClick] = useState(false);
+
 	return (
 		<>
 			<div className="slide">
 				<div className="leftSlide">
 					<button>
-						<a href="#!">
-							{product.image_url &&
-								product.image_url.map((el, index) => {
-									return (
+						{product.image_url &&
+							product.image_url.map((el, index) => {
+								return (
+									<label onClick={() => setImageClick(!imageClick)}>
+										<input type="radio" name="subImg" id={index} />
 										<img index={index} src={el} width="60px" height="75px" className="subImg" />
-									);
-								})}
-						</a>
+									</label>
+								);
+							})}
 					</button>
 				</div>
 			</div>
@@ -64,11 +67,11 @@ function ProductInfo(props) {
 									images.AllImages.map((el, index) => {
 										return (
 											<li>
-												<button onClick={changeColor} value={el.color}>
+												<button onClick={changeColor} value={el.colorId}>
 													<img
 														index={index}
 														src={el.image_url}
-														value={el.color}
+														value={el.colorId}
 														width="37px"
 														height="50px"
 													/>
@@ -99,9 +102,8 @@ function ProductInfo(props) {
 														disabled={isNotSotck}
 														onClick={getQuantity}
 														value={el.size}
-														checked
 													/>
-													<option value={el.size}>{el.size}</option>
+													<span>{el.size}</span>
 												</label>
 											</button>
 										);
@@ -130,7 +132,7 @@ function ProductInfo(props) {
 				<div className="productStock">
 					<ul>
 						<li className="stock">
-							{product.quantity < 20 ? <p className="blink">{result}</p> : <p></p>}
+							{product.quantity < 100 ? <p className="blink">{result}</p> : <p></p>}
 						</li>
 					</ul>
 				</div>

@@ -35,7 +35,6 @@ body,
 .category {
 	margin: 20px 0;
 	background-color: none;
-	position: fixed;
 	font-family: 'Spoqa Han Sans';
 	z-index: 2;
 
@@ -85,14 +84,32 @@ body,
 			border: none;
 			background-color: inherit;
 
-			.subImg {
+			label {
 				display: flex;
-				border-radius: 2px;
-				margin-bottom: 8px;
-				opacity: 0.5;
 
-				:checked {
+				input[type='radio'] {
+					display: none;
+				}
+
+				input[type='radio'] + img {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background: none;
+					text-align: center;
+					line-height: 33px;
+					font-weight: 500;
+					opacity: 0.5;
+					cursor: pointer;
+				}
+
+				input[type='radio']:checked + img {
 					opacity: 1;
+				}
+
+				.subImg {
+					border-radius: 2px;
+					margin-bottom: 8px;
 				}
 			}
 		}
@@ -130,7 +147,7 @@ body,
 			justify-content: center;
 
 			button {
-				margin: -80px 20px 0 20px;
+				margin: -80px 15px 0 15px;
 				border: none;
 				background-color: inherit;
 				color: #cecece;
@@ -150,7 +167,6 @@ body,
 		align-items: center;
 		justify-content: center;
 		height: 620px;
-		background-color: green;
 		color: #ffffff;
 	}
 
@@ -409,6 +425,311 @@ body,
 				font-size: 13px;
 				line-height: 1.3;
 				color: #969696;
+			}
+		}
+	}
+}
+
+// 반응형 미디어 쿼리
+@media (max-width: 1169px) {
+	.wrapper {
+		position: relative;
+		display: inline-block;
+	}
+
+	.detail {
+		position: relative;
+		min-height: 100%;
+		padding-bottom: 350px;
+	}
+
+	// 미디어쿼리 카테고리
+	.category {
+		margin: 20px 0;
+		background-color: none;
+		font-family: 'Spoqa Han Sans';
+		z-index: 2;
+
+		.topCategory {
+			margin-left: 20px;
+			padding: 2px 13px;
+			border: none;
+			border-radius: 0.1rem;
+			background-color: #e3e3e3;
+			font-weight: 500;
+			font-size: 16px;
+
+			&:hover {
+				cursor: pointer;
+				background-color: #000000;
+				color: #ffffff;
+			}
+		}
+
+		.subCategory {
+			margin-left: 5px;
+			padding: 2px 13px;
+			border: none;
+			border-radius: 0.1rem;
+			background-color: #04ed00;
+			font-weight: 500;
+			font-size: 16px;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	// 미디어쿼리 서브 슬라이드
+	.slide {
+		position: relative;
+		display: flex;
+		user-select: none;
+
+		.leftSlide {
+			display: flex;
+			flex-direction: column;
+			margin: 250px 0 20px 45px;
+
+			button {
+				border: none;
+				background-color: inherit;
+
+				label {
+					display: flex;
+
+					input[type='radio'] {
+						display: none;
+					}
+
+					input[type='radio'] + img {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						background: none;
+						width: 40px;
+						height: 55px;
+						text-align: center;
+						line-height: 33px;
+						font-weight: 500;
+						opacity: 0.5;
+						cursor: pointer;
+					}
+
+					input[type='radio']:checked + img {
+						opacity: 1;
+					}
+
+					.subImg {
+						border-radius: 2px;
+						margin-bottom: 8px;
+					}
+				}
+			}
+		}
+	}
+
+	// 미디어쿼리 메인 슬라이드
+	.mainslide {
+		display: flex;
+		margin: -420px 0 0 230px;
+		user-select: none;
+
+		.slideShow {
+			position: relative;
+			display: flex;
+			height: 850px;
+			padding-bottom: 30px;
+
+			.carousel {
+				overflow: hidden;
+
+				.inner {
+					white-space: nowrap;
+					width: 650px;
+					height: 1000px;
+					transition: transform 0.3s;
+				}
+			}
+
+			.mainImg {
+				display: flex;
+				width: 600px;
+				height: 800px;
+			}
+		}
+
+		.carouselItem {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			height: 700px;
+			color: #ffffff;
+		}
+	}
+
+	// 미디어쿼리 제품 상세 정보
+	.productInfo {
+		margin: 30px 0 0 20px;
+		width: 100%;
+		font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+		.productName {
+			margin-right: 40px;
+			font-size: 22px;
+			font-weight: 500;
+			line-height: 1.3;
+		}
+
+		.comparePrice {
+			line-height: 2;
+			font-size: 20px;
+			font-weight: 500;
+		}
+
+		.productColor {
+			margin: 25px 0;
+			user-select: none;
+
+			.colorName {
+				position: relative;
+				display: inline-block;
+
+				.color {
+					display: flex;
+
+					button {
+						border: none;
+						background-color: inherit;
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+
+		.productCart {
+			ul {
+				display: flex;
+				margin: 25px 0 20px;
+
+				.cart {
+					user-select: none;
+				}
+
+				button {
+					width: 750px;
+					border: none;
+					border-radius: 20px;
+					padding: 9px 20px;
+					background-color: #000000;
+
+					&:hover {
+						cursor: pointer;
+					}
+
+					p {
+						font-size: 15px;
+						color: #ffffff;
+					}
+				}
+
+				.wishlist {
+					display: flex;
+					margin: -3px 0 0 5px;
+
+					&:hover {
+						cursor: pointer;
+					}
+
+					a {
+						margin: 10px 0 0 50px;
+						font-size: 16px;
+						color: black;
+					}
+				}
+			}
+		}
+	}
+}
+
+// 반응형 미디어 쿼리
+@media (max-width: 530px) {
+	.slide {
+		margin: 30px 0 0 -20px;
+		.leftSlide {
+			margin-top: 100px;
+		}
+	}
+
+	.mainslide {
+		display: flex;
+		margin: -400px 0 0 80px;
+		user-select: none;
+
+		.slideShow {
+			position: relative;
+			display: flex;
+			height: 550px;
+			padding-bottom: 30px;
+
+			.carousel {
+				overflow: hidden;
+
+				.inner {
+					white-space: nowrap;
+					width: 300px;
+					height: 500px;
+					transition: transform 0.3s;
+				}
+			}
+
+			.mainImg {
+				display: flex;
+				width: 300px;
+				height: 500px;
+			}
+
+			.indicators {
+				margin-top: 200px;
+			}
+		}
+
+		.carouselItem {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			height: 700px;
+			color: #ffffff;
+		}
+	}
+
+	.productCart {
+		ul {
+			display: flex;
+			margin: 25px 0 20px;
+
+			.cart {
+				user-select: none;
+
+				button {
+					width: 300px;
+					border: none;
+					border-radius: 20px;
+					padding: 9px 20px;
+					background-color: #000000;
+				}
+			}
+
+			.wishlist {
+				display: flex;
+				margin: -3px 0 0 5px;
+
+				a {
+					margin: 10px 0 0 50px;
+					font-size: 16px;
+					color: black;
+				}
 			}
 		}
 	}

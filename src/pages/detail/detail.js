@@ -11,8 +11,7 @@ function Detail() {
 
 	const [product, setProduct] = useState({});
 	useEffect(() => {
-		// fetch(`http://localhost:8000/products/${id}${props.search}`)
-		fetch(`http://localhost:8000/products/${id}?color=black`)
+		fetch(`http://localhost:8000/products/${id}${props.search}`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
@@ -32,7 +31,7 @@ function Detail() {
 
 	const [quantityBySize, setQuantityBySize] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/${id}/quantity?color=${product.color}`)
+		fetch(`http://localhost:8000/products/${id}/quantity?color=${product.colorId}`)
 			.then(res => res.json())
 			.then(data => {
 				setQuantityBySize(data);
@@ -57,7 +56,7 @@ function Detail() {
 	};
 
 	const getQuantity = e => {
-		fetch(`http://localhost:8000/products/${id}?color=${product.color}&size=${e.target.value}`)
+		fetch(`http://localhost:8000/products/${id}?color=${product.colorId}&size=${e.target.value}`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
@@ -65,10 +64,10 @@ function Detail() {
 	};
 
 	const showQuantity = () => {
-		if (product.quantity < 20) {
+		if (product.quantity < 100) {
 			return `주문 가능한 수량이 ${product.quantity}개 남았습니다.`;
 		} else {
-			return product.quantity;
+			return `${product.quantity}`;
 		}
 	};
 
@@ -79,8 +78,8 @@ function Detail() {
 			<div>
 				<TopNav />
 			</div>
+			<Category categoryName={product.categoryName} productName={product.name} />
 			<div className="wrapper">
-				<Category categoryName={product.categoryId} productName={product.name} />
 				<ProductInfo
 					product={product}
 					images={images}
