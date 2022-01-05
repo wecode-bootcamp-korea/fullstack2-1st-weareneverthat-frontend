@@ -8,21 +8,25 @@ function CartModal(props) {
 		fetch('http://localhost:8000/carts', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
+			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 			mode: 'cors',
-			body: JSON.stringify({
-				userId: sessionStorage.getItem('token'),
-			}),
 		})
 			.then(res => res.json())
 			.then(data => {
-				if (data.message === 'KEY_ERROR') {
-					setCarts({});
-				} else {
-					setCarts(data);
-				}
+				setCarts(data);
 			});
 	}, []);
-	return;
+
+	return (
+		<div className={props.cartClass}>
+			<section>
+				<p>Your cart is empty</p>
+				<p>
+					<Link to="/products">CONTINUE SHOPPING</Link>
+				</p>
+			</section>
+		</div>
+	);
 }
 
 export default CartModal;
