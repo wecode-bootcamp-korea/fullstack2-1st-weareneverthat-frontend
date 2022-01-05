@@ -1,9 +1,28 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
 * {
 	box-sizing: border-box;
 
 	::selection {
 		background-color: #04ed00;
 	}
+}
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+#root {
+	position: relative;
+	min-height: 100%;
+}
+
+.detail {
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 56px;
 }
 
 .wrapper {
@@ -17,6 +36,7 @@
 	margin: 20px 0;
 	background-color: none;
 	position: fixed;
+	font-family: 'Spoqa Han Sans';
 	z-index: 2;
 
 	.topCategory {
@@ -133,6 +153,7 @@
 .productInfo {
 	margin: 110px 40px 100px 0;
 	width: 260px;
+	font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 	.productName {
 		margin-right: 40px;
@@ -193,7 +214,7 @@
 					text-align: center;
 					font-size: 14px;
 					z-index: 2;
-					transform: translate(-10%, 3px);
+					transform: translate(-10%, -7px);
 					transition: 0.3s;
 
 					&:after {
@@ -203,7 +224,7 @@
 						width: 10px;
 						height: 10px;
 						transform: rotate(45deg) translateX(-50%);
-						bottom: -5px;
+						bottom: -7px;
 						left: 45%;
 					}
 				}
