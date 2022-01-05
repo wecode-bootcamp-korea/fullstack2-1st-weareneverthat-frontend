@@ -53,7 +53,7 @@ function Detail() {
 	};
 
 	const showQuantity = () => {
-		if (product.quantity < 150) {
+		if (product.quantity < 20) {
 			return `주문 가능한 수량이 ${product.quantity}개 남았습니다.`;
 		} else {
 			return product.quantity;
@@ -63,12 +63,12 @@ function Detail() {
 	const result = showQuantity();
 
 	return (
-		<div>
+		<div className="detail">
 			<div>
 				<TopNav />
 			</div>
 			<div className="wrapper">
-				<Category />
+				<Category name={product.name} />
 				<ProductInfo
 					product={product}
 					images={images}
@@ -79,9 +79,7 @@ function Detail() {
 					result={result}
 				/>
 			</div>
-			<div>
-				<Footer />
-			</div>
+			<Footer />
 		</div>
 	);
 }

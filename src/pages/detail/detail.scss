@@ -8,11 +8,27 @@
 	}
 }
 
+html,
+body,
+#root {
+	height: 100%;
+}
+
+#root {
+	position: relative;
+	min-height: 100%;
+}
+
+.detail {
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 56px;
+}
+
 .wrapper {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 100px;
 }
 
 // 카테고리 버튼
