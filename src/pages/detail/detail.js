@@ -10,8 +10,6 @@ function Detail() {
 	const props = useLocation();
 
 	const [product, setProduct] = useState({});
-	const [isHeart, setIsHeart] = useState(false);
-
 	useEffect(() => {
 		// fetch(`http://localhost:8000/products/${id}${props.search}`)
 		fetch(`http://localhost:8000/products/${id}?color=black`)
@@ -21,6 +19,7 @@ function Detail() {
 			});
 	}, []);
 
+	const [isHeart, setIsHeart] = useState(false);
 	useEffect(() => {
 		fetch('http://localhost:8000/products/isHeart?productId=' + id, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
@@ -66,7 +65,7 @@ function Detail() {
 	};
 
 	const showQuantity = () => {
-		if (product.quantity < 150) {
+		if (product.quantity < 20) {
 			return `주문 가능한 수량이 ${product.quantity}개 남았습니다.`;
 		} else {
 			return product.quantity;
@@ -81,7 +80,7 @@ function Detail() {
 				<TopNav />
 			</div>
 			<div className="wrapper">
-				<Category name={product.name} />
+				<Category categoryName={product.categoryId} productName={product.name} />
 				<ProductInfo
 					product={product}
 					images={images}

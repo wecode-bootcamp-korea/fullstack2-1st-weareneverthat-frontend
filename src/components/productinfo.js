@@ -23,8 +23,10 @@ function ProductInfo(props) {
 					<button>
 						<a href="#!">
 							{product.image_url &&
-								product.image_url.map(el => {
-									return <img src={el} width="60px" height="75px" className="subImg" />;
+								product.image_url.map((el, index) => {
+									return (
+										<img index={index} src={el} width="60px" height="75px" className="subImg" />
+									);
 								})}
 						</a>
 					</button>
@@ -97,8 +99,9 @@ function ProductInfo(props) {
 														disabled={isNotSotck}
 														onClick={getQuantity}
 														value={el.size}
+														checked
 													/>
-													<span>{el.size}</span>
+													<option value={el.size}>{el.size}</option>
 												</label>
 											</button>
 										);
@@ -127,7 +130,7 @@ function ProductInfo(props) {
 				<div className="productStock">
 					<ul>
 						<li className="stock">
-							{product.quantity < 150 ? <p className="blink">{result}</p> : <p></p>}
+							{product.quantity < 20 ? <p className="blink">{result}</p> : <p></p>}
 						</li>
 					</ul>
 				</div>

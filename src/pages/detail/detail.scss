@@ -41,22 +41,32 @@ body,
 
 	.topCategory {
 		margin-left: 40px;
-		padding: 7px 15px;
+		padding: 4px 15px;
 		border: none;
 		border-radius: 0.1rem;
 		background-color: #e3e3e3;
 		font-weight: 500;
-		font-size: 17px;
+		font-size: 16px;
+
+		&:hover {
+			cursor: pointer;
+			background-color: #000000;
+			color: #ffffff;
+		}
 	}
 
 	.subCategory {
 		margin-left: 5px;
-		padding: 7px 15px;
+		padding: 4px 15px;
 		border: none;
 		border-radius: 0.1rem;
 		background-color: #04ed00;
 		font-weight: 500;
-		font-size: 17px;
+		font-size: 16px;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 
@@ -358,7 +368,6 @@ body,
 			.blink {
 				animation: blink-effect 2s ease infinite;
 				font-size: 16px;
-				font-weight: 600;
 			}
 		}
 	}
@@ -387,6 +396,8 @@ body,
 
 				&:hover {
 					cursor: pointer;
+					color: #969696;
+					transition: 0.3s;
 				}
 			}
 
