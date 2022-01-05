@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router';
 import TopNav from '../../components/Topnav/Topnav';
 import Category from '../../components/category';
-import ProductInfo from '../../components/productinfo';
+import ProductInfo from '../../components/Productinfo';
 import Footer from '../../components/Footer/Footer';
 
 function Detail() {
@@ -13,6 +13,7 @@ function Detail() {
 	const [isHeart, setIsHeart] = useState(false);
 
 	useEffect(() => {
+		// fetch(`http://localhost:8000/products/${id}${props.search}`)
 		fetch(`http://localhost:8000/products/${id}?color=black`)
 			.then(res => res.json())
 			.then(data => {
@@ -75,12 +76,12 @@ function Detail() {
 	const result = showQuantity();
 
 	return (
-		<div>
+		<div className="detail">
 			<div>
 				<TopNav />
 			</div>
 			<div className="wrapper">
-				<Category />
+				<Category name={product.name} />
 				<ProductInfo
 					product={product}
 					images={images}
@@ -93,9 +94,7 @@ function Detail() {
 					setIsHeart={setIsHeart}
 				/>
 			</div>
-			<div>
-				<Footer />
-			</div>
+			<Footer />
 		</div>
 	);
 }
