@@ -16,15 +16,25 @@ function ProductInfo(props) {
 		setIsHeart,
 	} = props;
 
+	const [imageClick, setImageClick] = useState(false);
+
 	return (
 		<>
 			<div className="slide">
 				<div className="leftSlide">
-					<button>
+					<button onClick={() => setImageClick(!imageClick)}>
 						<a href="#!">
 							{product.image_url &&
 								product.image_url.map(el => {
-									return <img src={el} width="60px" height="75px" className="subImg" />;
+									return (
+										<img
+											src={el}
+											width="60px"
+											height="75px"
+											className="subImg"
+											style={{ opacity: !imageClick ? 1 : 0.5 }}
+										/>
+									);
 								})}
 						</a>
 					</button>
@@ -62,11 +72,11 @@ function ProductInfo(props) {
 									images.AllImages.map((el, index) => {
 										return (
 											<li>
-												<button onClick={changeColor} value={el.color}>
+												<button onClick={changeColor} value={el.colorId}>
 													<img
 														index={index}
 														src={el.image_url}
-														value={el.color}
+														value={el.colorId}
 														width="37px"
 														height="50px"
 													/>

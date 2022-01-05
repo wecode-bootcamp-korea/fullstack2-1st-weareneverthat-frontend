@@ -1,6 +1,6 @@
 import './Login.scss';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 
@@ -82,7 +82,9 @@ function Login() {
 						</p>
 					</section>
 					<section>
-						<p>회원가입 하기</p>
+						<Link to="/users/signup">
+							<p>회원가입 하기</p>
+						</Link>
 					</section>
 					<section>
 						<p>비밀번호 찾기</p>
