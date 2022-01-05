@@ -11,7 +11,7 @@ function Detail() {
 
 	const [product, setProduct] = useState({});
 	useEffect(() => {
-		fetch('http://localhost:8000/products/1?color=black')
+		fetch('http://localhost:8000/products/1')
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
