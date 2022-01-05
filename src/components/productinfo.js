@@ -36,21 +36,16 @@ function ProductInfo(props) {
 		<>
 			<div className="slide">
 				<div className="leftSlide">
-					<button onClick={() => setImageClick(!imageClick)}>
-						<a href="#!">
-							{product.image_url &&
-								product.image_url.map(el => {
-									return (
-										<img
-											src={el}
-											width="60px"
-											height="75px"
-											className="subImg"
-											style={{ opacity: !imageClick ? 1 : 0.5 }}
-										/>
-									);
-								})}
-						</a>
+					<button>
+						{product.image_url &&
+							product.image_url.map((el, index) => {
+								return (
+									<label onClick={() => setImageClick(!imageClick)}>
+										<input type="radio" name="subImg" id={index} />
+										<img index={index} src={el} width="60px" height="75px" className="subImg" />
+									</label>
+								);
+							})}
 					</button>
 				</div>
 			</div>
@@ -151,7 +146,7 @@ function ProductInfo(props) {
 				<div className="productStock">
 					<ul>
 						<li className="stock">
-							{product.quantity < 150 ? <p className="blink">{result}</p> : <p></p>}
+							{product.quantity < 100 ? <p className="blink">{result}</p> : <p></p>}
 						</li>
 					</ul>
 				</div>
