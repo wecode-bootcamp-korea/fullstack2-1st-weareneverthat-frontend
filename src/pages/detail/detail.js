@@ -13,8 +13,8 @@ function Detail() {
 	const [isHeart, setIsHeart] = useState(false);
 
 	useEffect(() => {
-		// fetch(`http://localhost:8000/products/${id}${props.search}`)
-		fetch(`http://localhost:8000/products/${id}?color=black`)
+		fetch(`http://localhost:8000/products/${id}${props.search}`)
+			// fetch(`http://localhost:8000/products/${id}?color=black`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);

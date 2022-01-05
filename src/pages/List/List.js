@@ -5,10 +5,10 @@ import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './List.scss';
 
-function ProductCard({ src, productId }) {
+function ProductCard({ src, productId, productColor }) {
 	const navigate = useNavigate();
 	function handleClick() {
-		navigate(`/products/${productId}`);
+		navigate(`/products/${productId}?color=${productColor}`);
 	}
 
 	return (
@@ -67,21 +67,18 @@ function List() {
 				<div className="navButton">
 					<span type="button">All</span>
 				</div>
-				<div className="sortingButton">
-					<button type="button">Sort</button>
-
-					<button type="button">View</button>
-				</div>
+				<div className="sortingButton"></div>
 			</div>
 			<div className="productList">
 				{productList.product &&
-					productList.product.map(product => {
+					productList.product.map((product, index) => {
 						return (
 							<div className="image">
 								<ProductCard
 									src={product.detail[0].image[0].imageUrl}
 									key={product.productId1}
 									productId={product.id}
+									productColor={product.detail[0].productColorId}
 								/>
 								<ProductCard2
 									src1={product.detail[0].image[0].imageUrl}
