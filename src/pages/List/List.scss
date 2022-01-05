@@ -2,10 +2,10 @@
 
 @include desktop {
 	.listContainer {
+		position: relative;
 		box-sizing: border-box;
 		background-color: white;
 		width: 98%;
-		margin: 0 auto;
 
 		.TopNav_wrapper {
 			display: flex;

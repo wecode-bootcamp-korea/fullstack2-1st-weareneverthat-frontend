@@ -1,0 +1,404 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+* {
+	box-sizing: border-box;
+
+	::selection {
+		background-color: #04ed00;
+	}
+}
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+#root {
+	position: relative;
+	min-height: 100%;
+}
+
+.detail {
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 56px;
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+}
+
+// 카테고리 버튼
+.category {
+	margin: 20px 0;
+	background-color: none;
+	position: fixed;
+	font-family: 'Spoqa Han Sans';
+	z-index: 2;
+
+	.topCategory {
+		margin-left: 40px;
+		padding: 7px 15px;
+		border: none;
+		border-radius: 0.1rem;
+		background-color: #e3e3e3;
+		font-weight: 500;
+		font-size: 17px;
+	}
+
+	.subCategory {
+		margin-left: 5px;
+		padding: 7px 15px;
+		border: none;
+		border-radius: 0.1rem;
+		background-color: #04ed00;
+		font-weight: 500;
+		font-size: 17px;
+	}
+}
+
+// 서브 슬라이드
+.slide {
+	position: relative;
+	display: flex;
+	user-select: none;
+
+	.leftSlide {
+		display: flex;
+		flex-direction: column;
+		margin: 250px 0 20px 45px;
+
+		button {
+			border: none;
+			background-color: inherit;
+
+			.subImg {
+				display: flex;
+				border-radius: 2px;
+				margin-bottom: 8px;
+				opacity: 0.5;
+
+				:checked {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+// 메인 슬라이드
+.mainslide {
+	display: flex;
+	margin: 100px 0 0 200px;
+	user-select: none;
+
+	.slideShow {
+		position: relative;
+		display: flex;
+		padding-bottom: 30px;
+
+		.carousel {
+			overflow: hidden;
+
+			.inner {
+				white-space: nowrap;
+				width: 460px;
+				height: 620px;
+				transition: transform 0.3s;
+			}
+		}
+
+		.mainImg {
+			display: flex;
+		}
+
+		.indicators {
+			display: flex;
+			justify-content: center;
+
+			button {
+				margin: -80px 20px 0 20px;
+				border: none;
+				background-color: inherit;
+				color: #cecece;
+				font-size: 40px;
+				z-index: 2;
+
+				&:hover {
+					cursor: pointer;
+					color: #000000;
+				}
+			}
+		}
+	}
+
+	.carouselItem {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: 620px;
+		background-color: green;
+		color: #ffffff;
+	}
+
+	img {
+		margin: 120px 0;
+	}
+}
+
+// 제품 상세 정보
+.productInfo {
+	margin: 110px 40px 100px 0;
+	width: 260px;
+	font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+	.productName {
+		margin-right: 40px;
+		font-size: 22px;
+		font-weight: 500;
+		line-height: 1.3;
+	}
+
+	.comparePrice {
+		line-height: 1.3;
+		font-size: 20px;
+		font-weight: 500;
+
+		.price {
+			color: #969696;
+			text-decoration: line-through;
+		}
+
+		.discount {
+			margin-left: 5px;
+		}
+	}
+
+	.productColor {
+		margin: 15px 0;
+		user-select: none;
+
+		.colorName {
+			position: relative;
+			display: inline-block;
+
+			.color {
+				display: flex;
+
+				button {
+					border: none;
+					background-color: inherit;
+					margin-right: 5px;
+
+					&:hover {
+						cursor: pointer;
+
+						+ p.arrow_box {
+							opacity: 1;
+						}
+					}
+				}
+
+				.arrow_box {
+					opacity: 0;
+					position: absolute;
+					width: 50px;
+					padding: 8px;
+					top: -35px;
+					border-radius: 5px;
+					background: rgb(216, 214, 210);
+					color: #000000;
+					text-align: center;
+					font-size: 14px;
+					z-index: 2;
+					transform: translate(-10%, -7px);
+					transition: 0.3s;
+
+					&:after {
+						content: '';
+						position: absolute;
+						background-color: rgb(216, 214, 210);
+						width: 10px;
+						height: 10px;
+						transform: rotate(45deg) translateX(-50%);
+						bottom: -7px;
+						left: 45%;
+					}
+				}
+			}
+		}
+	}
+
+	.productSize {
+		display: flex;
+		position: relative;
+
+		.size {
+			display: inline-block;
+
+			button {
+				margin-top: -3px;
+				font-size: 16px;
+				border: none;
+				background-color: inherit;
+				z-index: 2;
+				cursor: pointer;
+
+				label {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					float: left;
+					padding-top: 5px;
+					margin-right: 5px;
+					font-size: 17px;
+					text-align: center;
+					line-height: 3.6rem;
+					white-space: nowrap;
+
+					input[type='radio'] {
+						display: none;
+					}
+
+					input[type='radio'] + span {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						background: none;
+						border: 1px solid #dfdfdf;
+						padding: 0px 10px;
+						text-align: center;
+						min-width: 2.3rem;
+						height: 2.3rem;
+						width: 2.3rem;
+						line-height: 33px;
+						font-weight: 500;
+						cursor: pointer;
+					}
+
+					input[type='radio']:checked + span {
+						border: 2px solid #000000;
+					}
+				}
+			}
+		}
+	}
+
+	.productCart {
+		ul {
+			display: flex;
+			margin: 25px 0 20px;
+
+			.cart {
+				user-select: none;
+			}
+
+			button {
+				border: none;
+				border-radius: 20px;
+				padding: 10px 20px;
+				background-color: #000000;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				p {
+					font-size: 15px;
+					color: #ffffff;
+				}
+			}
+
+			.wishlist {
+				margin: -10px 0 0 20px;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				a {
+					font-size: 16px;
+					color: black;
+				}
+			}
+		}
+	}
+
+	.productStock {
+		::selection {
+			background-color: #04ed00;
+			color: #000000;
+		}
+
+		.stock {
+			font-size: 17px;
+			color: #04ed00;
+
+			@keyframes blink-effect {
+				0% {
+					opacity: 1;
+				}
+				10% {
+					opacity: 0;
+				}
+				20% {
+					opacity: 1;
+				}
+				30% {
+					opacity: 0;
+				}
+				40% {
+					opacity: 1;
+				}
+			}
+
+			.blink {
+				animation: blink-effect 2s ease infinite;
+				font-size: 16px;
+				font-weight: 600;
+			}
+		}
+	}
+
+	.productDescription {
+		width: 230px;
+		margin-top: 20px;
+
+		p {
+			font-size: 17px;
+			font-weight: 500;
+			line-height: 1.3;
+		}
+	}
+
+	.popup {
+		margin-top: 20px;
+
+		.popupContent {
+			line-height: 1.7;
+
+			.popupTitle {
+				font-size: 17px;
+				font-weight: 500;
+				text-decoration: underline;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+
+			.shipping {
+				margin-top: 10px;
+			}
+
+			p {
+				font-size: 13px;
+				line-height: 1.3;
+				color: #969696;
+			}
+		}
+	}
+}

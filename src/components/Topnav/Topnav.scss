@@ -32,6 +32,7 @@
 			font-size: 22px;
 			font-weight: 700;
 			letter-spacing: -1.5px;
+			user-select: none;
 
 			span {
 				font-size: 16px;
@@ -52,7 +53,7 @@
 					color: #0e0;
 				}
 
-				.category {
+				.navCategory {
 					position: absolute;
 					display: block;
 					visibility: hidden;
@@ -81,7 +82,7 @@
 					}
 				}
 			}
-			.shop:hover .category {
+			.shop:hover .navCategory {
 				visibility: visible;
 				background-color: white;
 			}

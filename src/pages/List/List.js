@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import LikeButton from '../../components/LikeButton/LikeButton';
+import LikeButton from '../../components/LikeButton/likeButton';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './List.scss';
@@ -94,7 +94,7 @@ function List() {
 									newprice={product.discountPrice}
 									key={product.productId3}
 								/>
-								<LikeButton productId={product.productId} />
+								<LikeButton productId={product.id} heartCount={product.heart.length} />
 							</div>
 						);
 					})}

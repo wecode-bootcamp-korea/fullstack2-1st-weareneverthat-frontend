@@ -34,7 +34,7 @@ function Topnav() {
 					<ul>
 						<li className="shop">
 							<Link to="/products">SHOP</Link>
-							<ul className="category">
+							<ul className="navCategory">
 								<li>
 									<div className="rec"></div>
 									<Link to="/products/new">New</Link>
