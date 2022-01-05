@@ -1,4 +1,4 @@
-@import '../styles/mixin';
+@import '/Users/untitled/Desktop/projects/fullstack3-1st-weareneverthat-frontend/src/styles/_mixin.scss';
 
 @include desktop {
 	.listContainer {
@@ -42,6 +42,32 @@
 					background-color: black;
 					color: white;
 					transition: all 0.5s linear;
+				}
+				.sortBox1,
+				.viewBox1 {
+					font-family: thisisneverthat;
+					border: 1px solid black;
+					transition: 0.3s;
+					z-index: 9999;
+					background-color: white;
+					position: absolute;
+					padding: 2rem;
+					border-radius: 0.2rem;
+					margin: auto;
+					opacity: 0;
+				}
+				.sortBox2,
+				.viewBox2 {
+					font-family: thisisneverthat;
+					border: 1px solid black;
+					transition: 0.3s;
+					z-index: 9999;
+					background-color: white;
+					position: absolute;
+					padding: 2rem;
+					border-radius: 0.2rem;
+					opacity: 1;
+					margin: auto;
 				}
 			}
 		}
@@ -93,5 +119,14 @@
 				}
 			}
 		}
+	}
+	.LoaderWrap {
+		width: 100%;
+		height: 80%;
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		text-align: center;
+		justify-content: center;
 	}
 }
