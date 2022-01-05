@@ -6,7 +6,7 @@ import './detailLikeButton.scss';
 function HeartButton({ productId, isHeart, setIsHeart }) {
 	const navigate = useNavigate();
 
-	const activeLogin = () => {
+	const handleClickHeart = () => {
 		fetch('http://localhost:8000/products/heart?productId=' + productId, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
@@ -22,9 +22,9 @@ function HeartButton({ productId, isHeart, setIsHeart }) {
 		<div className="heartButton">
 			<span>
 				{isHeart ? (
-					<HeartFilled className="button red" onClick={activeLogin} />
+					<HeartFilled className="button red" onClick={handleClickHeart} />
 				) : (
-					<HeartOutlined className="button white" onClick={activeLogin} />
+					<HeartOutlined className="button white" onClick={handleClickHeart} />
 				)}
 			</span>
 		</div>

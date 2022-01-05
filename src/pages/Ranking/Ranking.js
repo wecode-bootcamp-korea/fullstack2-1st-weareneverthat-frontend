@@ -4,7 +4,7 @@ import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './Ranking.scss';
 
-function List({ name, category, imageUrl, changeImage, productId, index }) {
+function List({ name, category, imageUrl, changeImage, productId, productColor, index }) {
 	const navigate = useNavigate();
 
 	const handleMouseEnter = () => {
@@ -16,7 +16,7 @@ function List({ name, category, imageUrl, changeImage, productId, index }) {
 	};
 
 	const handleClick = () => {
-		navigate(`/products/${productId}`);
+		navigate(`/products/${productId}?color=${productColor}`);
 	};
 
 	return (
@@ -81,6 +81,7 @@ function Ranking() {
 								changeImage={setHoverImage}
 								index={index}
 								productId={product.id}
+								productColor={product.detail[0].productColorId}
 							/>
 						);
 					})}

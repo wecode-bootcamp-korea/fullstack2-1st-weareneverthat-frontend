@@ -116,9 +116,7 @@ function Topnav() {
 						<li onClick={handleLoginClick} className="login">
 							{loginButton}
 						</li>
-						<li onClick={handleCartModal}>
-							<Link to="#">CART</Link>
-						</li>
+						<li onClick={handleCartModal}>CART</li>
 					</ul>
 				</nav>
 				<Link to="" className="cartBtn">

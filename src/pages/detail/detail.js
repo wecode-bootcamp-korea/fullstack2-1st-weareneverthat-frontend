@@ -11,6 +11,7 @@ function Detail() {
 
 	const [product, setProduct] = useState({});
 	const [isHeart, setIsHeart] = useState(false);
+	const [detailSizeId, setDetailSizeId] = useState();
 
 	useEffect(() => {
 		fetch(`http://localhost:8000/products/${id}${props.search}`)
@@ -18,7 +19,7 @@ function Detail() {
 			.then(data => {
 				setProduct(data);
 			});
-	}, []);
+	}, [id]);
 
 	useEffect(() => {
 		fetch(`http://localhost:8000/products/isHeart?productId=${id}`, {
@@ -28,7 +29,7 @@ function Detail() {
 			.then(data => {
 				setIsHeart(Boolean(data.heart));
 			});
-	}, []);
+	}, [id]);
 
 	const [quantityBySize, setQuantityBySize] = useState({});
 	useEffect(() => {
@@ -61,6 +62,7 @@ function Detail() {
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
+				setDetailSizeId(data.detailSizeId);
 			});
 	};
 
@@ -91,6 +93,7 @@ function Detail() {
 					result={result}
 					isHeart={isHeart}
 					setIsHeart={setIsHeart}
+					detailSizeId={detailSizeId}
 				/>
 			</div>
 			<Footer />
