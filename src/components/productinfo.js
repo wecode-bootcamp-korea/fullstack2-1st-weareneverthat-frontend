@@ -4,7 +4,17 @@ import '../pages/Detail/Detail.scss';
 import HeartButton from '../components/detailLikebutton/detailLikeButton';
 
 function ProductInfo(props) {
-	const { product, images, changeColor, getQuantity, showQuantity, quantityBySize, result } = props;
+	const {
+		product,
+		images,
+		changeColor,
+		getQuantity,
+		showQuantity,
+		quantityBySize,
+		result,
+		isHeart,
+		setIsHeart,
+	} = props;
 
 	return (
 		<>
@@ -90,8 +100,8 @@ function ProductInfo(props) {
 				<div className="comparePrice">
 					<ul>
 						<li>
-							<span className="price">₩{product.price}</span>
-							<span className="discount">₩{product.discount_price}</span>
+							<span className="price">₩ {product.price}</span>
+							<span className="discount">₩ {product.discount_price}</span>
 						</li>
 					</ul>
 				</div>
@@ -180,7 +190,11 @@ function ProductInfo(props) {
 							</button>
 						</li>
 						<li className="wishlist">
-							<HeartButton />
+							<HeartButton
+								isHeart={isHeart}
+								setIsHeart={setIsHeart}
+								productId={product.product_id}
+							/>
 							<a href="#!">WISHLIST</a>
 						</li>
 					</ul>

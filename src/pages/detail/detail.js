@@ -10,11 +10,24 @@ function Detail() {
 	const props = useLocation();
 
 	const [product, setProduct] = useState({});
+	const [isHeart, setIsHeart] = useState(false);
+
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/${id}${props.search}`)
+		// fetch(`http://localhost:8000/products/${id}${props.search}`)
+		fetch(`http://localhost:8000/products/${id}?color=black`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
+			});
+	}, []);
+
+	useEffect(() => {
+		fetch('http://localhost:8000/products/isHeart?productId=' + id, {
+			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
+		})
+			.then(res => res.json())
+			.then(data => {
+				setIsHeart(Boolean(data.heart));
 			});
 	}, []);
 
@@ -77,6 +90,8 @@ function Detail() {
 					getQuantity={getQuantity}
 					showQuantity={showQuantity}
 					result={result}
+					isHeart={isHeart}
+					setIsHeart={setIsHeart}
 				/>
 			</div>
 			<Footer />
