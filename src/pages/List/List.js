@@ -5,10 +5,10 @@ import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './List.scss';
 
-function ProductCard({ src, productId }) {
+function ProductCard({ src, productId, colorId }) {
 	const navigate = useNavigate();
 	function handleClick() {
-		navigate(`/products/${productId}`);
+		navigate(`/products/${productId}?color=${colorId}`);
 	}
 
 	return (
@@ -82,6 +82,7 @@ function List() {
 									src={product.detail[0].image[0].imageUrl}
 									key={product.productId1}
 									productId={product.id}
+									colorId={product.detail[0].productColorId}
 								/>
 								<ProductCard2
 									src1={product.detail[0].image[0].imageUrl}
