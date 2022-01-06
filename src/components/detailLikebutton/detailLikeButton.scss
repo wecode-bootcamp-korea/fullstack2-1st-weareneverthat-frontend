@@ -1,18 +1,18 @@
 .heartButton {
 	transition: transform 300ms ease;
 	width: 10px;
-	margin-bottom: 3px;
+	margin: 0 0 3px 25px;
 	cursor: pointer;
 
 	.button {
 		font-size: 20px;
 
-		.red {
-			color: red;
-		}
-
 		&:hover {
 			transform: scale(1.1);
 		}
+	}
+
+	.red {
+		color: red;
 	}
 }

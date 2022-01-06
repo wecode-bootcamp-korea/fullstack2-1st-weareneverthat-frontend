@@ -62,6 +62,7 @@
 		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: repeat(4, 1fr);
 		margin: 50px 20px 0 0;
+		user-select: none;
 
 		.image {
 			color: black;
@@ -80,17 +81,21 @@
 				}
 			}
 
-			.imageContainer:hover {
-				cursor: pointer;
+			.imageContainer {
+				:hover {
+					cursor: pointer;
+				}
 			}
 
 			.subImages {
-				margin: 20% 0 -10% 0;
+				margin: 50px 0 10px 0;
 
 				img {
-					width: 45%;
-					height: 50%;
 					margin-left: 5px;
+
+					&:hover {
+						cursor: pointer;
+					}
 				}
 			}
 
@@ -118,6 +123,116 @@
 					font-weight: 600;
 				}
 			}
+		}
+	}
+}
+
+@include tablet {
+	.listContainer {
+		position: relative;
+		min-height: 100%;
+		padding-bottom: 350px;
+
+		.buttons {
+			margin: 20px 0 0 20px;
+
+			.navButton {
+				display: inline;
+				font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+				span {
+					cursor: pointer;
+					font-size: 16px;
+					border: 1px solid rgb(7 238 1);
+					border-radius: 3px;
+					background-color: rgb(7 238 1);
+					padding: 2px 14px;
+				}
+			}
+		}
+
+		.productList {
+			margin-top: 20px;
+
+			.imageContainer {
+				display: flex;
+				justify-content: center;
+				margin: 20px 0;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				img {
+					width: 700px;
+					height: 700px;
+				}
+			}
+
+			.subImages {
+				display: none;
+			}
+
+			.contentContainer {
+				display: none;
+			}
+
+			.likieButton {
+				display: none;
+			}
+		}
+	}
+}
+
+@include mobile {
+	.listContainer {
+		position: relative;
+		min-height: 100%;
+		padding-bottom: 350px;
+
+		.buttons {
+			margin: 20px 0 0 20px;
+
+			.navButton {
+				display: inline;
+				font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+				span {
+					cursor: pointer;
+					font-size: 16px;
+					border: 1px solid rgb(7 238 1);
+					border-radius: 3px;
+					background-color: rgb(7 238 1);
+					padding: 2px 14px;
+				}
+			}
+		}
+
+		.imageContainer {
+			display: flex;
+			justify-content: center;
+			margin: 20px 0;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			img {
+				width: 500px;
+				height: 500px;
+			}
+		}
+
+		.subImages {
+			display: none;
+		}
+
+		.contentContainer {
+			display: none;
+		}
+
+		.likieButton {
+			display: none;
 		}
 	}
 }
