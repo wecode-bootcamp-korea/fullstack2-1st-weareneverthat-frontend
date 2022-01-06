@@ -6,10 +6,6 @@ import Footer from '../../components/Footer/Footer';
 import './List.scss';
 
 function ProductCard({ src, productId, colorId }) {
-<<<<<<< HEAD
-	console.log('colorId' + [colorId]);
-=======
->>>>>>> develop
 	const navigate = useNavigate();
 	function handleClick() {
 		navigate(`/products/${productId}?color=${colorId}`);

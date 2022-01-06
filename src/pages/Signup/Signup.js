@@ -1,7 +1,8 @@
-import './Signup.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
+import Footer from '../../components/Footer/Footer';
+import './Signup.scss';
 
 function Signup() {
 	const [nameValue, setNameValue] = useState('');
@@ -26,7 +27,7 @@ function Signup() {
 	const navigate = useNavigate();
 
 	const goToLogin = () => {
-		navigate('/login');
+		navigate('/users/login');
 	};
 
 	const signupLogic = () => {
@@ -53,7 +54,7 @@ function Signup() {
 	return (
 		<>
 			<Topnav />
-			<div className="Login">
+			<div className="Signup">
 				<div className="pageInfo">
 					<div className="accountBox" onClick={goToLogin}>
 						Account
@@ -110,6 +111,7 @@ function Signup() {
 					weareneverthat®
 				</section>
 			</div>
+			<Footer />
 		</>
 	);
 }

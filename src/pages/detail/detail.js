@@ -14,12 +14,7 @@ function Detail() {
 	const [detailSizeId, setDetailSizeId] = useState();
 
 	useEffect(() => {
-<<<<<<< HEAD
-		fetch(`http://localhost:8000/products/${id}${props.search}`)
-			// fetch(`http://localhost:8000/products/${id}?color=1`)
-=======
 		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}${props.search}`)
->>>>>>> develop
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
@@ -38,16 +33,8 @@ function Detail() {
 
 	const [quantityBySize, setQuantityBySize] = useState({});
 	useEffect(() => {
-<<<<<<< HEAD
-		fetch(`http://localhost:8000/products/${id}/quantity?color=${product.colorId}`)
-=======
-		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}/quantity?color=${product.colorId}`)
->>>>>>> develop
-			.then(res => res.json())
-			.then(data => {
-				setQuantityBySize(data);
-			});
-	}, [product]);
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}/quantity?color=${product.colorId}`);
+	});
 
 	const [images, setImages] = useState({});
 	useEffect(() => {
@@ -69,13 +56,9 @@ function Detail() {
 	};
 
 	const getQuantity = e => {
-<<<<<<< HEAD
-		fetch(`http://localhost:8000/products/${id}?color=${product.colorId}&size=${e.target.value}`)
-=======
 		fetch(
 			`${process.env.REACT_APP_SERVER_HOST}/products/${id}?color=${product.colorId}&size=${e.target.value}`,
 		)
->>>>>>> develop
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);

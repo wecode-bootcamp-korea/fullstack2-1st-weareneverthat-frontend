@@ -1,8 +1,8 @@
-import './Login.scss';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
+import './Login.scss';
 
 function Login() {
 	const [emailValue, setEmailValue] = useState('');
@@ -24,7 +24,7 @@ function Login() {
 	};
 
 	const loginLogic = () => {
-		fetch('${process.env.REACT_APP_SERVER_HOST}/users/signin', {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/users/signin`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			mode: 'cors',
