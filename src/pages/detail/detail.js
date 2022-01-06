@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router';
 import TopNav from '../../components/Topnav/Topnav';
 import Category from '../../components/category';
-import ProductInfo from '../../components/productinfo';
+import ProductInfo from '../../components/Productinfo';
 import Footer from '../../components/Footer/Footer';
 
 function Detail() {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Carousel, { CarouselItem } from './carousel';
 import '../pages/Detail/Detail.scss';
-import HeartButton from '../components/detailLikebutton/detailLikeButton';
+import HeartButton from './detailLikebutton/detailLikeButton';
 
 function ProductInfo(props) {
 	const { product, images, changeColor, getQuantity, showQuantity, quantityBySize, result } = props;
