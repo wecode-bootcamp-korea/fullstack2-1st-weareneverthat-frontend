@@ -125,7 +125,7 @@ function Topnav() {
 					<FontAwesomeIcon icon={faShoppingCart} onClick={handleCartModal} />
 				</Link>
 			</header>
-			<CartModal cartClass={cartClass} />
+			<CartModal cartClass={cartClass} closeCart={handleCartModal} />
 			<nav className={hiddenNavClass}>
 				<section className="wraper">
 					<section>
