@@ -2,12 +2,14 @@
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	cursor: default;
 
 	.footer-upper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		border-top: 1px solid black;
 
 		section {
 			margin: 10px 0;
@@ -26,26 +28,30 @@
 		}
 
 		.ft-menu {
-			font-weight: 600;
+			margin-left: 25px;
+			font-weight: 500;
+
 			a {
 				margin: 0 10px;
 			}
 		}
 
 		.ft-name {
-			margin-right: 50px;
+			margin-right: 40px;
 		}
 	}
 
 	.footer-lower {
 		display: flex;
 		justify-content: center;
-		font-size: 13px;
+		font-size: 12px;
+		margin-bottom: 15px;
 	}
 
 	@media (max-width: 1169px) {
 		.footer-upper {
 			display: block;
+			border-top: 1px solid black;
 			border-bottom: 1px solid black;
 			padding: 20px 0;
 
