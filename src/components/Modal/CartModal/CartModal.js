@@ -29,6 +29,24 @@ function CartModal({ cartClass, closeCart }) {
 
 	const result = carts.list && subTotal();
 
+	const handleClickCheckOut = () => {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/checkout`, {
+			method: 'POST',
+			headers: new Headers({
+				Authorization: sessionStorage.getItem('token'),
+				'Content-Type': 'application/json',
+			}),
+			body: JSON.stringify({
+				cartList: carts.list,
+			}),
+		}).then(() => {
+			setCarts({});
+			alert('결제가 완료되었습니다.');
+		});
+
+		closeCart();
+	};
+
 	return (
 		<div className={cartClass}>
 			{(carts.list ? carts.list.length : false) ? (
@@ -55,6 +73,8 @@ function CartModal({ cartClass, closeCart }) {
 								discountPrice={el.discountPrice}
 								closeCart={closeCart}
 								cartId={el.id}
+								detailOnSizeId={el.detailOnSizeId}
+								productId={el.productId}
 							/>
 						);
 					})
@@ -73,7 +93,9 @@ function CartModal({ cartClass, closeCart }) {
 						<div>SUBTOTAL</div>
 						<div>₩{result}</div>
 					</section>
-					<button className="checkoutBtn">CHECKOUT</button>
+					<button className="checkoutBtn" onClick={handleClickCheckOut}>
+						CHECKOUT
+					</button>
 					<section className="subInfo">배송비 및 쿠폰 적용은 결제 단계이서 적용됩니다.</section>
 				</section>
 			) : (

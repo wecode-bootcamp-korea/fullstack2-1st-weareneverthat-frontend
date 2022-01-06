@@ -89,7 +89,7 @@ function Topnav() {
 							<Link to="/products/top20">TOP20</Link>
 						</li>
 						<li>
-							<Link to="/users/login">FEATURES</Link>
+							<Link to="#">FEATURES</Link>
 						</li>
 						<li>
 							<Link to="#">SEARCH</Link>

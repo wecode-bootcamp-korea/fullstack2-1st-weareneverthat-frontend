@@ -11,7 +11,7 @@ function CartCard({
 	closeCart,
 	cartId,
 }) {
-	const handleClickDelete = () => {
+	const handleClickDelete = e => {
 		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cartList`, {
 			method: 'POST',
 			headers: new Headers({
@@ -21,6 +21,9 @@ function CartCard({
 			body: JSON.stringify({
 				cartId: cartId,
 			}),
+		}).then(data => {
+			const card = e.target.parentNode.parentNode;
+			card.parentNode.removeChild(card);
 		});
 	};
 

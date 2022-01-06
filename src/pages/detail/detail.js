@@ -38,7 +38,7 @@ function Detail() {
 			.then(data => {
 				setQuantityBySize(data);
 			});
-	});
+	}, [product]);
 
 	const [images, setImages] = useState({});
 	useEffect(() => {
@@ -71,7 +71,7 @@ function Detail() {
 	};
 
 	const showQuantity = () => {
-		if (product.quantity < 100) {
+		if (product.quantity < 20) {
 			return `주문 가능한 수량이 ${product.quantity}개 남았습니다.`;
 		} else {
 			return `${product.quantity}`;
