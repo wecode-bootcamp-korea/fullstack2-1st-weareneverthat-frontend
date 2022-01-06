@@ -153,7 +153,7 @@ function ProductInfo(props) {
 				<div className="productStock">
 					<ul>
 						<li className="stock">
-							{product.quantity < 1000 ? <p className="blink">{result}</p> : <p></p>}
+							{product.quantity < 20 ? <p className="blink">{result}</p> : <p></p>}
 						</li>
 					</ul>
 				</div>
