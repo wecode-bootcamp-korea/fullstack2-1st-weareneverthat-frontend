@@ -33,8 +33,12 @@ function Detail() {
 
 	const [quantityBySize, setQuantityBySize] = useState({});
 	useEffect(() => {
-		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}/quantity?color=${product.colorId}`);
-	});
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}/quantity?color=${product.colorId}`)
+			.then(res => res.json())
+			.then(data => {
+				setQuantityBySize(data);
+			});
+	}, []);
 
 	const [images, setImages] = useState({});
 	useEffect(() => {
