@@ -62,11 +62,11 @@ function ProductInfo(props) {
 									images.AllImages.map((el, index) => {
 										return (
 											<li>
-												<button onClick={changeColor} value={el.color}>
+												<button onClick={changeColor} value={el.colorId}>
 													<img
 														index={index}
 														src={el.image_url}
-														value={el.color}
+														value={el.colorId}
 														width="37px"
 														height="50px"
 													/>

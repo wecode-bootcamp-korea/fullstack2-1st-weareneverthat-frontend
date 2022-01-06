@@ -1,49 +1,76 @@
-import React, { useEffect, useState} from 'react';
-
-import ReactLoading from 'react-loading';
-
-
-
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import LikeButton from '../../components/LikeButton/likeButton';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './List.scss';
+import ReactLoading from 'react-loading';
 
-function ProductCard({ src, productId }) {
+function ProductCard({ src1, src2, src3, productId, colorId }) {
 	const navigate = useNavigate();
 	function handleClick() {
-		navigate(`/products/${productId}`);
+		console.log('colorId: ', colorId);
+		navigate(`/products/${productId}?color=${colorId}`);
 	}
 
 	return (
-		<div className="imageContainer" onClick={handleClick}>
-			<img src={src} alt="상품" />
+		<div className="imageFull">
+			<div className="imageContainer1" onClick={handleClick}>
+				<img src={src1} id="front1" alt="상품" />
+			</div>
+			<div className="imageContainer2" onClick={handleClick}>
+				<img src={src2} id="front2" alt="상품" />
+			</div>
+			<div className="imageContainer3" onClick={handleClick}>
+				<img src={src3} id="front3" alt="상품" />
+			</div>
 		</div>
 	);
 }
 
-function ProductCard2({ src1, src2 }) {
+function ProductCard2({ src1, src2, number, index, setNumber }) {
+	const clickImg1 = () => {
+		const arr = [...number];
+		arr[index] = 0;
+		setNumber(arr);
+		console.log(0);
+	};
+
+	const clickImg2 = () => {
+		const arr = [...number];
+		arr[index] = 1;
+		setNumber(arr);
+	};
 	return (
 		<div className="subImages">
-			<img src={src1} alt="상품" />
-			<img src={src2} alt="상품" />
+			<img src={src1} alt="상품" onClick={clickImg1} />
+			<img src={src2} alt="상품" onClick={clickImg2} />
 		</div>
 	);
 }
 
 function Sortbox({ className }) {
+	const navigate = useNavigate();
+	function handleClick1() {
+		navigate(`/products`);
+	}
+	function handleClick2() {
+		navigate('?sort=price-asc');
+	}
+	function handleClick3() {
+		navigate('?sort=price-desc');
+	}
 	return (
 		<form className={className}>
 			<div className="sort">SORT BY</div>
 			<br />
-			<input name="sorting" type="radio" />
+			<input name="sorting" type="radio" onClick={handleClick1} />
 			Recent
 			<br />
-			<input name="sorting" type="radio" />
+			<input name="sorting" type="radio" onClick={handleClick2} />
 			Price (Low)
 			<br />
-			<input name="sorting" type="radio" />
+			<input name="sorting" type="radio" onClick={handleClick3} />
 			Price (High)
 			<br />
 			<input name="sorting" type="radio" />
@@ -52,16 +79,13 @@ function Sortbox({ className }) {
 	);
 }
 
-function ProductCardMain({ content, price, newprice, productId, color }) {
+function ProductCardMain({ content, price, newprice, productId, colorId }) {
 	const navigate = useNavigate();
 	function handleClick() {
-		navigate(`/products/${productId}?color=${color}`);
+		navigate(`/products/${productId}?color=${colorId}`);
 	}
 	return (
 		<div className="contentContainer" onClick={handleClick}>
-function ProductCardMain({ content, price, newprice }) {
-	return (
-		<div className="contentContainer">
 			<h3>{content}</h3>
 			<div className="priceContainer">
 				<span className="price">￦{price}</span>
@@ -74,45 +98,21 @@ function ProductCardMain({ content, price, newprice }) {
 function List() {
 	const [productList, setProductList] = useState([]);
 	const [checked1, ischecked1] = useState('sortBox1');
-	const [target, setTarget] = useState('');
-	// const [isLoading, setIsLoading] = useState(false);
 
-	// const onIntersect = async ([entry], observer) => {
-	// 	if (entry.isIntersecting && !isLoading) {
-	// 		observer.unobserve(entry.target);
-	// 		setIsLoading(true);
-	// 		await new Promise(resolve => setTimeout(resolve, 2000));
-	// 		setProductList(productList => productList.concat(productList));
-	// 		console.log(setProductList);
-	// 		setIsLoading(false);
-	// 		observer.observe(entry.target);
-	// 	}
-	// };
-
-	// useEffect(() => {
-	// 	let observer;
-	// 	if (target) {
-	// 		observer = new IntersectionObserver(onIntersect, {
-	// 			threshold: 0.4,
-	// 		});
-	// 		observer.observe(target);
-	// 	}
-	// 	return () => observer && observer.disconnect();
-	// }, [target]);
+	const [number, setNumber] = useState([
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	]);
 
 	const activeButton = () => {
 		checked1 === 'sortBox1' ? ischecked1('sortBox2') : ischecked1('sortBox1');
 	};
 
-	useEffect(() => {
-		fetch('http://localhost:3000/data/soheon.json', {})
 	function useQuery() {
 		return new URLSearchParams(useLocation().search);
 	}
+
 	const query = useQuery();
 	const location = useLocation();
-
-	const [productList, setProductList] = useState([]);
 
 	useEffect(() => {
 		fetch(
@@ -122,7 +122,6 @@ function List() {
 			.then(data => {
 				setProductList(data);
 			});
-
 	}, [location]);
 
 	return (
@@ -138,7 +137,6 @@ function List() {
 					<button type="button" onClick={activeButton}>
 						Sort
 					</button>
-					<button type="button">View</button>
 					<>
 						<Sortbox className={checked1} />
 					</>
@@ -146,43 +144,38 @@ function List() {
 			</div>
 			<div className="productList">
 				{productList.product &&
-					productList.product.map(product => {
+					productList.product.map((product, index) => {
 						return (
 							<div className="image">
 								<ProductCard
-									src1={product.detail[0].image[0].imageUrl}
-									src2={product.detail[0].image[1].imageUrl}
-									src3={product.detail[0].image[2].imageUrl}
+									src1={product.detail[number[index]].image[0].imageUrl}
+									src2={product.detail[number[index]].image[1].imageUrl}
+									src3={product.detail[number[index]].image[2].imageUrl}
 									key={product.productId}
-									productId={product.productId}
-									color={product.detail[0].productDetailName}
+									productId={product.id}
+									colorId={product.detail[0].productColorId}
 								/>
 								<ProductCard2
 									src1={product.detail[0].image[0].imageUrl}
 									src2={product.detail[1].image[0].imageUrl}
 									key={product.productId}
+									setNumber={setNumber}
+									number={number}
+									index={index}
 								/>
 								<ProductCardMain
 									content={product.name}
 									price={product.price}
 									newprice={product.discountPrice}
 									key={product.productId}
-									productId={product.productId}
-									color={product.detail[0].productDetailName}
+									productId={product.id}
+									colorId={product.detail[0].productColorId}
 								/>
 								<LikeButton productId={product.id} heartCount={product.heart.length} />
 							</div>
 						);
 					})}
 			</div>
-			{/* {isLoading ? (
-				<div className="LoaderWrap">
-					<ReactLoading type="spin" color="#A593E0" />
-				</div>
-			) : (
-				'not in view port'
-			)}
-			<div ref={setTarget}></div> */}
 			<Footer />
 		</div>
 	);
