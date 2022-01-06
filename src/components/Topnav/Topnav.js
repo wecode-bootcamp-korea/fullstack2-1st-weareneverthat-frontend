@@ -13,7 +13,7 @@ function Topnav() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch('${process.env.REACT_APP_URL}/users', {
+		fetch(`${process.env.REACT_APP_URL}/users`, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())
