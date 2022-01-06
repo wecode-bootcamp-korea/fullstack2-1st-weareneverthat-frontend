@@ -17,6 +17,51 @@
 			"name": "ARCH-LOGO CREWNECK",
 			"price": 50000,
 			"discountPrice": 48000
+		},
+		{
+			"userId": 1,
+			"size": "S",
+			"color": "Black",
+			"imageUrl": "https://images.pexels.com/photos/6530607/pexels-photo-6530607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+			"name": "ARCH-LOGO CREWNECK",
+			"price": 50000,
+			"discountPrice": 48000
+		},
+		{
+			"userId": 1,
+			"size": "S",
+			"color": "Black",
+			"imageUrl": "https://images.pexels.com/photos/6530607/pexels-photo-6530607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+			"name": "ARCH-LOGO CREWNECK",
+			"price": 50000,
+			"discountPrice": 48000
+		},
+		{
+			"userId": 1,
+			"size": "S",
+			"color": "Black",
+			"imageUrl": "https://images.pexels.com/photos/6530607/pexels-photo-6530607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+			"name": "ARCH-LOGO CREWNECK",
+			"price": 50000,
+			"discountPrice": 48000
+		},
+		{
+			"userId": 1,
+			"size": "S",
+			"color": "Black",
+			"imageUrl": "https://images.pexels.com/photos/6530607/pexels-photo-6530607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+			"name": "ARCH-LOGO CREWNECK",
+			"price": 50000,
+			"discountPrice": 48000
+		},
+		{
+			"userId": 1,
+			"size": "S",
+			"color": "Black",
+			"imageUrl": "https://images.pexels.com/photos/6530607/pexels-photo-6530607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+			"name": "ARCH-LOGO CREWNECK",
+			"price": 50000,
+			"discountPrice": 48000
 		}
 	]
 }
