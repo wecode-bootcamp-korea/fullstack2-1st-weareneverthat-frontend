@@ -104,7 +104,6 @@
 
 						#front1 {
 							width: 90%;
-							opacity: 1;
 							position: absolute;
 							top: 0;
 							left: 0;
@@ -128,9 +127,7 @@
 
 						#front2 {
 							width: 90%;
-							opacity: 0;
 							position: absolute;
-							z-index: 0;
 							left: 0;
 						}
 
@@ -138,11 +135,11 @@
 						// 	transition: 1s;
 						// 	opacity: 1;
 						// }
-						.imageContainer1:hover #front2 {
-							transition: 1s;
-							opacity: 1;
-							position: absolute;
-						}
+						// .imageContainer1:hover #front2 {
+						// 	transition: 1s;
+						// 	opacity: 1;
+						// 	position: absolute;
+						// }
 					}
 					.imageContainer3 {
 						display: flex;
@@ -154,11 +151,8 @@
 
 						#front3 {
 							width: 90%;
-							opacity: 0;
-							transition: opacity 1s linear;
 							position: absolute;
 							left: 0;
-							z-index: 0;
 						}
 						// #front3:hover {
 						// 	opacity: 1;
