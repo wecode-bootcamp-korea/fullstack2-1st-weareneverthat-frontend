@@ -76,8 +76,11 @@ function Ranking() {
 	};
 
 	return (
-		<>
+		<div className="rank">
 			<Topnav />
+			<nav className="category">
+				<span className="top20Category">Top 20</span>
+			</nav>
 			<div className="ranking" onMouseMove={onMouseMove}>
 				<div>
 					<img src={hoverImage} alt="alert img" className="imageAlert" />
@@ -98,9 +101,9 @@ function Ranking() {
 							/>
 						);
 					})}
-				<Footer />
 			</div>
-		</>
+			<Footer />
+		</div>
 	);
 }
 
