@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faYoutube, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import CartModal from '../Modal/CartModal/CartModal';
-import Footer from '../Footer/Footer';
 import './Topnav.scss';
 
 function Topnav() {
