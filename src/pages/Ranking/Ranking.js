@@ -4,7 +4,7 @@ import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './Ranking.scss';
 
-function List({ name, category, imageUrl, changeImage, productId, index }) {
+function List({ name, category, imageUrl, changeImage, productId, productColor, index }) {
 	const navigate = useNavigate();
 
 	const handleMouseEnter = () => {
@@ -16,7 +16,7 @@ function List({ name, category, imageUrl, changeImage, productId, index }) {
 	};
 
 	const handleClick = () => {
-		navigate(`/products/${productId}`);
+		navigate(`/products/${productId}?color=${productColor}`);
 	};
 
 	return (
@@ -40,7 +40,7 @@ function Ranking() {
 	const [hoverImage, setHoverImage] = useState('');
 
 	useEffect(() => {
-		fetch('http://localhost:8000/products/top20', {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/top20`, {
 			method: 'GET',
 		})
 			.then(res => res.json())
@@ -69,7 +69,7 @@ function Ranking() {
 		<>
 			<Topnav />
 			<div className="ranking" onMouseMove={onMouseMove}>
-				<img src={hoverImage} className="imageAlert" />
+				<img src={hoverImage} alt="alert img" className="imageAlert" />
 
 				{productList.product &&
 					productList.product.map((product, index) => {
@@ -81,6 +81,7 @@ function Ranking() {
 								changeImage={setHoverImage}
 								index={index}
 								productId={product.id}
+								productColor={product.detail[0].productColorId}
 							/>
 						);
 					})}

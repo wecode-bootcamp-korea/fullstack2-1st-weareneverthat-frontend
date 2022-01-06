@@ -43,8 +43,8 @@ function ProductCard2({ src1, src2, number, index, setNumber }) {
 	};
 	return (
 		<div className="subImages">
-			<img src={src1} alt="상품" onClick={clickImg1} />
-			<img src={src2} alt="상품" onClick={clickImg2} />
+			<img src={src1} alt="상품" width={50} height={65} onClick={clickImg1} />
+			<img src={src2} alt="상품" width={50} height={65} onClick={clickImg2} />
 		</div>
 	);
 }
@@ -114,13 +114,29 @@ function List() {
 	const query = useQuery();
 	const location = useLocation();
 
+	const [categoryName, setCategoryName] = useState();
+
 	useEffect(() => {
 		fetch(
-			`http://localhost:8000/products/?category=${query.get('category')}&sort=${query.get('sort')}`,
+			`${process.env.REACT_APP_SERVER_HOST}/products/?category=${query.get(
+				'category',
+			)}&sort=${query.get('sort')}`,
 		)
 			.then(res => res.json())
 			.then(data => {
 				setProductList(data);
+
+				if (query.get('category') === '1') {
+					setCategoryName('OuterWear');
+				} else if (query.get('category') === '2') {
+					setCategoryName('SweatShirts');
+				} else if (query.get('category') === '3') {
+					setCategoryName('Bottoms');
+				} else if (query.get('category') === '4') {
+					setCategoryName('Shoes');
+				} else {
+					setCategoryName('All');
+				}
 			});
 	}, [location]);
 
@@ -129,9 +145,9 @@ function List() {
 			<div>
 				<Topnav />
 			</div>
-			<div className="buttons">
+			<nav className="buttons">
 				<div className="navButton">
-					<span type="button">All</span>
+					<span type="button">{categoryName}</span>
 				</div>
 				<div className="sortingButton">
 					<button type="button" onClick={activeButton}>
@@ -141,7 +157,7 @@ function List() {
 						<Sortbox className={checked1} />
 					</>
 				</div>
-			</div>
+			</nav>
 			<div className="productList">
 				{productList.product &&
 					productList.product.map((product, index) => {

@@ -7,7 +7,7 @@
 }
 
 .Topnav {
-	font-family: 'Spoqa Han Sans';
+	font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	width: 100%;
 
 	header {
@@ -37,6 +37,16 @@
 			span {
 				font-size: 16px;
 			}
+		}
+
+		.login:hover {
+			cursor: pointer;
+			color: #0e0;
+		}
+
+		.cartButton:hover {
+			cursor: pointer;
+			color: #0e0;
 		}
 
 		nav {
