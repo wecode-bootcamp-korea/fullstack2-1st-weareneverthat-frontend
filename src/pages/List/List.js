@@ -88,6 +88,7 @@ function List() {
 			<div className="productList">
 				{productList.product &&
 					productList.product.map((product, index) => {
+						console.log(product);
 						return (
 							<div className="image">
 								<ProductCard

@@ -24,7 +24,7 @@ function Login() {
 	};
 
 	const loginLogic = () => {
-		fetch('${process.env.REACT_APP_SERVER_HOST}/users/signin', {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/users/signin`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			mode: 'cors',

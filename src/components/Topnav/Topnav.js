@@ -13,7 +13,7 @@ function Topnav() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch('${process.env.REACT_APP_URL}/users', {
+		fetch(`${process.env.REACT_APP_URL}/users`, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())
@@ -125,7 +125,7 @@ function Topnav() {
 					<FontAwesomeIcon icon={faShoppingCart} onClick={handleCartModal} />
 				</Link>
 			</header>
-			<CartModal cartClass={cartClass} />
+			<CartModal cartClass={cartClass} closeCart={handleCartModal} />
 			<nav className={hiddenNavClass}>
 				<section className="wraper">
 					<section>
