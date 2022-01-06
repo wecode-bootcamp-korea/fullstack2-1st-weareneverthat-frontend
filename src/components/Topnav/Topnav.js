@@ -9,11 +9,11 @@ function Topnav() {
 	const [isCartOn, setIsCartOn] = useState(false);
 	const [cartClass, setCartClass] = useState('CartModalOff');
 	const [hiddenNavClass, setHiddenNavClass] = useState('navOff');
-	const [loginButton, setLoginButton] = useState('Login');
+	const [loginButton, setLoginButton] = useState('LOGIN');
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch('${process.env.REACT_APP_URL}/users', {
+		fetch(`${process.env.REACT_APP_URL}/users`, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())

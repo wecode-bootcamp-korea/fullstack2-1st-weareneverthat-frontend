@@ -2,9 +2,14 @@
 	cursor: pointer;
 	transition: transform 300ms ease;
 	font-size: 20px;
+	text-align: center;
 	margin-top: 10px;
-	margin-left: 25px;
+
+	&:hover {
+		transform: scale(1.1);
+	}
 }
+
 .red {
 	font-size: 20px;
 	color: red;
@@ -12,12 +17,5 @@
 
 .liking {
 	color: red;
-}
-
-.button:hover {
-	transform: scale(1.1);
-}
-
-.liking {
 	margin-left: 10px;
 }

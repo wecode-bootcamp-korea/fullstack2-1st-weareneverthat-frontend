@@ -6,7 +6,7 @@ import './CartModal.scss';
 function CartModal({ cartClass, closeCart }) {
 	const [carts, setCarts] = useState({});
 	useEffect(() => {
-		fetch('http://localhost:3000/data/cartMock.json', {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cartList`, {
 			method: 'GET',
 			headers: { 'Content-Type': 'application/json' },
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
