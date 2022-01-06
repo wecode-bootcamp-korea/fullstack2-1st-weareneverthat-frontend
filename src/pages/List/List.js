@@ -12,53 +12,16 @@ function ProductCard({ src1, src2, src3, productId, colorId }) {
 		navigate(`/products/${productId}?color=${colorId}`);
 	}
 
-	function mouseOver1() {
-		var d = document.img1;
-		d.src = { src2 };
-	}
-
-	function mouseOut1() {
-		var d = document.img1;
-		d.src = { src1 };
-	}
-	function mouseOver2() {
-		var d = document.img2;
-		d.src = { src3 };
-	}
-	function mouseOut2() {
-		var d = document.img2;
-		d.src = { src3 };
-	}
-	function mouseOut3() {
-		var d = document.img3;
-		d.src = { src1 };
-	}
-
 	return (
 		<div className="imageFull">
-			<div className="imageContainer1" onClick={handleClick}>
-				<img
-					src={src1}
-					name="img1"
-					id="front1"
-					alt="상품"
-					onMouseOver={mouseOver1}
-					onMouseOut={mouseOut1}
-				/>
-			</div>
-			<div className="imageContainer2" onClick={handleClick}>
-				<img
-					src={src2}
-					name="img2"
-					id="front2"
-					alt="상품"
-					onMouseOver={mouseOver2}
-					onMouseOut={mouseOut2}
-				/>
-			</div>
-			<div className="imageContainer3" onClick={handleClick}>
-				<img src={src3} id="front3" name="img3" alt="상품" onMouseOut={mouseOut3} />
-			</div>
+			<div className="imageContainer1" onClick={handleClick}></div>
+			<img src={src1} className="img1" alt="상품" width="450px" height="450px" />
+
+			<div div className="imageContainer2" onClick={handleClick}></div>
+			<img src={src2} className="img2" alt="상품" width="450px" height="450px" />
+
+			<div className="imageContainer3" onClick={handleClick}></div>
+			<img src={src3} className="img3" alt="상품" width="450px" height="450px" />
 		</div>
 	);
 }

@@ -7,8 +7,18 @@ const InfiObserverList = () => {
 	const [loading, setLoading] = useState(false);
 	const observer = useRef();
 
+	function useQuery() {
+		return new URLSearchParams(useLocation().search);
+	}
+
+  const query = useQuery();
+	const location = useLocation();
+
+	const query = useQuery();
 	const getFetchData = () => {
-		const url = `https://jsonplaceholder.typicode.com/comments?_page=${page}&_limit=10`;
+		const url = `${process.env.REACT_APP_SERVER_HOST}/products/?category=${query.get(
+			'category',
+		)}&sort=${query.get('sort')}`;
 		fetch(url)
 			.then(res => res.json())
 			.then(item => {
@@ -38,7 +48,7 @@ const InfiObserverList = () => {
 	return (
 		<div>
 			{items?.map(item => (
-				<CommentItem key={item.id} item={item} />
+				<List key={item.id} item={item} />
 			))}
 			<div ref={observer} />
 		</div>
