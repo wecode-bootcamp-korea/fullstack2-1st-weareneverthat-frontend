@@ -1,7 +1,7 @@
 import './Topnav.scss';
 import CartModal from '../Modal/CartModal/CartModal';
-import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,6 +9,20 @@ function Topnav() {
 	const [isCartOn, setIsCartOn] = useState(false);
 	const [cartClass, setCartClass] = useState('CartModalOff');
 	const [hiddenNavClass, setHiddenNavClass] = useState('navOff');
+	const [loginButton, setLoginButton] = useState('Login');
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		fetch('${process.env.REACT_APP_URL}/users', {
+			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
+		})
+			.then(res => res.json())
+			.then(data => {
+				if (data.message !== 'VALIDATE_ERROR') {
+					setLoginButton('Logout');
+				}
+			});
+	}, []);
 
 	const handleCartModal = () => {
 		setIsCartOn(!isCartOn);
@@ -24,6 +38,16 @@ function Topnav() {
 			setHiddenNavClass('navOn');
 		} else {
 			setHiddenNavClass('navOff');
+		}
+	};
+
+	const handleLoginClick = () => {
+		if (loginButton === 'Login') {
+			navigate('/users/login');
+		} else {
+			sessionStorage.removeItem('token');
+			navigate('/');
+			setLoginButton('Login');
 		}
 	};
 
@@ -89,11 +113,11 @@ function Topnav() {
 						<li>
 							<Link to="#">KOR / ₩</Link>
 						</li>
-						<li>
-							<Link to="/users/login">LOGIN</Link>
+						<li onClick={handleLoginClick} className="login">
+							{loginButton}
 						</li>
-						<li onClick={handleCartModal}>
-							<Link to="#">CART</Link>
+						<li onClick={handleCartModal} className="cartButton">
+							CART
 						</li>
 					</ul>
 				</nav>
@@ -101,7 +125,7 @@ function Topnav() {
 					<FontAwesomeIcon icon={faShoppingCart} onClick={handleCartModal} />
 				</Link>
 			</header>
-			<CartModal cartClass={cartClass} />
+			<CartModal cartClass={cartClass} closeCart={handleCartModal} />
 			<nav className={hiddenNavClass}>
 				<section className="wraper">
 					<section>
