@@ -13,7 +13,7 @@ function Topnav() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch('http://localhost:8000/users', {
+		fetch('${process.env.REACT_APP_URL}/users', {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())
@@ -116,7 +116,9 @@ function Topnav() {
 						<li onClick={handleLoginClick} className="login">
 							{loginButton}
 						</li>
-						<li onClick={handleCartModal}>CART</li>
+						<li onClick={handleCartModal} className="cartButton">
+							CART
+						</li>
 					</ul>
 				</nav>
 				<Link to="" className="cartBtn">

@@ -23,7 +23,7 @@ function ProductInfo(props) {
 	const [imageClick, setImageClick] = useState(false);
 
 	const handleClickCart = () => {
-		fetch(`http://localhost:8000/products/cart?detailSizeId=${detailSizeId}`, {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cart?detailSizeId=${detailSizeId}`, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())

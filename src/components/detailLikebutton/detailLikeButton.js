@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import './detailLikeButton.scss';
@@ -7,7 +7,7 @@ function HeartButton({ productId, isHeart, setIsHeart }) {
 	const navigate = useNavigate();
 
 	const handleClickHeart = () => {
-		fetch('http://localhost:8000/products/heart?productId=' + productId, {
+		fetch('${process.env.REACT_APP_SERVER_HOST}/products/heart?productId=' + productId, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())

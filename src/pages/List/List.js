@@ -52,7 +52,9 @@ function List() {
 
 	useEffect(() => {
 		fetch(
-			`http://localhost:8000/products/?category=${query.get('category')}&sort=${query.get('sort')}`,
+			`${process.env.REACT_APP_SERVER_HOST}/products/?category=${query.get(
+				'category',
+			)}&sort=${query.get('sort')}`,
 		)
 			.then(res => res.json())
 			.then(data => {

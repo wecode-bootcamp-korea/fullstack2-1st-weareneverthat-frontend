@@ -40,7 +40,7 @@ function Ranking() {
 	const [hoverImage, setHoverImage] = useState('');
 
 	useEffect(() => {
-		fetch('http://localhost:8000/products/top20', {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/top20`, {
 			method: 'GET',
 		})
 			.then(res => res.json())
@@ -69,7 +69,7 @@ function Ranking() {
 		<>
 			<Topnav />
 			<div className="ranking" onMouseMove={onMouseMove}>
-				<img src={hoverImage} className="imageAlert" />
+				<img src={hoverImage} alt="alert img" className="imageAlert" />
 
 				{productList.product &&
 					productList.product.map((product, index) => {
