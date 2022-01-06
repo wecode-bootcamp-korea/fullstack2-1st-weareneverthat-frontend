@@ -10,7 +10,6 @@ function ProductInfo(props) {
 		images,
 		changeColor,
 		getQuantity,
-		showQuantity,
 		quantityBySize,
 		result,
 		isHeart,
