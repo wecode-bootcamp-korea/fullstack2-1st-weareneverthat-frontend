@@ -16,7 +16,7 @@ function CartModal({ cartClass, closeCart }) {
 			.then(data => {
 				setCarts(data);
 			});
-	}, [cartClass]);
+	}, [cartClass, carts]);
 
 	const subTotal = () => {
 		let subTotal = 0;
