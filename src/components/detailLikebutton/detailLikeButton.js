@@ -7,7 +7,7 @@ function HeartButton({ productId, isHeart, setIsHeart }) {
 	const navigate = useNavigate();
 
 	const handleClickHeart = () => {
-		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/heart?productId=` + productId, {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/heart?productId=${productId}`, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())

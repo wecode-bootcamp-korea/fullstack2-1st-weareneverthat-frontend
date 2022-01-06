@@ -53,6 +53,7 @@ function CartModal({ cartClass, closeCart }) {
 								price={el.price}
 								discountPrice={el.discountPrice}
 								closeCart={closeCart}
+								cartId={el.id}
 							/>
 						);
 					})
