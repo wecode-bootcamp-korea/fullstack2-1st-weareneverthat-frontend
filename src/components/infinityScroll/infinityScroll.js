@@ -1,43 +1,48 @@
-// import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import List from '../../pages/List/List';
 
-// const [isLoading, setIsLoading] = useState(false);
+const InfiObserverList = () => {
+	const [page, setPage] = useState(1);
+	const [items, setItems] = useState([]);
+	const [loading, setLoading] = useState(false);
+	const observer = useRef();
 
-// const [target, setTarget] = useState('');
+	const getFetchData = () => {
+		const url = `https://jsonplaceholder.typicode.com/comments?_page=${page}&_limit=10`;
+		fetch(url)
+			.then(res => res.json())
+			.then(item => {
+				setItems(prev => [...prev, ...item]);
+				setLoading(true);
+			});
+	};
 
-// const onIntersect = async ([entry], observer) => {
-// 	if (entry.isIntersecting && !isLoading) {
-// 		observer.unobserve(entry.target);
-// 		setIsLoading(true);
-// 		await new Promise(resolve => setTimeout(resolve, 4000));
-// 		const getListData = async productList => {
-// 			const loadedListData = await fetch(
-// 				`http://localhost:8000/products/?category=${query.get('category')}&sort=${query.get('sort')}`,
-// 			);
-// 			const response = await loadedListData.json();
-// 			setListData(listData.concat(response));
-// 		};
-// 		console.log(setProductList);
-// 		setIsLoading(false);
-// 		observer.observe(entry.target);
-// 	}
-// };
+	useEffect(() => getFetchData(), [page]);
 
-// useEffect(() => {
-// 	let observer;
-// 	if (target) {
-// 		observer = new IntersectionObserver(onIntersect, {
-// 			threshold: 0.4,
-// 		});
-// 		observer.observe(target);
-// 	}
-// 	return () => observer && observer.disconnect();
-// }, [target]);
+	const onIntersect = entries => {
+		const target = entries[0];
+		if (target.isIntersecting) setPage(p => p + 1);
+	};
 
-// {isLoading ? (
-//   <div className="LoaderWrap">
-//     <ReactLoading type="spin" color="#A593E0" />
-//   </div>
-// ) : (
-//   'not in view port'
-// )}
-// <div ref={setTarget}></div>
+	useEffect(() => {
+		if (!observer.current) return;
+
+		if (loading) {
+			const io = new IntersectionObserver(onIntersect, { threshold: 1 });
+			io.observe(observer.current);
+
+			return () => io.disconnect();
+		}
+	}, [loading]);
+
+	return (
+		<div>
+			{items?.map(item => (
+				<CommentItem key={item.id} item={item} />
+			))}
+			<div ref={observer} />
+		</div>
+	);
+};
+
+export default InfiObserverList;

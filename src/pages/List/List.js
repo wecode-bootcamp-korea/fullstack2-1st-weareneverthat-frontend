@@ -4,7 +4,6 @@ import LikeButton from '../../components/LikeButton/likeButton';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './List.scss';
-import ReactLoading from 'react-loading';
 
 function ProductCard({ src1, src2, src3, productId, colorId }) {
 	const navigate = useNavigate();
