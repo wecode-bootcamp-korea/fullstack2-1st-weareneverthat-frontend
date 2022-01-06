@@ -29,6 +29,9 @@ function ProductInfo(props) {
 			.then(res => res.json())
 			.then(data => {
 				if (data.message === 'VALIDATE_ERROR') navigate('/users/login');
+				else {
+					alert('장바구니에 추가되었습니다.');
+				}
 			});
 	};
 
