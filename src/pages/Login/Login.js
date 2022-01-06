@@ -1,8 +1,8 @@
-import './Login.scss';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
+import './Login.scss';
 
 function Login() {
 	const [emailValue, setEmailValue] = useState('');
@@ -36,6 +36,7 @@ function Login() {
 			.then(res => res.json())
 			.then(data => {
 				if (data.message === 'KEY_ERROR') {
+					setVisibility('visible');
 				} else {
 					goToMain();
 					sessionStorage.setItem('token', data.token);

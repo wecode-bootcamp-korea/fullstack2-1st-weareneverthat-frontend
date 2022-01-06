@@ -136,6 +136,7 @@
 			color: white;
 			background-color: black;
 			text-align: center;
+			cursor: pointer;
 		}
 
 		.subInfo {
@@ -160,6 +161,7 @@
 	width: 400px;
 	transition: all 600ms cubic-bezier(0.5, 0, 0.07, 1);
 	background-color: white;
+	z-index: 9999;
 
 	@include cartCard();
 
@@ -256,6 +258,7 @@
 			color: white;
 			background-color: black;
 			text-align: center;
+			cursor: pointer;
 		}
 
 		.subInfo {
