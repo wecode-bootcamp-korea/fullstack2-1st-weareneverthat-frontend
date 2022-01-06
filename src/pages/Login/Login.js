@@ -1,8 +1,8 @@
-import './Login.scss';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
+import './Login.scss';
 
 function Login() {
 	const [emailValue, setEmailValue] = useState('');
