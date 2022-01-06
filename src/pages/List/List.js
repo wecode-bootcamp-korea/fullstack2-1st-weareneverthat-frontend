@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import LikeButton from '../../components/LikeButton/LikeButton';
+import LikeButton from '../../components/LikeButton/likeButton';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './List.scss';
 
-function ProductCard({ src, productId }) {
+function ProductCard({ src, productId, colorId }) {
 	const navigate = useNavigate();
 	function handleClick() {
-		navigate(`/products/${productId}`);
+		navigate(`/products/${productId}?color=${colorId}`);
 	}
 
 	return (
@@ -48,13 +48,29 @@ function List() {
 
 	const [productList, setProductList] = useState([]);
 
+	const [categoryName, setCategoryName] = useState();
+
 	useEffect(() => {
 		fetch(
-			`http://localhost:8000/products/?category=${query.get('category')}&sort=${query.get('sort')}`,
+			`${process.env.REACT_APP_SERVER_HOST}/products/?category=${query.get(
+				'category',
+			)}&sort=${query.get('sort')}`,
 		)
 			.then(res => res.json())
 			.then(data => {
 				setProductList(data);
+
+				if (query.get('category') === '1') {
+					setCategoryName('OuterWear');
+				} else if (query.get('category') === '2') {
+					setCategoryName('SweatShirts');
+				} else if (query.get('category') === '3') {
+					setCategoryName('Bottoms');
+				} else if (query.get('category') === '4') {
+					setCategoryName('Shoes');
+				} else {
+					setCategoryName('All');
+				}
 			});
 	}, [location]);
 
@@ -65,23 +81,20 @@ function List() {
 			</div>
 			<div className="buttons">
 				<div className="navButton">
-					<span type="button">All</span>
+					<span type="button">{categoryName}</span>
 				</div>
-				<div className="sortingButton">
-					<button type="button">Sort</button>
-
-					<button type="button">View</button>
-				</div>
+				<div className="sortingButton"></div>
 			</div>
 			<div className="productList">
 				{productList.product &&
-					productList.product.map(product => {
+					productList.product.map((product, index) => {
 						return (
 							<div className="image">
 								<ProductCard
 									src={product.detail[0].image[0].imageUrl}
 									key={product.productId1}
 									productId={product.id}
+									colorId={product.detail[0].productColorId}
 								/>
 								<ProductCard2
 									src1={product.detail[0].image[0].imageUrl}

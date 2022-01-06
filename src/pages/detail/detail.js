@@ -10,18 +10,30 @@ function Detail() {
 	const props = useLocation();
 
 	const [product, setProduct] = useState({});
+	const [isHeart, setIsHeart] = useState(false);
+	const [detailSizeId, setDetailSizeId] = useState();
+
 	useEffect(() => {
-		fetch('http://localhost:8000/products/1')
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}${props.search}`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
 			});
-	}, []);
-	console.log(1);
+	}, [id]);
+
+	useEffect(() => {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/isHeart?productId=${id}`, {
+			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
+		})
+			.then(res => res.json())
+			.then(data => {
+				setIsHeart(Boolean(data.heart));
+			});
+	}, [id]);
 
 	const [quantityBySize, setQuantityBySize] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/${id}/quantity?color=${product.color}`)
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}/quantity?color=${product.colorId}`)
 			.then(res => res.json())
 			.then(data => {
 				setQuantityBySize(data);
@@ -30,7 +42,7 @@ function Detail() {
 
 	const [images, setImages] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/${id}/images`)
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}/images`)
 			.then(res => res.json())
 			.then(data => {
 				setImages(data);
@@ -38,7 +50,9 @@ function Detail() {
 	}, []);
 
 	const changeColor = e => {
-		fetch(`http://localhost:8000/products/${id}?color=${e.currentTarget.value}&size=s`)
+		fetch(
+			`${process.env.REACT_APP_SERVER_HOST}/products/${id}?color=${e.currentTarget.value}&size=s`,
+		)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
@@ -46,30 +60,33 @@ function Detail() {
 	};
 
 	const getQuantity = e => {
-		fetch(`http://localhost:8000/products/${id}?color=${product.color}&size=${e.target.value}`)
+		fetch(
+			`${process.env.REACT_APP_SERVER_HOST}/products/${id}?color=${product.colorId}&size=${e.target.value}`,
+		)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
+				setDetailSizeId(data.detailSizeId);
 			});
 	};
 
 	const showQuantity = () => {
-		if (product.quantity < 150) {
+		if (product.quantity < 100) {
 			return `주문 가능한 수량이 ${product.quantity}개 남았습니다.`;
 		} else {
-			return product.quantity;
+			return `${product.quantity}`;
 		}
 	};
 
 	const result = showQuantity();
 
 	return (
-		<div>
+		<div className="detail">
 			<div>
 				<TopNav />
 			</div>
+			<Category categoryName={product.categoryName} productName={product.name} />
 			<div className="wrapper">
-				<Category />
 				<ProductInfo
 					product={product}
 					images={images}
@@ -78,11 +95,12 @@ function Detail() {
 					getQuantity={getQuantity}
 					showQuantity={showQuantity}
 					result={result}
+					isHeart={isHeart}
+					setIsHeart={setIsHeart}
+					detailSizeId={detailSizeId}
 				/>
 			</div>
-			<div>
-				<Footer />
-			</div>
+			<Footer />
 		</div>
 	);
 }

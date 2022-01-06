@@ -1,139 +1,99 @@
 import React, { useState, useEffect } from 'react';
 import Carousel, { CarouselItem } from './carousel';
+import { useNavigate } from 'react-router-dom';
 import '../pages/Detail/Detail.scss';
 import HeartButton from './detailLikebutton/detailLikeButton';
 
 function ProductInfo(props) {
-	const { product, images, changeColor, getQuantity, showQuantity, quantityBySize, result } = props;
+	const {
+		product,
+		images,
+		changeColor,
+		getQuantity,
+		showQuantity,
+		quantityBySize,
+		result,
+		isHeart,
+		setIsHeart,
+		detailSizeId,
+	} = props;
+
+	const navigate = useNavigate();
+
+	const [imageClick, setImageClick] = useState(false);
+
+	const handleClickCart = () => {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cart?detailSizeId=${detailSizeId}`, {
+			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
+		})
+			.then(res => res.json())
+			.then(data => {
+				if (data.message === 'VALIDATE_ERROR') navigate('/users/login');
+			});
+	};
 
 	return (
 		<>
 			<div className="slide">
 				<div className="leftSlide">
 					<button>
-						<a href="#!">
-							<img
-								src="https://cdn.shopify.com/s/files/1/0562/4971/2815/products/PERTEX-T-Down-Jacket-Bandana-Black1_1080x.jpg?v=1632893620"
-								alt="1"
-								width={60}
-								height={75}
-							/>
-							{/* {product.image_url &&
-								product.image_url.map(el => {
-									return <img src={el} width="60px" height="75px" className="subImg" />;
-								})} */}
-						</a>
-					</button>
-					<button>
-						<a href="#!">
-							<img
-								src="https://cdn.shopify.com/s/files/1/0562/4971/2815/products/PERTEX-T-Down-Jacket-Bandana-Black1_1080x.jpg?v=1632893620"
-								alt="1"
-								width={60}
-								height={75}
-							/>
-						</a>
-					</button>
-					<button>
-						<a href="#!">
-							<img
-								src="https://cdn.shopify.com/s/files/1/0562/4971/2815/products/PERTEX-T-Down-Jacket-Bandana-Black1_1080x.jpg?v=1632893620"
-								alt="1"
-								width={60}
-								height={75}
-							/>
-						</a>
+						{product.image_url &&
+							product.image_url.map((el, index) => {
+								return (
+									<label onClick={() => setImageClick(!imageClick)}>
+										<input type="radio" name="subImg" id={index} />
+										<img index={index} src={el} width="60px" height="75px" className="subImg" />
+									</label>
+								);
+							})}
 					</button>
 				</div>
 			</div>
 			<div className="mainslide">
 				<div className="slideShow">
 					<Carousel>
-						{/* {product.image_url &&
+						{product.image_url &&
 							product.image_url.map((el, index) => {
-								return ( */}
-						<CarouselItem>
-							{/* <img index={index} src={el} width="460px" height="620px" className="mainImg" /> */}
-							<img
-								src="https://cdn.shopify.com/s/files/1/0562/4971/2815/products/PERTEX-T-Down-Jacket-Bandana-Black1_1080x.jpg?v=1632893620"
-								alt="1"
-								width={460}
-								height={620}
-							/>
-						</CarouselItem>
-						{/* );
-							})} */}
-						<CarouselItem>
-							<img
-								src="https://cdn.shopify.com/s/files/1/0562/4971/2815/products/PERTEX-T-Down-Jacket-Bandana-Black5_1080x.jpg?v=1632893620"
-								alt="1"
-								width={460}
-								height={620}
-							/>
-						</CarouselItem>
-						<CarouselItem>
-							<img
-								src="https://cdn.shopify.com/s/files/1/0562/4971/2815/products/PERTEX-T-Down-Jacket-Bandana-Black4_1080x.jpg?v=1632893620"
-								alt="1"
-								width={460}
-								height={620}
-							/>
-						</CarouselItem>
+								return (
+									<CarouselItem>
+										<img index={index} src={el} width="460px" height="620px" className="mainImg" />
+									</CarouselItem>
+								);
+							})}
 					</Carousel>
 				</div>
 			</div>
 			<div className="productInfo">
-				<p className="productName">
-					PERTEX T Down Jacket
-					{/* {product.name}*/}
-				</p>
+				<p className="productName">{product.name}</p>
 				<div className="comparePrice">
 					<ul>
 						<li>
-							<span className="price">₩ 189,000 {/*{product.price}*/}</span>
-							<span className="discount">₩ 132,300 {/*{product.discount_price}*/}</span>
+							<span className="price">₩ {product.price}</span>
+							<span className="discount">₩ {product.discount_price}</span>
 						</li>
 					</ul>
 				</div>
 				<div className="productColor">
 					<div className="colorName">
-						<ul className="color">
-							<li>
-								<button>
-									<img
-										src="https://cdn.shopify.com/s/files/1/0562/4971/2815/products/PERTEX-T-Down-Jacket-Bandana-Black1_1080x.jpg?v=1632893620"
-										alt="black"
-										width={37}
-										height={50}
-									/>
-								</button>
-								<p class="arrow_box">Black</p>
-								{/* {images.AllImages &&
-								images.AllImages.map((el, index) => {
-									return (
-										<button onClick={changeColor} value={el.color}>
-											<img
-												index={index}
-												src={el.image_url}
-												value={el.color}
-												width="37px"
-												height="50px"
-											/>
-										</button>
-										<p class="arrow_box">{product.color}</p>
-									);
-								})} */}
-							</li>
-							<li>
-								<button>
-									<img
-										src="https://cdn.shopify.com/s/files/1/0562/4971/2815/products/PERTEX-T-Down-Jacket-Bandana-Black1_1080x.jpg?v=1632893620"
-										alt="black"
-										width={37}
-										height={50}
-									/>
-								</button>
-								<p class="arrow_box">Black</p>
+						<ul>
+							<li className="color">
+								{images.AllImages &&
+									images.AllImages.map((el, index) => {
+										return (
+											<li>
+												<button onClick={changeColor} value={el.colorId}>
+													<img
+														index={index}
+														src={el.image_url}
+														value={el.colorId}
+														width="37px"
+														height="50px"
+													/>
+												</button>
+												<p class="arrow_box">{el.color}</p>
+											</li>
+										);
+									})}
 							</li>
 						</ul>
 					</div>
@@ -142,29 +102,26 @@ function ProductInfo(props) {
 					<ul className="productSize">
 						<li className="size">
 							<li>
-								<button>
-									<label>
-										<input type="radio" name="size" id="xs" checked="checked" />
-										<span>XS</span>
-									</label>
-								</button>
-								<button>
-									<label>
-										<input type="radio" name="size" id="s" checked />
-										<span>S</span>
-									</label>
-								</button>
-								{/* {quantityBySize.allQuantityBySize &&
-									quantityBySize.allQuantityBySize.map(el => {
-										const isSotck = !(el.quantity > 0);
+								{quantityBySize.allQuantityBySize &&
+									quantityBySize.allQuantityBySize.map((el, index) => {
+										const isNotSotck = !(el.quantity > 0);
+										const color = isNotSotck ? 'lightgray' : 'black';
 										return (
-											<label>
-												<button disabled={isSotck} onClick={getQuantity} value={el.size} checked>
-													{el.size}
-												</button>
-											</label>
+											<button>
+												<label style={{ color: color }}>
+													<input
+														type="radio"
+														name="size"
+														id={el.size}
+														disabled={isNotSotck}
+														onClick={getQuantity}
+														value={el.size}
+													/>
+													<span>{el.size}</span>
+												</label>
+											</button>
 										);
-									})} */}
+									})}
 							</li>
 						</li>
 					</ul>
@@ -172,12 +129,16 @@ function ProductInfo(props) {
 				<div className="productCart">
 					<ul>
 						<li className="cart">
-							<button>
+							<button onClick={handleClickCart}>
 								<p>ADD TO CART</p>
 							</button>
 						</li>
 						<li className="wishlist">
-							<HeartButton />
+							<HeartButton
+								isHeart={isHeart}
+								setIsHeart={setIsHeart}
+								productId={product.product_id}
+							/>
 							<a href="#!">WISHLIST</a>
 						</li>
 					</ul>
@@ -185,21 +146,17 @@ function ProductInfo(props) {
 				<div className="productStock">
 					<ul>
 						<li className="stock">
-							{/* {product.quantity < 150 ? <p className="blink">{result}</p> : <p></p>} */}
-							<p className="blink">주문 가능한 수량이 6개 남았습니다.</p>
+							{product.quantity < 100 ? <p className="blink">{result}</p> : <p></p>}
 						</li>
 					</ul>
 				</div>
 				<div className="productDescription">
 					<ul>
 						<li className="description">
-							{/* <p>{product.description}</p> */}
-							<p>
-								PERTEX QUANTUM fabric with bandana pattern print Duck down 80%, Duck Feather 20%
-							</p>
+							<p>{product.description}</p>
 						</li>
 						<li className="country">
-							<p>Made in Vietnam {/*{product.country}*/}</p>
+							<p>Made in {product.country}</p>
 						</li>
 					</ul>
 				</div>

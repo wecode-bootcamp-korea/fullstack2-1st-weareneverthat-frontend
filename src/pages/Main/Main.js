@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './Main.scss';
@@ -16,7 +16,7 @@ function ImageCard({ src }) {
 
 function MainBox({ text, href }) {
 	return (
-		<a href={href} className="mainBox" target="_blank">
+		<a href={href} className="mainBox" target="_blank" rel="noreferrer">
 			{text}
 		</a>
 	);
@@ -28,7 +28,7 @@ function Main() {
 	const [scrollCount, setscrollCount] = useState(0);
 
 	useEffect(() => {
-		fetch('http://localhost:3000/data/main.json', {
+		fetch(`${process.env.REACT_APP_CLIENT_HOST}/data/main.json`, {
 			method: 'GET',
 		})
 			.then(res => res.json())
