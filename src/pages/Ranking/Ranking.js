@@ -4,7 +4,16 @@ import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
 import './Ranking.scss';
 
-function List({ name, category, imageUrl, changeImage, productId, productColor, index }) {
+function List({
+	name,
+	category,
+	imageUrl,
+	changeImage,
+	productId,
+	productColor,
+	salesCount,
+	index,
+}) {
 	const navigate = useNavigate();
 
 	const handleMouseEnter = () => {
@@ -30,6 +39,7 @@ function List({ name, category, imageUrl, changeImage, productId, productColor, 
 				<span className="number">{index + 1}</span>
 				<span className="name">{name}</span>
 			</div>
+			<div>{salesCount}</div>
 			<div className="rankingCategory">{category}</div>
 		</div>
 	);
@@ -66,10 +76,15 @@ function Ranking() {
 	};
 
 	return (
-		<>
+		<div className="rank">
 			<Topnav />
+			<nav className="category">
+				<span className="top20Category">Top 20</span>
+			</nav>
 			<div className="ranking" onMouseMove={onMouseMove}>
-				<img src={hoverImage} alt="alert img" className="imageAlert" />
+				<div>
+					<img src={hoverImage} alt="alert img" className="imageAlert" />
+				</div>
 
 				{productList.product &&
 					productList.product.map((product, index) => {
@@ -82,12 +97,13 @@ function Ranking() {
 								index={index}
 								productId={product.id}
 								productColor={product.detail[0].productColorId}
+								salesCount={product.salesCount}
 							/>
 						);
 					})}
-				<Footer />
 			</div>
-		</>
+			<Footer />
+		</div>
 	);
 }
 

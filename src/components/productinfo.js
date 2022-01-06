@@ -10,7 +10,6 @@ function ProductInfo(props) {
 		images,
 		changeColor,
 		getQuantity,
-		showQuantity,
 		quantityBySize,
 		result,
 		isHeart,
@@ -23,16 +22,20 @@ function ProductInfo(props) {
 	const [imageClick, setImageClick] = useState(false);
 
 	const handleClickCart = () => {
-		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cart?detailSizeId=${detailSizeId}`, {
-			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
-		})
-			.then(res => res.json())
-			.then(data => {
-				if (data.message === 'VALIDATE_ERROR') navigate('/users/login');
-				else {
-					alert('장바구니에 추가되었습니다.');
-				}
-			});
+		if (detailSizeId) {
+			fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cart?detailSizeId=${detailSizeId}`, {
+				headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
+			})
+				.then(res => res.json())
+				.then(data => {
+					if (data.message === 'VALIDATE_ERROR') navigate('/users/login');
+					else {
+						alert('장바구니에 추가되었습니다.');
+					}
+				});
+		} else {
+			alert('사이즈를 선택해 주세요.');
+		}
 	};
 
 	return (
@@ -149,7 +152,7 @@ function ProductInfo(props) {
 				<div className="productStock">
 					<ul>
 						<li className="stock">
-							{product.quantity < 100 ? <p className="blink">{result}</p> : <p></p>}
+							{product.quantity < 1000 ? <p className="blink">{result}</p> : <p></p>}
 						</li>
 					</ul>
 				</div>
