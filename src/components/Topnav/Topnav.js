@@ -19,7 +19,7 @@ function Topnav() {
 			.then(res => res.json())
 			.then(data => {
 				if (data.message !== 'VALIDATE_ERROR') {
-					setLoginButton('Logout');
+					setLoginButton('LOGOUT');
 				}
 			});
 	}, []);
@@ -42,12 +42,12 @@ function Topnav() {
 	};
 
 	const handleLoginClick = () => {
-		if (loginButton === 'Login') {
+		if (loginButton === 'LOGIN') {
 			navigate('/users/login');
 		} else {
 			sessionStorage.removeItem('token');
 			navigate('/');
-			setLoginButton('Login');
+			setLoginButton('LOGIN');
 		}
 	};
 
