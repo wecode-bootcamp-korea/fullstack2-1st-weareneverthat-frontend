@@ -45,7 +45,7 @@ function ProductInfo(props) {
 								return (
 									<label onClick={() => setImageClick(!imageClick)}>
 										<input type="radio" name="subImg" id={index} />
-										<img index={index} src={el} width="60px" height="75px" className="subImg" />
+										<img index={index} src={el} width="60px" height="70px" className="subImg" />
 									</label>
 								);
 							})}
@@ -59,7 +59,7 @@ function ProductInfo(props) {
 							product.image_url.map((el, index) => {
 								return (
 									<CarouselItem>
-										<img index={index} src={el} width="460px" height="620px" className="mainImg" />
+										<img index={index} src={el} width="600px" height="650px" className="mainImg" />
 									</CarouselItem>
 								);
 							})}
@@ -89,7 +89,7 @@ function ProductInfo(props) {
 														index={index}
 														src={el.image_url}
 														value={el.colorId}
-														width="37px"
+														width="45px"
 														height="50px"
 													/>
 												</button>
