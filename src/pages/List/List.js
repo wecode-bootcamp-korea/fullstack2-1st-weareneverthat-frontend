@@ -48,13 +48,29 @@ function List() {
 
 	const [productList, setProductList] = useState([]);
 
+	const [categoryName, setCategoryName] = useState();
+
 	useEffect(() => {
 		fetch(
-			`http://localhost:8000/products/?category=${query.get('category')}&sort=${query.get('sort')}`,
+			`${process.env.REACT_APP_SERVER_HOST}/products/?category=${query.get(
+				'category',
+			)}&sort=${query.get('sort')}`,
 		)
 			.then(res => res.json())
 			.then(data => {
 				setProductList(data);
+
+				if (query.get('category') === '1') {
+					setCategoryName('OuterWear');
+				} else if (query.get('category') === '2') {
+					setCategoryName('SweatShirts');
+				} else if (query.get('category') === '3') {
+					setCategoryName('Bottoms');
+				} else if (query.get('category') === '4') {
+					setCategoryName('Shoes');
+				} else {
+					setCategoryName('All');
+				}
 			});
 	}, [location]);
 
@@ -65,17 +81,13 @@ function List() {
 			</div>
 			<div className="buttons">
 				<div className="navButton">
-					<span type="button">All</span>
+					<span type="button">{categoryName}</span>
 				</div>
-				<div className="sortingButton">
-					<button type="button">Sort</button>
-
-					<button type="button">View</button>
-				</div>
+				<div className="sortingButton"></div>
 			</div>
 			<div className="productList">
 				{productList.product &&
-					productList.product.map(product => {
+					productList.product.map((product, index) => {
 						return (
 							<div className="image">
 								<ProductCard

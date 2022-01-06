@@ -10,28 +10,30 @@ function Detail() {
 	const props = useLocation();
 
 	const [product, setProduct] = useState({});
+	const [isHeart, setIsHeart] = useState(false);
+	const [detailSizeId, setDetailSizeId] = useState();
+
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/${id}${props.search}`)
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}${props.search}`)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
 			});
-	}, []);
+	}, [id]);
 
-	const [isHeart, setIsHeart] = useState(false);
 	useEffect(() => {
-		fetch('http://localhost:8000/products/isHeart?productId=' + id, {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/isHeart?productId=${id}`, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())
 			.then(data => {
 				setIsHeart(Boolean(data.heart));
 			});
-	}, []);
+	}, [id]);
 
 	const [quantityBySize, setQuantityBySize] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/${id}/quantity?color=${product.colorId}`)
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}/quantity?color=${product.colorId}`)
 			.then(res => res.json())
 			.then(data => {
 				setQuantityBySize(data);
@@ -40,7 +42,7 @@ function Detail() {
 
 	const [images, setImages] = useState({});
 	useEffect(() => {
-		fetch(`http://localhost:8000/products/${id}/images`)
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}/images`)
 			.then(res => res.json())
 			.then(data => {
 				setImages(data);
@@ -48,7 +50,9 @@ function Detail() {
 	}, []);
 
 	const changeColor = e => {
-		fetch(`http://localhost:8000/products/${id}?color=${e.currentTarget.value}&size=s`)
+		fetch(
+			`${process.env.REACT_APP_SERVER_HOST}/products/${id}?color=${e.currentTarget.value}&size=s`,
+		)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
@@ -56,10 +60,13 @@ function Detail() {
 	};
 
 	const getQuantity = e => {
-		fetch(`http://localhost:8000/products/${id}?color=${product.colorId}&size=${e.target.value}`)
+		fetch(
+			`${process.env.REACT_APP_SERVER_HOST}/products/${id}?color=${product.colorId}&size=${e.target.value}`,
+		)
 			.then(res => res.json())
 			.then(data => {
 				setProduct(data);
+				setDetailSizeId(data.detailSizeId);
 			});
 	};
 
@@ -90,6 +97,7 @@ function Detail() {
 					result={result}
 					isHeart={isHeart}
 					setIsHeart={setIsHeart}
+					detailSizeId={detailSizeId}
 				/>
 			</div>
 			<Footer />

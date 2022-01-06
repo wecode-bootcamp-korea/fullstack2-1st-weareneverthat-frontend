@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Carousel, { CarouselItem } from './carousel';
+import { useNavigate } from 'react-router-dom';
 import '../pages/Detail/Detail.scss';
 import HeartButton from './detailLikebutton/detailLikeButton';
 
@@ -14,9 +15,22 @@ function ProductInfo(props) {
 		result,
 		isHeart,
 		setIsHeart,
+		detailSizeId,
 	} = props;
 
+	const navigate = useNavigate();
+
 	const [imageClick, setImageClick] = useState(false);
+
+	const handleClickCart = () => {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cart?detailSizeId=${detailSizeId}`, {
+			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
+		})
+			.then(res => res.json())
+			.then(data => {
+				if (data.message === 'VALIDATE_ERROR') navigate('/users/login');
+			});
+	};
 
 	return (
 		<>
@@ -89,7 +103,7 @@ function ProductInfo(props) {
 						<li className="size">
 							<li>
 								{quantityBySize.allQuantityBySize &&
-									quantityBySize.allQuantityBySize.map(el => {
+									quantityBySize.allQuantityBySize.map((el, index) => {
 										const isNotSotck = !(el.quantity > 0);
 										const color = isNotSotck ? 'lightgray' : 'black';
 										return (
@@ -115,7 +129,7 @@ function ProductInfo(props) {
 				<div className="productCart">
 					<ul>
 						<li className="cart">
-							<button>
+							<button onClick={handleClickCart}>
 								<p>ADD TO CART</p>
 							</button>
 						</li>
