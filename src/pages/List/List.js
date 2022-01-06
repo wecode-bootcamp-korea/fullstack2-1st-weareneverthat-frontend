@@ -21,8 +21,8 @@ function ProductCard({ src, productId, colorId }) {
 function ProductCard2({ src1, src2 }) {
 	return (
 		<div className="subImages">
-			<img src={src1} alt="상품" />
-			<img src={src2} alt="상품" />
+			<img src={src1} alt="상품" width={50} height={65} />
+			<img src={src2} alt="상품" width={50} height={65} />
 		</div>
 	);
 }
@@ -79,12 +79,12 @@ function List() {
 			<div>
 				<Topnav />
 			</div>
-			<div className="buttons">
+			<nav className="buttons">
 				<div className="navButton">
 					<span type="button">{categoryName}</span>
 				</div>
 				<div className="sortingButton"></div>
-			</div>
+			</nav>
 			<div className="productList">
 				{productList.product &&
 					productList.product.map((product, index) => {
