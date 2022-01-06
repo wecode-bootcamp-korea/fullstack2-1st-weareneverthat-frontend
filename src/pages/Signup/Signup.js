@@ -30,7 +30,7 @@ function Signup() {
 	};
 
 	const signupLogic = () => {
-		fetch('${process.env.REACT_APP_SERVER_HOST}/users/signup', {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/users/signup`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			mode: 'cors',
