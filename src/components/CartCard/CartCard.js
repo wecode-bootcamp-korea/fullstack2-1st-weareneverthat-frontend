@@ -1,6 +1,32 @@
 import './CartCard.scss';
 
-function CartCard({ imageUrl, name, color, size, price, discountPrice, result, closeCart }) {
+function CartCard({
+	imageUrl,
+	name,
+	color,
+	size,
+	price,
+	discountPrice,
+	result,
+	closeCart,
+	cartId,
+}) {
+	const handleClickDelete = e => {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cartList`, {
+			method: 'POST',
+			headers: new Headers({
+				Authorization: sessionStorage.getItem('token'),
+				'Content-Type': 'application/json',
+			}),
+			body: JSON.stringify({
+				cartId: cartId,
+			}),
+		}).then(data => {
+			const card = e.target.parentNode.parentNode;
+			card.parentNode.removeChild(card);
+		});
+	};
+
 	return (
 		<div className="cartCard">
 			<section className="productCard">
@@ -18,7 +44,7 @@ function CartCard({ imageUrl, name, color, size, price, discountPrice, result, c
 						<span>₩{discountPrice}</span>
 					</section>
 				</div>
-				<section className="deleteBtn">
+				<section className="deleteBtn" onClick={handleClickDelete}>
 					<span className="line-01"></span>
 					<span className="line-02"></span>
 				</section>

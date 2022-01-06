@@ -13,7 +13,7 @@ function Topnav() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch(`${process.env.REACT_APP_URL}/users`, {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/users`, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())
@@ -89,7 +89,7 @@ function Topnav() {
 							<Link to="/products/top20">TOP20</Link>
 						</li>
 						<li>
-							<Link to="/users/login">FEATURES</Link>
+							<Link to="#">FEATURES</Link>
 						</li>
 						<li>
 							<Link to="#">SEARCH</Link>
