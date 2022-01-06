@@ -36,6 +36,7 @@ function Login() {
 			.then(res => res.json())
 			.then(data => {
 				if (data.message === 'KEY_ERROR') {
+					setVisibility('visible');
 				} else {
 					goToMain();
 					sessionStorage.setItem('token', data.token);
