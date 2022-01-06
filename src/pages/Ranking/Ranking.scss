@@ -5,8 +5,29 @@
 		background-color: #01ee00;
 	}
 
+	.top20Category {
+		margin-left: 40px;
+		padding: 4px 15px;
+		border: none;
+		border-radius: 0.1rem;
+		background-color: #04ed00;
+		font-weight: 500;
+		font-size: 16px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.rank {
+		position: relative;
+		min-height: 100%;
+		padding-bottom: 0;
+	}
+
 	.ranking:hover {
 		cursor: pointer;
+
 		.imageAlert {
 			opacity: 1;
 		}
@@ -26,8 +47,7 @@
 	.ranking {
 		position: relative;
 		margin: 0 40px;
-		padding: 0 -40px;
-		padding-bottom: 56px;
+		padding-bottom: 150px;
 
 		.list {
 			position: relative;
@@ -94,6 +114,7 @@
 	@media screen and (max-width: 1140px) {
 		.ranking {
 			padding-bottom: 303px;
+
 			.list {
 				font-size: 50px;
 			}

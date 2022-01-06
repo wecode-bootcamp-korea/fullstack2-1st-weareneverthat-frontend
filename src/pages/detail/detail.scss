@@ -1,4 +1,5 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import '../../styles/mixin';
 
 * {
 	box-sizing: border-box;
@@ -108,7 +109,7 @@
 // 메인 슬라이드
 .mainslide {
 	display: flex;
-	margin: 50px 0 0 200px;
+	margin: 50px 0 0 55px;
 	user-select: none;
 
 	.slideShow {
@@ -166,7 +167,7 @@
 
 // 제품 상세 정보
 .productInfo {
-	margin: 110px 40px 100px 0;
+	margin: 110px 20px 100px 0;
 	width: 260px;
 	font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
@@ -328,7 +329,7 @@
 			}
 
 			.wishlist {
-				margin: -10px 0 0 20px;
+				margin-left: 20px;
 
 				&:hover {
 					cursor: pointer;
@@ -429,7 +430,7 @@
 	.detail {
 		position: relative;
 		min-height: 100%;
-		padding-bottom: 350px;
+		padding-bottom: 450px;
 	}
 
 	// 미디어쿼리 카테고리
@@ -621,14 +622,14 @@
 
 				.wishlist {
 					display: flex;
-					margin: -3px 0 0 5px;
+					margin: 8px 0 0 5px;
 
 					&:hover {
 						cursor: pointer;
 					}
 
 					a {
-						margin: 10px 0 0 50px;
+						margin-left: 30px;
 						font-size: 16px;
 						color: black;
 					}
@@ -714,7 +715,7 @@
 	.productCart {
 		ul {
 			display: flex;
-			margin: 25px 0 20px;
+			margin: 25px 0 20px 0;
 
 			.cart {
 				user-select: none;
@@ -729,11 +730,7 @@
 			}
 
 			.wishlist {
-				display: flex;
-				margin: -3px 0 0 -50px;
-
 				a {
-					margin: 10px 0 0 10px;
 					font-size: 16px;
 					color: black;
 				}

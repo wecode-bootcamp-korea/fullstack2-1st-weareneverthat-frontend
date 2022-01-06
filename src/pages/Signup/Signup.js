@@ -52,7 +52,7 @@ function Signup() {
 	};
 
 	return (
-		<>
+		<div className="sign">
 			<Topnav />
 			<div className="Signup">
 				<div className="pageInfo">
@@ -61,7 +61,7 @@ function Signup() {
 					</div>
 					<div className="createAccountBox">Create&nbsp;account</div>
 				</div>
-				<section className="wrapper" style={{ visibility: formVisibility }}>
+				<section className="signUpWrapper" style={{ visibility: formVisibility }}>
 					<form className="inputBox">
 						<section className="nameInput">
 							<div>이름</div>
@@ -112,7 +112,7 @@ function Signup() {
 				</section>
 			</div>
 			<Footer />
-		</>
+		</div>
 	);
 }
 
