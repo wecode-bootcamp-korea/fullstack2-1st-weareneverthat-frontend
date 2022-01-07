@@ -7,6 +7,7 @@
 		box-sizing: border-box;
 		background-color: white;
 		width: 100%;
+		padding-bottom: 56px;
 
 		::selection {
 			background-color: #04ed00;
@@ -51,6 +52,12 @@
 				}
 				.sort {
 					margin-top: -30px;
+
+					font-size: 20px;
+				}
+				.sortName:hover {
+					cursor: pointer;
+					color: #01ee00;
 				}
 
 				button:hover {
@@ -78,13 +85,12 @@
 					background-color: white;
 					position: absolute;
 					border-radius: 5px;
-					padding: 50px;
+					padding: 50px 30px 30px;
 					opacity: 1;
 					margin: auto;
 				}
 			}
 		}
-
 		.productList {
 			display: grid;
 			grid-template-columns: repeat(5, 1fr);
@@ -103,8 +109,8 @@
 				.imageFull {
 					display: flex;
 					position: relative;
-					width: 450px;
-					margin: 0 auto;
+					width: 300px;
+					// margin: 0 auto;
 
 					.img1,
 					.img2,
@@ -127,24 +133,42 @@
 						display: block;
 						z-index: 10000;
 					}
+
 					.imageContainer1 {
-						width: 150px;
-						height: 450px;
+						width: 100px;
+						height: 300px;
 					}
+
+					.imageContainer1:hover {
+						cursor: pointer;
+					}
+
 					.imageContainer1:hover + .img1 {
 						z-index: 9999;
 					}
+
 					.imageContainer2 {
-						width: 150px;
-						height: 450px;
+						width: 100px;
+						height: 300px;
 					}
+
+					.imageContainer2:hover {
+						cursor: pointer;
+					}
+
 					.imageContainer2:hover + .img2 {
 						z-index: 9998;
 					}
+
 					.imageContainer3 {
-						width: 150px;
-						height: 450px;
+						width: 100px;
+						height: 300px;
 					}
+
+					.imageContainer3:hover {
+						cursor: pointer;
+					}
+
 					.imageContainer3:hover + .img3 {
 						z-index: 9997;
 					}
@@ -182,15 +206,18 @@
 						font-weight: 600;
 					}
 				}
+			}
 
-				.LoaderWrap {
-					width: 100%;
-					height: 100%;
-				}
+			.LoaderWrap {
+				width: 100%;
+				height: 100%;
 			}
 		}
 	}
+}
 
+.subImages {
+	margin: 50px 0 10px 0;
 	@include tablet {
 		.listContainer {
 			position: relative;
@@ -199,49 +226,50 @@
 
 			.buttons {
 				margin: 20px 0 0 20px;
-
-				.navButton {
-					display: inline;
-					font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-					span {
-						cursor: pointer;
-						font-size: 16px;
-						border: 1px solid rgb(7 238 1);
-						border-radius: 3px;
-						background-color: rgb(7 238 1);
-						padding: 2px 14px;
-					}
-				}
-			}
-
-			.productList {
-				margin-top: 20px;
-
-				.imageContainer {
-					display: flex;
-					justify-content: center;
-					margin: 20px 0;
-
-					&:hover {
-						cursor: pointer;
-					}
-
-					img {
-						width: 700px;
-						height: 700px;
+				&:hover {
+					.navButton {
+						display: inline;
+						font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+						span {
+							cursor: pointer;
+							font-size: 16px;
+							border: 1px solid rgb(7 238 1);
+							border-radius: 3px;
+							background-color: rgb(7 238 1);
+							padding: 2px 14px;
+						}
 					}
 				}
 
-				.subImages {
-					display: none;
-				}
+				.productList {
+					margin-top: 20px;
 
-				.contentContainer {
-					display: none;
-				}
+					.imageContainer {
+						display: flex;
+						justify-content: center;
+						margin: 20px 0;
 
-				.likieButton {
-					display: none;
+						&:hover {
+							cursor: pointer;
+						}
+
+						img {
+							width: 700px;
+							height: 700px;
+						}
+					}
+
+					.subImages {
+						display: none;
+					}
+
+					.contentContainer {
+						display: none;
+					}
+
+					.likieButton {
+						display: none;
+					}
 				}
 			}
 		}
@@ -269,33 +297,33 @@
 						padding: 2px 14px;
 					}
 				}
-			}
 
-			.imageContainer {
-				display: flex;
-				justify-content: center;
-				margin: 20px 0;
+				.imageContainer {
+					display: flex;
+					justify-content: center;
+					margin: 20px 0;
 
-				&:hover {
-					cursor: pointer;
+					&:hover {
+						cursor: pointer;
+					}
+
+					img {
+						width: 500px;
+						height: 500px;
+					}
 				}
 
-				img {
-					width: 500px;
-					height: 500px;
+				.subImages {
+					display: none;
 				}
-			}
 
-			.subImages {
-				display: none;
-			}
+				.contentContainer {
+					display: none;
+				}
 
-			.contentContainer {
-				display: none;
-			}
-
-			.likieButton {
-				display: none;
+				.likieButton {
+					display: none;
+				}
 			}
 		}
 	}

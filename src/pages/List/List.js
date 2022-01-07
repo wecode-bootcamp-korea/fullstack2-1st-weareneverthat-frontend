@@ -16,13 +16,13 @@ function ProductCard({ src1, src2, src3, productId, colorId }) {
 	return (
 		<div className="imageFull">
 			<div className="imageContainer1" onClick={handleClick}></div>
-			<img src={src1} className="img1" alt="상품" width="450px" height="450px" />
+			<img src={src1} className="img1" alt="상품" width="300px" height="300px" />
 
 			<div div className="imageContainer2" onClick={handleClick}></div>
-			<img src={src2} className="img2" alt="상품" width="450px" height="450px" />
+			<img src={src2} className="img2" alt="상품" width="300px" height="300px" />
 
 			<div className="imageContainer3" onClick={handleClick}></div>
-			<img src={src3} className="img3" alt="상품" width="450px" height="450px" />
+			<img src={src3} className="img3" alt="상품" width="300px" height="300px" />
 		</div>
 	);
 }
@@ -40,40 +40,44 @@ function ProductCard2({ src1, src2, number, index, setNumber }) {
 		arr[index] = 1;
 		setNumber(arr);
 	};
+
 	return (
 		<div className="subImages">
-			<img src={src1} alt="상품" width={50} height={65} onClick={clickImg1} />
-			<img src={src2} alt="상품" width={50} height={65} onClick={clickImg2} />
+			<img src={src1} alt="상품" width={50} height={50} onClick={clickImg1} />
+			<img src={src2} alt="상품" width={50} height={50} onClick={clickImg2} />
 		</div>
 	);
 }
 
-function Sortbox({ className }) {
+function Sortbox({ className, category }) {
 	const navigate = useNavigate();
 	function handleClick1() {
 		navigate(`/products`);
 	}
 	function handleClick2() {
-		navigate('?sort=price-asc');
+		navigate(`?category=${category}&sort=discount_price-asc`);
 	}
 	function handleClick3() {
-		navigate('?sort=price-desc');
+		navigate(`?category=${category}&sort=discount_price-desc`);
 	}
 	return (
 		<form className={className}>
 			<div className="sort">SORT BY</div>
 			<br />
-			<input name="sorting" type="radio" onClick={handleClick1} />
-			Recent
+			{/* <input name="sorting" type="radio" onClick={handleClick1} /> */}
+			<div onClick={handleClick1}>
+				- <span className="sortName">Recent</span>
+			</div>
 			<br />
-			<input name="sorting" type="radio" onClick={handleClick2} />
-			Price (Low)
+			{/* <input name="sorting" type="radio" onClick={handleClick2} /> */}
+			<div onClick={handleClick2}>
+				- <span className="sortName">Price (Low)</span>
+			</div>
 			<br />
-			<input name="sorting" type="radio" onClick={handleClick3} />
-			Price (High)
-			<br />
-			<input name="sorting" type="radio" />
-			Trending
+			{/* <input name="sorting" type="radio" onClick={handleClick3} /> */}
+			<div onClick={handleClick3}>
+				- <span className="sortName">Price (High)</span>
+			</div>
 		</form>
 	);
 }
@@ -154,7 +158,7 @@ function List() {
 						Sort
 					</button>
 					<>
-						<Sortbox className={checked1} />
+						<Sortbox className={checked1} category={query.get('category')} />
 					</>
 				</div>
 			</nav>
