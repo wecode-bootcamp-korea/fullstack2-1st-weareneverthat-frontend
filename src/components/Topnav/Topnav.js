@@ -1,9 +1,9 @@
-import './Topnav.scss';
 import CartModal from '../Modal/CartModal/CartModal';
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import './Topnav.scss';
 
 function Topnav() {
 	const [isCartOn, setIsCartOn] = useState(false);
@@ -85,9 +85,6 @@ function Topnav() {
 							<Link to="/products/top20">TOP20</Link>
 						</li>
 						<li>
-							<Link to="#">FEATURES</Link>
-						</li>
-						<li>
 							<Link to="#">SEARCH</Link>
 						</li>
 					</ul>
@@ -144,10 +141,6 @@ function Topnav() {
 						<div>LOGIN</div>
 						<div>KOR / ₩</div>
 					</section>
-					<section className="snsLogin">소셜 로그인</section>
-					<section className="saleInfo">이미지 설명</section>
-					<section className="line"></section>
-					<section className="navFooter">풋터</section>
 				</section>
 			</nav>
 		</div>

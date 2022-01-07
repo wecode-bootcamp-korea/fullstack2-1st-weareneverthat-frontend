@@ -9,9 +9,7 @@
 }
 
 .sign {
-	position: relative;
 	min-height: 100%;
-	padding-bottom: 56px;
 }
 
 .Signup {
@@ -124,8 +122,15 @@
 
 @media (max-width: 1169px) {
 	.sign {
-		position: relative;
 		min-height: 100%;
-		padding-bottom: 303px;
+	}
+
+	.Signup {
+		margin-bottom: 334px;
+	}
+
+	.footer {
+		width: 100%;
+		height: 334px;
 	}
 }

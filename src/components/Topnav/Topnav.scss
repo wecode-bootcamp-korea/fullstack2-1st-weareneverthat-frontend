@@ -234,13 +234,18 @@
 
 				.loginBtn {
 					display: flex;
+					margin-left: 15px;
 
 					div {
-						margin: 10px;
-						padding: 10px;
+						margin: 7px;
+						padding: 10px 15px;
 						border-radius: 20px;
 						background-color: gainsboro;
 						text-align: center;
+
+						&:hover {
+							cursor: pointer;
+						}
 					}
 				}
 
