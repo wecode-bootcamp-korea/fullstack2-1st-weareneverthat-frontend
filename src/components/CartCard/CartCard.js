@@ -12,6 +12,9 @@ function CartCard({
 	cartId,
 }) {
 	const handleClickDelete = e => {
+		const card = e.currentTarget.parentNode;
+		card.parentNode.removeChild(card);
+
 		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cartList`, {
 			method: 'POST',
 			headers: new Headers({
@@ -21,9 +24,6 @@ function CartCard({
 			body: JSON.stringify({
 				cartId: cartId,
 			}),
-		}).then(data => {
-			const card = e.target.parentNode.parentNode;
-			card.parentNode.removeChild(card);
 		});
 	};
 
@@ -45,8 +45,8 @@ function CartCard({
 					</section>
 				</div>
 				<section className="deleteBtn" onClick={handleClickDelete}>
-					<span className="line-01"></span>
-					<span className="line-02"></span>
+					<span className="line-01" />
+					<span className="line-02" />
 				</section>
 			</section>
 		</div>
