@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import LikeButton from '../../components/LikeButton/likeButton';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
+import InfiObserverList from '../../components/infinityScroll/infinityScroll';
 import './List.scss';
 
 function ProductCard({ src1, src2, src3, productId, colorId }) {
@@ -140,6 +141,7 @@ function List() {
 
 	return (
 		<div className="listContainer">
+			<InfiObserverList />
 			<div>
 				<Topnav />
 			</div>
