@@ -88,30 +88,10 @@ function Login() {
 								<p>회원가입 하기</p>
 							</Link>
 							<br />
-							<a href="#">비밀번호 찾기</a>
+							<p href="#">비밀번호 찾기</p>
 						</section>
 					</section>
-<<<<<<< HEAD
 				</div>
-=======
-					<section className="loginBtn">
-						<button onClick={loginLogic}>LOGIN</button>
-					</section>
-					<section>
-						<p className="loginDescription">
-							이메일, 비밀번호만 설정 후 회원가입 하시면 상품 결제, 주문 확인 및 배송 조회, 적립금
-							혜택 등 더욱 편리하게 스토어를 이용하실 수 있습니다.
-						</p>
-					</section>
-					<section>
-						<Link to="/users/signup">
-							<p>회원가입 하기</p>
-						</Link>
-						<br />
-						<a href="#">비밀번호 찾기</a>
-					</section>
-				</section>
->>>>>>> develop
 			</div>
 			<div className="footer">
 				<Footer />
