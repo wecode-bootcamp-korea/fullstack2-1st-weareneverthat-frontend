@@ -68,10 +68,6 @@ function Topnav() {
 							<ul className="navCategory">
 								<li>
 									<div className="rec"></div>
-									<Link to="/products/new">New</Link>
-								</li>
-								<li>
-									<div className="rec"></div>
 									<Link to="/products">All</Link>
 								</li>
 								<li>
@@ -94,9 +90,6 @@ function Topnav() {
 						</li>
 						<li>
 							<Link to="/products/top20">TOP20</Link>
-						</li>
-						<li>
-							<Link to="#">FEATURES</Link>
 						</li>
 						<li>
 							<Link to="#">SEARCH</Link>

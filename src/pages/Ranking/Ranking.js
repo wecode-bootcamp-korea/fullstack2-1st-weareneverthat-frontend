@@ -69,9 +69,9 @@ function Ranking() {
 		imageAlert.style.top = mouseY + 'px';
 
 		if (e.clientY / window.innerHeight > 0.6) {
-			imageAlert.style.transform = 'translate(-10%, -90%)';
+			imageAlert.style.transform = 'translate(-10%, -120%)';
 		} else {
-			imageAlert.style.transform = 'translate(-10%, -7%)';
+			imageAlert.style.transform = 'translate(-10%, -30%)';
 		}
 	};
 
