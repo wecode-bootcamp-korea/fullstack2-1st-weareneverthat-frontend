@@ -62,17 +62,14 @@ function Sortbox({ className, category }) {
 		<form className={className}>
 			<div className="sort">SORT BY</div>
 			<br />
-			{/* <input name="sorting" type="radio" onClick={handleClick1} /> */}
 			<div onClick={handleClick1}>
 				- <span className="sortName">Recent</span>
 			</div>
 			<br />
-			{/* <input name="sorting" type="radio" onClick={handleClick2} /> */}
 			<div onClick={handleClick2}>
 				- <span className="sortName">Price (Low)</span>
 			</div>
 			<br />
-			{/* <input name="sorting" type="radio" onClick={handleClick3} /> */}
 			<div onClick={handleClick3}>
 				- <span className="sortName">Price (High)</span>
 			</div>
@@ -101,7 +98,8 @@ function List() {
 	const [checked1, ischecked1] = useState('sortBox1');
 
 	const [number, setNumber] = useState([
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 	]);
 
 	const activeButton = () => {
