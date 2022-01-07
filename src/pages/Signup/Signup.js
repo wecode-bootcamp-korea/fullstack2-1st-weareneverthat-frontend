@@ -37,6 +37,7 @@ function Signup() {
 
 	const signupLogic = () => {
 		if (regexId.test(emailValue) && regexPw.test(pwValue)) {
+			console.log(regexId.test(emailValue) && regexPw.test(pwValue));
 			fetch(`${process.env.REACT_APP_SERVER_HOST}/users/signup`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },

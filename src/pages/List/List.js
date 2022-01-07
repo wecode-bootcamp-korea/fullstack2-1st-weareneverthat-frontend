@@ -53,10 +53,10 @@ function Sortbox({ className, category }) {
 		navigate(`/products`);
 	}
 	function handleClick2() {
-		navigate(`?category=${category}&sort=price-asc`);
+		navigate(`?category=${category}&sort=discount_price-asc`);
 	}
 	function handleClick3() {
-		navigate(`?category=${category}&sort=price-desc`);
+		navigate(`?category=${category}&sort=discount_price-desc`);
 	}
 	return (
 		<form className={className}>
