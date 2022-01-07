@@ -10,6 +10,7 @@
 
 .login {
 	position: relative;
+	width: 100%;
 	min-height: 100%;
 	padding-bottom: 56px;
 }
@@ -19,11 +20,11 @@
 	flex-direction: column;
 	align-items: center;
 	font-family: 'Spoqa Han Sans';
-	margin-bottom: 50px;
+	margin-bottom: 56px;
 
 	.pageInfo {
 		position: relative;
-		left: 10px;
+		left: 30px;
 		align-self: flex-start;
 		margin: 12px;
 		padding: 7px 15px;
@@ -93,7 +94,12 @@
 	.login {
 		position: relative;
 		min-height: 100%;
-		padding-bottom: 303px;
+		padding-bottom: 334px;
+
+		.pageInfo {
+			position: relative;
+			left: 10px;
+		}
 
 		.loginWrapper {
 			width: 90%;

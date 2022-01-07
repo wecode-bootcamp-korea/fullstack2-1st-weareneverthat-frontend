@@ -1,8 +1,8 @@
-import './Footer.scss';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faYoutube, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import './Footer.scss';
 
 function Footer() {
 	return (
