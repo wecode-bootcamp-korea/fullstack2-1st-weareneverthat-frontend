@@ -15,6 +15,11 @@ body {
 }
 
 .login {
+<<<<<<< HEAD
+=======
+	position: relative;
+	width: 100%;
+>>>>>>> develop
 	min-height: 100%;
 }
 
@@ -23,10 +28,13 @@ body {
 	flex-direction: column;
 	align-items: center;
 	font-family: 'Spoqa Han Sans';
-	margin-bottom: 50px;
+	margin-bottom: 56px;
 
 	.pageInfo {
-		margin: 12px 0 0 -88%;
+		position: relative;
+		left: 30px;
+		align-self: flex-start;
+		margin: 12px;
 		padding: 7px 15px;
 		border-radius: 2px;
 		background-color: #0e0;
@@ -102,6 +110,15 @@ body {
 	.login {
 		position: relative;
 		min-height: 100%;
-		padding-bottom: 303px;
+		padding-bottom: 334px;
+
+		.pageInfo {
+			position: relative;
+			left: 10px;
+		}
+
+		.loginWrapper {
+			width: 90%;
+		}
 	}
 }

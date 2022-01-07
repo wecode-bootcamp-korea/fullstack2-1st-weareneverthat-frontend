@@ -9,6 +9,8 @@
 }
 
 .sign {
+	position: relative;
+	width: 100%;
 	min-height: 100%;
 }
 
@@ -20,7 +22,11 @@
 
 	.pageInfo {
 		display: flex;
-		margin: 12px 0 0 -78%;
+		position: relative;
+		left: 30px;
+		align-self: flex-start;
+		margin: 12px;
+		border-radius: 2px;
 		font-size: 16px;
 		text-align: center;
 		cursor: pointer;
@@ -121,9 +127,16 @@
 }
 
 @media (max-width: 1169px) {
-	.sign {
-		position: relative;
-		min-height: 100%;
-		padding-bottom: 303px;
+	.Signup {
+		margin-bottom: 303px;
+
+		.pageInfo {
+			position: relative;
+			left: 10px;
+		}
+
+		.signUpWrapper {
+			width: 90%;
+		}
 	}
 }
