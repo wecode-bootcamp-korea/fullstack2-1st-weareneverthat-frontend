@@ -20,7 +20,11 @@
 
 	.pageInfo {
 		display: flex;
-		margin: 12px 0 0 -78%;
+		position: relative;
+		left: 10px;
+		align-self: flex-start;
+		margin: 12px;
+		border-radius: 2px;
 		font-size: 16px;
 		text-align: center;
 		cursor: pointer;
@@ -127,10 +131,15 @@
 
 	.Signup {
 		margin-bottom: 334px;
+
+		.signUpWrapper {
+			width: 90%;
+		}
 	}
 
 	.footer {
 		width: 100%;
 		height: 334px;
+		padding-bottom: 303px;
 	}
 }
