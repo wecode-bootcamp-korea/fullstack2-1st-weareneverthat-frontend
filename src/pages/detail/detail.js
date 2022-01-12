@@ -11,7 +11,7 @@ function Detail() {
 
 	const [product, setProduct] = useState({});
 	const [isHeart, setIsHeart] = useState(false);
-	const [detailSizeId, setDetailSizeId] = useState();
+	const [detailSizeId, setDetailSizeId] = useState(0);
 
 	useEffect(() => {
 		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}${props.search}`)
