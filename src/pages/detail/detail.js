@@ -25,12 +25,9 @@ function Detail() {
 
 	const [product, setProduct] = useState({});
 	const [isHeart, setIsHeart] = useState(false);
-<<<<<<< HEAD
+
 	const [detailSizeId, setDetailSizeId] = useState();
 	const [imageClick, setImageClick] = useState(false);
-=======
-	const [detailSizeId, setDetailSizeId] = useState(0);
->>>>>>> develop
 
 	useEffect(() => {
 		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}${props.search}`)
@@ -132,7 +129,7 @@ function Detail() {
 									return (
 										<label onClick={() => setImageClick(!imageClick)}>
 											<input type="radio" name="subImg" id={index} />
-											<img index={index} src={el} width="60px" height="70px" className="subImg" />
+											<img key={id} src={el} width="60px" height="70px" className="subImg" />
 										</label>
 									);
 								})}
@@ -146,13 +143,7 @@ function Detail() {
 								product.image_url.map((el, index) => {
 									return (
 										<CarouselItem>
-											<img
-												index={index}
-												src={el}
-												width="600px"
-												height="650px"
-												className="mainImg"
-											/>
+											<img key={id} src={el} width="600px" height="650px" className="mainImg" />
 										</CarouselItem>
 									);
 								})}
@@ -179,7 +170,7 @@ function Detail() {
 												<li>
 													<button onClick={changeColor} value={el.colorId}>
 														<img
-															index={index}
+															key={id}
 															src={el.image_url}
 															value={el.colorId}
 															width="45px"
