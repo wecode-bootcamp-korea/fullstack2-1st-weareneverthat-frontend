@@ -48,6 +48,9 @@ function List({
 function Ranking() {
 	const [productList, setProductList] = useState([]);
 	const [hoverImage, setHoverImage] = useState('');
+	const [imageX, setImageX] = useState('0px');
+	const [imageY, setImageY] = useState('0px');
+	const [imageTransform, setImageTransform] = useState('translate(-10%, -120%)');
 
 	useEffect(() => {
 		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/top20`, {
@@ -59,19 +62,17 @@ function Ranking() {
 			});
 	}, []);
 
-	const imageAlert = document.querySelector('.imageAlert');
-
 	const onMouseMove = e => {
 		const mouseX = e.pageX;
 		const mouseY = e.pageY;
 
-		imageAlert.style.left = mouseX + 'px';
-		imageAlert.style.top = mouseY + 'px';
+		setImageX(`${mouseX}px`);
+		setImageY(`${mouseY}px`);
 
 		if (e.clientY / window.innerHeight > 0.6) {
-			imageAlert.style.transform = 'translate(-10%, -120%)';
+			setImageTransform('translate(-10%, -120%)');
 		} else {
-			imageAlert.style.transform = 'translate(-10%, -30%)';
+			setImageTransform('translate(-10%, -30%)');
 		}
 	};
 
@@ -83,7 +84,12 @@ function Ranking() {
 			</nav>
 			<div className="ranking" onMouseMove={onMouseMove}>
 				<div>
-					<img src={hoverImage} alt="alert img" className="imageAlert" />
+					<img
+						src={hoverImage}
+						alt="alert img"
+						className="imageAlert"
+						style={{ left: imageX, top: imageY, transform: imageTransform }}
+					/>
 				</div>
 
 				{productList.product &&
