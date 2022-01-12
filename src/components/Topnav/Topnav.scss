@@ -7,7 +7,7 @@
 }
 
 .Topnav {
-	font-family: 'Spoqa Han Sans';
+	font-family: 'Spoqa Han Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	width: 100%;
 
 	header {
@@ -18,7 +18,7 @@
 		height: 46px;
 		padding: 0 20px;
 		background-color: white;
-		z-index: 9999;
+		z-index: 20000;
 
 		a {
 			text-decoration: none;
@@ -37,6 +37,16 @@
 			span {
 				font-size: 16px;
 			}
+		}
+
+		.login:hover {
+			cursor: pointer;
+			color: #0e0;
+		}
+
+		.cartButton:hover {
+			cursor: pointer;
+			color: #0e0;
 		}
 
 		nav {
@@ -129,6 +139,8 @@
 			height: 0;
 			overflow: hidden;
 			transition: 0.15s;
+			background-color: white;
+			z-index: 9999;
 
 			.wraper {
 				display: flex;
@@ -216,7 +228,7 @@
 
 					a {
 						text-decoration: none;
-						font-size: 27px;
+						font-size: 25px;
 						font-weight: 700;
 						color: black;
 					}
@@ -224,6 +236,7 @@
 
 				.loginBtn {
 					display: flex;
+					cursor: pointer;
 
 					div {
 						margin: 10px;
@@ -235,21 +248,40 @@
 				}
 
 				.snsLogin {
+					display: flex;
+					margin-top: 10px;
+
+					svg {
+						margin: 0 10px;
+						font-size: 23px;
+						width: 23px;
+						height: 23px;
+					}
+				}
+
+				img {
 					margin: 10px;
-				}
-
-				.saleInfo {
-					margin: 50px;
-				}
-
-				.line {
-					width: 98%;
-					height: 2px;
-					background-color: gainsboro;
 				}
 
 				.navFooter {
+					display: flex;
+					flex-direction: column;
+
 					margin: 10px;
+					width: 95%;
+					margin-top: 20px;
+					padding-top: 20px;
+					border-top: 2px solid lightgray;
+
+					.contact {
+						display: flex;
+						justify-content: space-between;
+					}
+
+					.name {
+						margin: 20px auto;
+						font-size: 14px;
+					}
 				}
 			}
 		}

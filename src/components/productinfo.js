@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Carousel, { CarouselItem } from './carousel';
+import { useNavigate } from 'react-router-dom';
 import '../pages/Detail/Detail.scss';
 import HeartButton from './detailLikebutton/detailLikeButton';
 
@@ -9,24 +10,48 @@ function ProductInfo(props) {
 		images,
 		changeColor,
 		getQuantity,
-		showQuantity,
 		quantityBySize,
 		result,
 		isHeart,
 		setIsHeart,
+		detailSizeId,
 	} = props;
+
+	const navigate = useNavigate();
+
+	const [imageClick, setImageClick] = useState(false);
+
+	const handleClickCart = () => {
+		if (detailSizeId) {
+			fetch(`${process.env.REACT_APP_SERVER_HOST}/products/cart?detailSizeId=${detailSizeId}`, {
+				headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
+			})
+				.then(res => res.json())
+				.then(data => {
+					if (data.message === 'VALIDATE_ERROR') navigate('/users/login');
+					else {
+						alert('장바구니에 추가되었습니다.');
+					}
+				});
+		} else {
+			alert('사이즈를 선택해 주세요.');
+		}
+	};
 
 	return (
 		<>
 			<div className="slide">
 				<div className="leftSlide">
 					<button>
-						<a href="#!">
-							{product.image_url &&
-								product.image_url.map(el => {
-									return <img src={el} width="60px" height="75px" className="subImg" />;
-								})}
-						</a>
+						{product.image_url &&
+							product.image_url.map((el, index) => {
+								return (
+									<label onClick={() => setImageClick(!imageClick)}>
+										<input type="radio" name="subImg" id={index} />
+										<img index={index} src={el} width="60px" height="70px" className="subImg" />
+									</label>
+								);
+							})}
 					</button>
 				</div>
 			</div>
@@ -37,7 +62,7 @@ function ProductInfo(props) {
 							product.image_url.map((el, index) => {
 								return (
 									<CarouselItem>
-										<img index={index} src={el} width="460px" height="620px" className="mainImg" />
+										<img index={index} src={el} width="600px" height="650px" className="mainImg" />
 									</CarouselItem>
 								);
 							})}
@@ -62,12 +87,12 @@ function ProductInfo(props) {
 									images.AllImages.map((el, index) => {
 										return (
 											<li>
-												<button onClick={changeColor} value={el.color}>
+												<button onClick={changeColor} value={el.colorId}>
 													<img
 														index={index}
 														src={el.image_url}
-														value={el.color}
-														width="37px"
+														value={el.colorId}
+														width="45px"
 														height="50px"
 													/>
 												</button>
@@ -84,7 +109,7 @@ function ProductInfo(props) {
 						<li className="size">
 							<li>
 								{quantityBySize.allQuantityBySize &&
-									quantityBySize.allQuantityBySize.map(el => {
+									quantityBySize.allQuantityBySize.map((el, index) => {
 										const isNotSotck = !(el.quantity > 0);
 										const color = isNotSotck ? 'lightgray' : 'black';
 										return (
@@ -110,7 +135,7 @@ function ProductInfo(props) {
 				<div className="productCart">
 					<ul>
 						<li className="cart">
-							<button>
+							<button onClick={handleClickCart}>
 								<p>ADD TO CART</p>
 							</button>
 						</li>
@@ -127,7 +152,7 @@ function ProductInfo(props) {
 				<div className="productStock">
 					<ul>
 						<li className="stock">
-							{product.quantity < 150 ? <p className="blink">{result}</p> : <p></p>}
+							{product.quantity < 20 ? <p className="blink">{result}</p> : <p></p>}
 						</li>
 					</ul>
 				</div>

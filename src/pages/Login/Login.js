@@ -1,8 +1,8 @@
-import './Login.scss';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
+import './Login.scss';
 
 function Login() {
 	const [emailValue, setEmailValue] = useState('');
@@ -24,7 +24,7 @@ function Login() {
 	};
 
 	const loginLogic = () => {
-		fetch('http://localhost:8000/users/signin', {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/users/signin`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			mode: 'cors',
@@ -36,6 +36,7 @@ function Login() {
 			.then(res => res.json())
 			.then(data => {
 				if (data.message === 'KEY_ERROR') {
+					setVisibility('visible');
 				} else {
 					goToMain();
 					sessionStorage.setItem('token', data.token);
@@ -44,7 +45,7 @@ function Login() {
 	};
 
 	return (
-		<>
+		<div className="login">
 			<Topnav />
 			<div className="Login">
 				<div className="pageInfo">Account</div>
@@ -76,21 +77,22 @@ function Login() {
 						<button onClick={loginLogic}>LOGIN</button>
 					</section>
 					<section>
-						<p>
+						<p className="loginDescription">
 							이메일, 비밀번호만 설정 후 회원가입 하시면 상품 결제, 주문 확인 및 배송 조회, 적립금
 							혜택 등 더욱 편리하게 스토어를 이용하실 수 있습니다.
 						</p>
 					</section>
 					<section>
-						<p>회원가입 하기</p>
-					</section>
-					<section>
-						<p>비밀번호 찾기</p>
+						<Link to="/users/signup">
+							<p>회원가입 하기</p>
+						</Link>
+						<br />
+						<a href="#">비밀번호 찾기</a>
 					</section>
 				</section>
 			</div>
 			<Footer />
-		</>
+		</div>
 	);
 }
 

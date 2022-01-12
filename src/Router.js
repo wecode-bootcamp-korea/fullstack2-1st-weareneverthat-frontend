@@ -6,6 +6,7 @@ import Ranking from './pages/Ranking/Ranking';
 import List from './pages/List/List';
 import Detail from './pages/Detail/Detail';
 import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
 
 function Router() {
 	return (
@@ -16,6 +17,7 @@ function Router() {
 				<Route path="/products/:id" element={<Detail />} />
 				<Route path="/products/top20" element={<Ranking />} />
 				<Route path="/users/login" element={<Login />} />
+				<Route path="/users/signup" element={<Signup />} />
 			</Routes>
 		</BrowserRouter>
 	);

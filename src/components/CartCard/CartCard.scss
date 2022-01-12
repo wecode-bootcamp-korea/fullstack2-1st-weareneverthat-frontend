@@ -1,0 +1,73 @@
+.cartCard {
+	width: 100%;
+
+	.productCard {
+		position: relative;
+		display: flex;
+		margin: 10px 0;
+
+		.mainImage {
+			background-color: palegoldenrod;
+			width: 100px;
+			height: 100px;
+		}
+
+		.Info {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+
+			.productName {
+				display: flex;
+				flex-direction: column;
+				margin-top: 10px;
+				font-size: 15px;
+
+				span {
+					margin: 3px 0;
+				}
+			}
+
+			.productPrice {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				margin-right: 10px;
+				font-size: 14px;
+
+				span:first-child {
+					margin-bottom: 3px;
+					color: #969696;
+					text-decoration: line-through;
+				}
+			}
+		}
+
+		.deleteBtn {
+			position: absolute;
+			right: 0;
+			width: 10px;
+			height: 10px;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			span {
+				position: absolute;
+				top: 50%;
+				width: 100%;
+				height: 1px;
+				background-color: #000;
+			}
+
+			.line-01 {
+				transform: rotate(135deg) translateX(0%);
+			}
+
+			.line-02 {
+				transform: rotate(45deg) translateX(0%);
+			}
+		}
+	}
+}

@@ -28,7 +28,6 @@
 - [Front-end Github](https://github.com/wecode-bootcamp-korea/fullstack3-1st-weareneverthat-frontend)
 - [Back-end Github](https://github.com/wecode-bootcamp-korea/fullstack3-1st-weareneverthat-backend)
 
-
 ### Notion 프로젝트 소개
 
 ### 프로젝트 사이트 기능 구현 영상
@@ -54,7 +53,6 @@
 
 <img src="https://img.shields.io/badge/prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white"> <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white">
 
-
 ### 담당자 별 구현 기능.
 
 [ Front-end ]
@@ -64,13 +62,13 @@
 1. 상품 리스트 페이지 전반적인 ui 구성 및 기능 추가
    - 상품 리스트 메인 이미지 호버 기능 구현
    - 상품 리스트 서브 이미지 온클릭시 메인 이미지 전환 기능 구현
-   - 상품 리스트 소팅 버튼 Ui. 
+   - 상품 리스트 소팅 버튼 Ui.
    - 상품 리스트 가격순에 따른 정렬 기능 구현
    - 상품 카테고리 버튼 ui
    - 상품 카테고리 별 상품 리스트 소팅 기능 구현
    - 상품별 좋아요 ui 추가.
    - 반응형 디자인
-   
+
 - 민하늘
 
 1. 제품 상세 페이지 UI 구현
@@ -107,18 +105,16 @@
    - 마우스 호버시 상품 이미지가 보이는 기능 구현
    - 반응형 디자인
 
-
 [ Back-end ]
 
 - 강민수
 
 1. 회원가입, 로그인 api 구축
-   - 회원가입 시 유효성 검증 로직 구현. 
+   - 회원가입 시 유효성 검증 로직 구현.
    - 기존 회원 가입자 정보 존재 여부, 가입시 필수키 입력 여부 구현, 가입시 비밀번호 해쉬 암호화 구현
-   - 로그인 시 유효성 검증 로직 구현. 
+   - 로그인 시 유효성 검증 로직 구현.
    - 기존 회원 정보 이메일, 비밀번호 일치여부 조회, 가입시 토큰 부여 구현
 2. 리스트 페이지 상품 데이터 수집 후 가공.
-
 
 - 구민기
 
@@ -128,8 +124,28 @@
 
 - 정태영
 
+1. 상품 리스트 API
+   - 전체 상품 조회
+   - 카테고리별 조회
+   - 가격 오름차순, 내림차순, 등록일순 정렬
+   - 상품 판매량순 정렬 -> 상품 순위 페이지
+2. 인증 미들웨어
+   - 암호화된 토큰을 받아 검증후 내용을 request에 담아 통과
+3. 장바구니 API
+   - 유저의 장바구니 목록 조회
+   - 유저가 상품을 장바구니에 추가하면 토큰의 유저 id와 쿼리 파라미터의 상품 id를 이용해 장바구니 테이블에 데이터 추가
+   - 장바구니 목록 삭제
+4. 결제 API
+   - 상품 결제시 해당 상품의 남은 재고 차감
+   - 상품 결제시 해당 상품의 판매량 증가
+   - 상품 결제시 장바구니 목록 제거
+5. 좋아요 API
+   - 상품 각각의 총 좋아요 개수 조회
+   - 로그인 한 유저가 해당 상품에 좋아요를 눌렀는지 조회
+   - 유저가 좋아요를 눌렀을 때 테이블에 해당 유저의 id와 상품의 id가 있는지 조회 -> 있으면 데이터 삭제, 없으면 데이터 추가
 
 ### Contact US
+
 - 강민수 minsu910725@gmail.com
 - 구민기 rnalsrl93@gmail.com
 - 민하늘 onlynforever@gmail.com

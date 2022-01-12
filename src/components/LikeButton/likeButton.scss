@@ -1,23 +1,24 @@
-.button {
-	cursor: pointer;
-	transition: transform 300ms ease;
-	font-size: 20px;
+.likieButton {
 	margin-top: 10px;
-	margin-left: 25px;
-}
-.red {
-	font-size: 16px;
-	color: red;
-}
 
-.liking {
-	color: red;
-}
+	.button {
+		cursor: pointer;
+		transition: transform 300ms ease;
+		font-size: 20px;
+		text-align: center;
 
-.button:hover {
-	transform: scale(1.1);
-}
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
 
-.liking {
-	margin-left: 10px;
+	.red {
+		font-size: 20px;
+		color: red;
+	}
+
+	.liking {
+		color: red;
+		margin-left: 10px;
+	}
 }

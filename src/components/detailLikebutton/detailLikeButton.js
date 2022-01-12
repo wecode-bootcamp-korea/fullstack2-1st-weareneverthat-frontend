@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import './detailLikeButton.scss';
@@ -6,8 +6,8 @@ import './detailLikeButton.scss';
 function HeartButton({ productId, isHeart, setIsHeart }) {
 	const navigate = useNavigate();
 
-	const activeLogin = () => {
-		fetch('http://localhost:8000/products/heart?productId=' + productId, {
+	const handleClickHeart = () => {
+		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/heart?productId=${productId}`, {
 			headers: new Headers({ Authorization: sessionStorage.getItem('token') }),
 		})
 			.then(res => res.json())
@@ -22,9 +22,9 @@ function HeartButton({ productId, isHeart, setIsHeart }) {
 		<div className="heartButton">
 			<span>
 				{isHeart ? (
-					<HeartFilled className="button red" onClick={activeLogin} />
+					<HeartFilled className="button red" onClick={handleClickHeart} />
 				) : (
-					<HeartOutlined className="button white" onClick={activeLogin} />
+					<HeartOutlined className="button white" onClick={handleClickHeart} />
 				)}
 			</span>
 		</div>
