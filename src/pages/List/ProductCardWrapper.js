@@ -20,7 +20,7 @@ function ProductCardWrapper({
 		setColorId(product.detail[index].productColorId);
 	};
 	const navigate = useNavigate();
-	function handleClick() {
+	function goToDetail() {
 		navigate(`/products/${productId}?color=${colorId}`);
 	}
 	return (
@@ -29,7 +29,7 @@ function ProductCardWrapper({
 				{src[number].image.map((image, index) => {
 					return (
 						<>
-							<div className={`imageContainer${index + 1}`} onClick={handleClick}></div>
+							<div className={`imageContainer${index + 1}`} onClick={goToDetail}></div>
 							<img
 								src={image.imageUrl}
 								className={`img${index + 1}`}
@@ -58,7 +58,7 @@ function ProductCardWrapper({
 				})}
 			</div>
 
-			<div className="contentContainer" onClick={handleClick}>
+			<div className="contentContainer" onClick={goToDetail}>
 				<h3>{content}</h3>
 				<div className="priceContainer">
 					<span className="price">￦{price}</span>

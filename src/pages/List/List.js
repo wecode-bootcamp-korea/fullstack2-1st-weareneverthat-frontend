@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Topnav from '../../components/Topnav/Topnav';
+import SortBox from './SortBox';
+import ProductCardWrapper from './ProductCardWrapper';
 import Footer from '../../components/Footer/Footer';
 import './List.scss';
-import ProductCardWrapper from './ProductCardWrapper';
-import SortBox from './SortBox';
 
 function List() {
 	const [productList, setProductList] = useState([]);
-	const [checked1, ischecked1] = useState('sortBox1');
+	const [checked, ischecked] = useState('unviewSortBox');
 
 	const activeButton = () => {
-		checked1 === 'sortBox1' ? ischecked1('sortBox2') : ischecked1('sortBox1');
+		checked === 'unviewSortBox' ? ischecked('viewSortBox') : ischecked('unviewSortBox');
 	};
 
 	function useQuery() {
@@ -60,7 +60,7 @@ function List() {
 						Sort
 					</button>
 					<>
-						<SortBox className={checked1} category={query.get('category')} />
+						<SortBox className={checked} category={query.get('category')} />
 					</>
 				</div>
 			</nav>

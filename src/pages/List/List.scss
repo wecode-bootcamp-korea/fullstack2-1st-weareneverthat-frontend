@@ -66,7 +66,7 @@
 					transition: all 0.5s linear;
 				}
 
-				.sortBox1 {
+				.unviewSortBox {
 					font-family: thisisneverthat;
 					border: 1px solid black;
 					transition: 0.3s;
@@ -79,7 +79,7 @@
 					opacity: 0;
 				}
 
-				.sortBox2 {
+				.viewSortBox {
 					font-family: thisisneverthat;
 					border: 1px solid black;
 					transition: 0.3s;
@@ -210,11 +210,6 @@
 					}
 				}
 			}
-
-			// .LoaderWrap {
-			// 	width: 100%;
-			// 	height: 100%;
-			// }
 		}
 	}
 }
