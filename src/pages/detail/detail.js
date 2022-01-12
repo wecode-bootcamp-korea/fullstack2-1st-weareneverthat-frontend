@@ -25,8 +25,12 @@ function Detail() {
 
 	const [product, setProduct] = useState({});
 	const [isHeart, setIsHeart] = useState(false);
+<<<<<<< HEAD
 	const [detailSizeId, setDetailSizeId] = useState();
 	const [imageClick, setImageClick] = useState(false);
+=======
+	const [detailSizeId, setDetailSizeId] = useState(0);
+>>>>>>> develop
 
 	useEffect(() => {
 		fetch(`${process.env.REACT_APP_SERVER_HOST}/products/${id}${props.search}`)
