@@ -45,58 +45,56 @@ function Login() {
 	};
 
 	return (
-		<>
+		<div className="login">
 			<Topnav />
-			<div className="login">
-				<div className="Login">
-					<div className="pageInfo">Account</div>
-					<section className="loginWrapper">
-						<form className="inputBox">
-							<section className="emailInput">
-								<div>이메일</div>
-								<input
-									type="text"
-									placeholder="이메일"
-									value={emailValue}
-									onChange={handleEmailInput}
-								></input>
-							</section>
-							<section className="passwordInput">
-								<div>비밀번호</div>
-								<input
-									type="password"
-									placeholder="비밀번호"
-									value={pwValue}
-									onChange={handlePwInput}
-								></input>
-							</section>
-						</form>
-						<section className="alert" style={{ visibility: isVisibility ? 'visible' : 'hidden' }}>
-							<div>이메일 또는 비밀번호가 잘못되었습니다.</div>
+			<div className="Login">
+				<div className="pageInfo">Account</div>
+				<section className="loginWrapper">
+					<form className="inputBox">
+						<section className="emailInput">
+							<div>이메일</div>
+							<input
+								type="text"
+								placeholder="이메일"
+								value={emailValue}
+								onChange={handleEmailInput}
+							></input>
 						</section>
-						<section className="loginBtn">
-							<button onClick={loginLogic}>LOGIN</button>
+						<section className="passwordInput">
+							<div>비밀번호</div>
+							<input
+								type="password"
+								placeholder="비밀번호"
+								value={pwValue}
+								onChange={handlePwInput}
+							></input>
 						</section>
-						<section>
-							<p className="loginDescription">
-								이메일, 비밀번호만 설정 후 회원가입 하시면 상품 결제, 주문 확인 및 배송 조회, 적립금
-								혜택 <br /> 등 더욱 편리하게 스토어를 이용하실 수 있습니다.
-							</p>
-						</section>
-						<section>
-							<Link to="/users/signup">
-								<p>회원가입 하기</p>
-							</Link>
-							<br />
-							<p href="#">비밀번호 찾기</p>
-						</section>
+					</form>
+					<section className="alert" style={{ visibility: isVisibility ? 'visible' : 'hidden' }}>
+						<div>이메일 또는 비밀번호가 잘못되었습니다.</div>
 					</section>
-				</div>
+					<section className="loginBtn">
+						<button onClick={loginLogic}>LOGIN</button>
+					</section>
+					<section>
+						<p className="loginDescription">
+							이메일, 비밀번호만 설정 후 회원가입 하시면 상품 결제, 주문 확인 및 배송 조회, 적립금
+							혜택 <br /> 등 더욱 편리하게 스토어를 이용하실 수 있습니다.
+						</p>
+					</section>
+					<section>
+						<Link to="/users/signup">
+							<p>회원가입 하기</p>
+						</Link>
+						<br />
+						<p href="#">비밀번호 찾기</p>
+					</section>
+				</section>
 			</div>
 			<div className="footer">
 				<Footer />
 			</div>
-		</>
+		</div>
 	);
 }
 
