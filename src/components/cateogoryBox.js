@@ -1,7 +1,7 @@
 import React from 'react';
 const Categorybox = () => {
 	return (
-		<form>
+		<form className="sortBox2">
 			Sort By
 			<br />
 			<input type="checkbox" name="catogories" value="product">
