@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../pages/Detail/Detail.scss';
+import './Detail.scss';
 
 export const CarouselItem = ({ children, width }) => {
 	return (

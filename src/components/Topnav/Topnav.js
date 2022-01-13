@@ -110,9 +110,7 @@ function Topnav() {
 				</h1>
 				<nav>
 					<ul>
-						<li>
-							<Link to="#">KOR / ₩</Link>
-						</li>
+						<li>KOR / ₩</li>
 						<li onClick={handleLoginClick} className="login">
 							{loginButton}
 						</li>
