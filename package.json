@@ -25,7 +25,7 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"lint": "eslint .",
-		"distribute": "npm i && npm run build && pm2 serve build 3000 --name <project-front> --spa"
+		"distribute": "npm i && npm run build && pm2 serve build 3000 --name weareneverthat-front --spa"
 	},
 	"eslintConfig": {
 		"extends": [
