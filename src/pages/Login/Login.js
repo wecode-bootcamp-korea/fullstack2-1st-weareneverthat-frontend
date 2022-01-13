@@ -71,7 +71,7 @@ function Login() {
 								></input>
 							</section>
 						</form>
-						<section className="alert" style={{ visibility: visibility }}>
+						<section className="alert" style={{ visibility: isVisibility ? 'visible' : 'hidden' }}>
 							<div>이메일 또는 비밀번호가 잘못되었습니다.</div>
 						</section>
 						<section className="loginBtn">
@@ -90,9 +90,6 @@ function Login() {
 							<br />
 							<p href="#">비밀번호 찾기</p>
 						</section>
-					</section>
-					<section className="alert" style={{ visibility: isVisibility ? 'visible' : 'hidden' }}>
-						<div>이메일 또는 비밀번호가 잘못되었습니다.</div>
 					</section>
 				</div>
 			</div>
