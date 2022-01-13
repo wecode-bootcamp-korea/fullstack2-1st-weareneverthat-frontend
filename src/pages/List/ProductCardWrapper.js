@@ -41,7 +41,6 @@ function ProductCardWrapper({
 					);
 				})}
 			</div>
-
 			<div className="subImages">
 				{src.map((detail, index) => {
 					return (

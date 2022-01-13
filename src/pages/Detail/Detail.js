@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router';
 import { useNavigate } from 'react-router-dom';
-import Carousel, { CarouselItem } from './carousel';
+import Carousel, { CarouselItem } from './Carousel';
 import TopNav from '../../components/Topnav/Topnav';
 import Footer from '../../components/Footer/Footer';
-import HeartButton from './detailLikebutton/detailLikeButton';
+import HeartButton from './DetailLikebutton/DetailLikeButton';
 
 function Category(props) {
 	return (
