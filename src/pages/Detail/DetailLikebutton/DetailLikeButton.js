@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import './detailLikeButton.scss';
+import './DetailLikeButton.scss';
 
 function HeartButton({ productId, isHeart, setIsHeart }) {
 	const navigate = useNavigate();
