@@ -8,9 +8,9 @@ function Signup() {
 	const [nameValue, setNameValue] = useState('');
 	const [emailValue, setEmailValue] = useState('');
 	const [pwValue, setPwValue] = useState('');
-	const [alertVisibility, setAlertVisibility] = useState('hidden');
-	const [formVisibility, setFormVisibility] = useState('visible');
-	const [successVisibility, setSuccessVisibility] = useState('hidden');
+	const [isAlertVisibility, setIsAlertVisibility] = useState(false);
+	const [isFormVisibility, setIsFormVisibility] = useState(true);
+	const [isSuccessVisibility, setIsSuccessVisibility] = useState(false);
 
 	const handleNameInput = e => {
 		setNameValue(e.target.value);
@@ -49,15 +49,15 @@ function Signup() {
 				}),
 			}).then(res => {
 				if (res.status === 201) {
-					setFormVisibility('hidden');
-					setSuccessVisibility('visible');
+					setIsFormVisibility(false);
+					setIsSuccessVisibility(true);
 					// navigate('/');
 				} else if (res.status === 400) {
-					setAlertVisibility('visible');
+					setIsAlertVisibility(true);
 				}
 			});
 		} else {
-			setAlertVisibility('visible');
+			setIsAlertVisibility(true);
 		}
 	};
 
@@ -71,7 +71,10 @@ function Signup() {
 					</div>
 					<div className="createAccountBox">Create&nbsp;account</div>
 				</div>
-				<section className="signUpWrapper" style={{ visibility: formVisibility }}>
+				<section
+					className="signUpWrapper"
+					style={{ visibility: isFormVisibility ? 'visible' : 'hidden' }}
+				>
 					<form className="inputBox">
 						<section className="nameInput">
 							<div>이름</div>
@@ -107,7 +110,10 @@ function Signup() {
 					<section className="returnLogin" onClick={goToLogin}>
 						<div>로그인으로 돌아가기</div>
 					</section>
-					<section className="alert" style={{ visibility: alertVisibility }}>
+					<section
+						className="alert"
+						style={{ visibility: isAlertVisibility ? 'visible' : 'hidden' }}
+					>
 						<div>
 							형식이 잘못됐습니다.
 							<br />
@@ -117,7 +123,10 @@ function Signup() {
 						</div>
 					</section>
 				</section>
-				<section className="successCreate" style={{ visibility: successVisibility }}>
+				<section
+					className="successCreate"
+					style={{ visibility: isSuccessVisibility ? 'visible' : 'hidden' }}
+				>
 					회원가입이 완료되었습니다!
 					<br />
 					<br />
