@@ -7,7 +7,7 @@ import './Login.scss';
 function Login() {
 	const [emailValue, setEmailValue] = useState('');
 	const [pwValue, setPwValue] = useState('');
-	const [visibility, setVisibility] = useState('hidden');
+	const [isVisibility, setIsVisibility] = useState(false);
 
 	const handleEmailInput = e => {
 		setEmailValue(e.target.value);
@@ -36,7 +36,7 @@ function Login() {
 			.then(res => res.json())
 			.then(data => {
 				if (data.message === 'KEY_ERROR') {
-					setVisibility('visible');
+					setIsVisibility(true);
 				} else {
 					goToMain();
 					sessionStorage.setItem('token', data.token);
@@ -90,6 +90,9 @@ function Login() {
 							<br />
 							<p href="#">비밀번호 찾기</p>
 						</section>
+					</section>
+					<section className="alert" style={{ visibility: isVisibility ? 'visible' : 'hidden' }}>
+						<div>이메일 또는 비밀번호가 잘못되었습니다.</div>
 					</section>
 				</div>
 			</div>
