@@ -423,15 +423,15 @@
 
 // 반응형 미디어 쿼리
 @media (max-width: 1169px) {
-	.wrapper {
-		position: relative;
-		display: inline-block;
-	}
-
 	.detail {
 		position: relative;
 		min-height: 100%;
 		padding-bottom: 450px;
+	}
+
+	.wrapper {
+		position: relative;
+		display: inline-block;
 	}
 
 	// 미디어쿼리 카테고리
