@@ -37,7 +37,7 @@
 			}
 
 			.sortingButton {
-				margin-right: 20px;
+				margin: 10px 20px 0 0;
 
 				button {
 					cursor: pointer;
@@ -249,13 +249,15 @@
 				font-size: 15px;
 				background-color: rgb(227 227 227);
 				padding: 5px 15px;
-				margin-right: 70px;
+				margin-right: 30px;
 				margin-left: 70px;
 			}
+
 			.sort {
 				margin-top: -30px;
 				font-size: 20px;
 			}
+
 			.sortName:hover {
 				cursor: pointer;
 				color: #01ee00;
@@ -266,7 +268,8 @@
 				color: white;
 				transition: all 0.5s linear;
 			}
-			.sortBox1 {
+
+			.unviewSortBox {
 				font-family: thisisneverthat;
 				border: 1px solid black;
 				transition: 0.3s;
@@ -278,7 +281,8 @@
 				margin: auto;
 				opacity: 0;
 			}
-			.sortBox2 {
+
+			.viewSortBox {
 				font-family: thisisneverthat;
 				border: 1px solid black;
 				transition: 0.3s;
@@ -416,14 +420,15 @@
 				font-size: 15px;
 				background-color: rgb(227 227 227);
 				padding: 5px 15px;
-				margin-right: 70px;
+				margin-right: 30px;
 				margin-left: 70px;
 			}
+
 			.sort {
 				margin-top: -30px;
-
 				font-size: 20px;
 			}
+
 			.sortName:hover {
 				cursor: pointer;
 				color: #01ee00;
@@ -434,7 +439,8 @@
 				color: white;
 				transition: all 0.5s linear;
 			}
-			.sortBox1 {
+
+			.unviewSortBox {
 				font-family: thisisneverthat;
 				border: 1px solid black;
 				transition: 0.3s;
@@ -446,7 +452,8 @@
 				margin: auto;
 				opacity: 0;
 			}
-			.sortBox2 {
+
+			.viewSortBox {
 				font-family: thisisneverthat;
 				border: 1px solid black;
 				transition: 0.3s;
