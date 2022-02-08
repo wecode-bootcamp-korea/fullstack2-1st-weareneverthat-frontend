@@ -79,7 +79,7 @@ function Login() {
 					<section>
 						<p className="loginDescription">
 							이메일, 비밀번호만 설정 후 회원가입 하시면 상품 결제, 주문 확인 및 배송 조회, 적립금
-							혜택 <br /> 등 더욱 편리하게 스토어를 이용하실 수 있습니다.
+							혜택 등 더욱 편리하게 스토어를 이용하실 수 있습니다.
 						</p>
 					</section>
 					<section>
