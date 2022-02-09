@@ -2,7 +2,7 @@
 
 <img width="789" alt="스크린샷 2022-01-07 오후 1 16 57" src="https://user-images.githubusercontent.com/90169703/148521986-5e50c8a5-a59d-444f-adce-863c7257613b.png">
 
-[weareneverthat 구현 영상 ]()
+[weareneverthat 구현 영상 ](https://youtu.be/fBO8YbO596U)
 
 ## Members
 
@@ -23,23 +23,21 @@
 - 기간 : 21.12.27~ 22.01.14
 - 구성 : Front-end 2명, Back-end 2명
 
-### 레포지토리 주소
+## 레포지토리 주소
 
 - [Front-end Github](https://github.com/wecode-bootcamp-korea/fullstack3-1st-weareneverthat-frontend)
 - [Back-end Github](https://github.com/wecode-bootcamp-korea/fullstack3-1st-weareneverthat-backend)
 
-### Notion 프로젝트 소개
+## 팀 Notion
 
-### 프로젝트 사이트 기능 구현 영상
+[바로가기](https://www.notion.so/wecode/weareneverthat-250f88ce3f224075ac6fac6b71348dc3)
 
-[weareneverthat 구현 영상]()
-
-### DB modeling
+## DB modeling
 
 - weareneverthat db 자료 구조
   ![image](https://user-images.githubusercontent.com/87692499/148669964-0b122018-4261-4944-9015-8f63ac483735.png)
 
-### Technologies
+## Technologies
 
 - 공통
 
@@ -53,7 +51,7 @@
 
 <img src="https://img.shields.io/badge/prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white"> <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white">
 
-### 담당자 별 구현 기능.
+## 담당자 별 구현 기능.
 
 [ Front-end ]
 
@@ -144,7 +142,7 @@
    - 로그인 한 유저가 해당 상품에 좋아요를 눌렀는지 조회
    - 유저가 좋아요를 눌렀을 때 테이블에 해당 유저의 id와 상품의 id가 있는지 조회 -> 있으면 데이터 삭제, 없으면 데이터 추가
 
-### Contact US
+## Contact US
 
 - 강민수 minsu910725@gmail.com
 - 구민기 rnalsrl93@gmail.com
